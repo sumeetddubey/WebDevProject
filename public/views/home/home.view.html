@@ -2,8 +2,28 @@
 <!-- Begin page content -->
 <div class="container-fluid">
         <div class="home-header">
-            <h1>Play to Learn</h1>
-
+            <div>
+                <h1>Play to Learn</h1>
+                <form>
+                    <div class="form-group">
+                        <label for="inputUsername">Username</label>
+                        <input type="text" ng-model="user.username" class="form-control" id="inputUsername" placeholder="Username">
+                    </div>
+                    <div class="form-group">
+                        <label for="inputEmail">Email address</label>
+                        <input type="email" ng-model="user.email" class="form-control" id="inputEmail" placeholder="Email">
+                    </div>
+                    <div class="form-group">
+                        <label for="inputPassword">Password</label>
+                        <input type="password" ng-model="user.password" class="form-control" id="inputPassword" placeholder="Password">
+                    </div>
+                    <div class="form-group">
+                        <label for="inputPassword">Verify Password</label>
+                        <input type="password" ng-model="user.verifyPassword" class="form-control" id="inputVerifyPassword" placeholder="Verify Password">
+                    </div>
+                    <button ng-click="register(user)" class="btn btn-default">Register</button>
+                </form>
+            </div>
         </div>
         <h1>Sticky footer with fixed navbar</h1>
     <p class="lead"></p>
