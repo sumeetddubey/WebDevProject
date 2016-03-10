@@ -1,0 +1,12 @@
+.navbar-nav{
+    float: right;
+}
+.home-header{
+    /*background: #f6512b;*/
+    background: linear-gradient(#F6882E, #F25950);
+    /*background: linear-gradient(#23A8C6, #5F6EB3);*/
+    display: block;
+    padding-bottom: 15%;
+    padding-top: 15%;
+    width: 100%;
+}
