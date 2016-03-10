@@ -5,7 +5,7 @@
     var app = angular.module("codingTutorial");
     app.config(function($routeProvider){
         $routeProvider
-            .when('/home', {
+            .when('/', {
                 templateUrl: "views/home/home.view.html",
                 //controller: "HomeController"
             })
@@ -14,7 +14,7 @@
                 //controller: "RegisterController"
             })
             .otherwise({
-                redirectTo: "/home"
+                redirectTo: "/"
             });
     });
 })();

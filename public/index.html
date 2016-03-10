@@ -3,37 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <title>Coding Tuturial</title>
-
-    <!--loading jQuery-->
-    <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
-
-    <!--loading angularJs-->
-    <script src="https://code.angularjs.org/1.5.0/angular.min.js"></script>
-
-    <!--loading angularJs route-->
-    <script src="https://code.angularjs.org/1.5.0/angular-route.min.js"></script>
-
-    <!-- Bootstrap core CSS -->
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
-
-    <!--custom CSS-->
-    <!--<link href="style.css" rel="stylesheet">-->
 </head>
 <body ng-controller="MainController">
 <div class="container-fluid">
     <div class="row">
+        <div ng-include="'views/header/header.view.html'"></div>
         <div ng-view></div>
+        <div ng-include="'views/footer/footer.view.html'"></div>
     </div>
 </div>
-<h1>HELLO</h1>
 
 <!-- Placed at the end of the document so the pages load faster -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-<!--<script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>-->
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular-route.min.js"></script>
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+<link href="css/sticky-footer-navbar.css" rel="stylesheet">
 <script src="app.js"></script>
 <script src="config.js"></script>
 <script src="views/main/main.controller.js"></script>
-
+<script src="views/home/home.controller.js"></script>
+<script src="views/header/header.controller.js"></script>
+<script src="views/footer/footer.controller.js"></script>
 </body>
 </html>
