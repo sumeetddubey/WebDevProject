@@ -10,8 +10,11 @@
                 //controller: "HomeController"
             })
             .when('/register', {
-                templateUrl: "views/register/register.view.html"
-                //controller: "RegisterController"
+                templateUrl: "views/register/register.view.html",
+                controller: "RegisterController"
+            })
+            .when('/profile', {
+                templateUrl: "views/profile/profile.view.html"
             })
             .otherwise({
                 redirectTo: "/home"
