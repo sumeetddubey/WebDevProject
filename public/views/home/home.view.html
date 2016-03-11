@@ -2,29 +2,108 @@
 <!-- Begin page content -->
 <div class="container-fluid">
         <div class="home-header">
-            <div>
-                <h1>Play to Learn</h1>
-                <form>
+            <div class="row">
+                <h1 class="col-lg-6 col-md-6 col-sm-6 col-xs-12 main-title">Play to Learn</h1>
+                <form class="form-horizontal form-card col-lg-5 col-md-5 col-sm-5 col-xs-12" role="form">
                     <div class="form-group">
-                        <label for="inputUsername">Username</label>
-                        <input type="text" ng-model="user.username" class="form-control" id="inputUsername" placeholder="Username">
+                        <div class="col-lg-10 col-md-10 col-sm-10 col-xs-12">
+                            <input type="text" ng-model="user.username" class="form-control" id="inputUsername"
+                                   placeholder="Username">
+                        </div>
                     </div>
                     <div class="form-group">
-                        <label for="inputEmail">Email address</label>
-                        <input type="email" ng-model="user.email" class="form-control" id="inputEmail" placeholder="Email">
+                        <div class="col-lg-10 col-md-10 col-sm-10 col-xs-12">
+                            <input type="email" ng-model="user.email" class="form-control" id="inputEmail"
+                                   placeholder="Email">
+                        </div>
                     </div>
                     <div class="form-group">
-                        <label for="inputPassword">Password</label>
-                        <input type="password" ng-model="user.password" class="form-control" id="inputPassword" placeholder="Password">
+                        <div class="col-lg-10 col-md-10 col-sm-10 col-xs-12">
+                            <input type="password" ng-model="user.password" class="form-control" id="inputPassword"
+                               placeholder="Password">
+                        </div>
                     </div>
                     <div class="form-group">
-                        <label for="inputPassword">Verify Password</label>
-                        <input type="password" ng-model="user.verifyPassword" class="form-control" id="inputVerifyPassword" placeholder="Verify Password">
+                        <div class="col-lg-10 col-md-10 col-sm-10 col-xs-12">
+                            <input type="password" ng-model="user.verifyPassword" class="form-control"
+                                   id="inputVerifyPassword" placeholder="Verify Password">
+                        </div>
                     </div>
-                    <button ng-click="register(user)" class="btn btn-default">Register</button>
+                    <button ng-click="register(user)" class="btn btn-default col-lg-10 col-md-10 col-sm-10 col-xs-10">
+                        Register</button>
                 </form>
             </div>
         </div>
-        <h1>Sticky footer with fixed navbar</h1>
-    <p class="lead"></p>
+
+    <div class="second-half">
+    <div class="container marketing">
+
+        <!-- Three columns of text below the carousel -->
+        <div class="row">
+            <div class="col-lg-4">
+                <img class="img-circle" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Generic placeholder image" width="140" height="140">
+                <h2>Heading</h2>
+                <p>Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod. Nullam id dolor id nibh ultricies vehicula ut id elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Praesent commodo cursus magna.</p>
+                <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+            </div><!-- /.col-lg-4 -->
+            <div class="col-lg-4">
+                <img class="img-circle" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Generic placeholder image" width="140" height="140">
+                <h2>Heading</h2>
+                <p>Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Cras mattis consectetur purus sit amet fermentum. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh.</p>
+                <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+            </div><!-- /.col-lg-4 -->
+            <div class="col-lg-4">
+                <img class="img-circle" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Generic placeholder image" width="140" height="140">
+                <h2>Heading</h2>
+                <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
+                <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+            </div><!-- /.col-lg-4 -->
+        </div><!-- /.row -->
+
+
+        <!-- START THE FEATURETTES -->
+
+        <hr class="featurette-divider">
+
+        <div class="row featurette">
+            <div class="col-md-7">
+                <h2 class="featurette-heading">First featurette heading. <span class="text-muted">It'll blow your mind.</span></h2>
+                <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
+            </div>
+            <div class="col-md-5">
+                <img class="featurette-image img-responsive center-block" src="https://placehold.it/500x500" alt="Generic placeholder image">
+            </div>
+        </div>
+
+        <hr class="featurette-divider">
+
+        <div class="row featurette">
+            <div class="col-md-7 col-md-push-5">
+                <h2 class="featurette-heading">Oh yeah, it's that good. <span class="text-muted">See for yourself.</span></h2>
+                <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
+            </div>
+            <div class="col-md-5 col-md-pull-7">
+                <img class="featurette-image img-responsive center-block" src="https://placehold.it/500x500" alt="Generic placeholder image">
+            </div>
+        </div>
+
+        <hr class="featurette-divider">
+
+        <div class="row featurette">
+            <div class="col-md-7">
+                <h2 class="featurette-heading">And lastly, this one. <span class="text-muted">Checkmate.</span></h2>
+                <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
+            </div>
+            <div class="col-md-5">
+                <img class="featurette-image img-responsive center-block" src="https://placehold.it/500x500" alt="Generic placeholder image">
+            </div>
+        </div>
+
+        <hr class="featurette-divider">
+
+        <!-- /END THE FEATURETTES -->
+
+    </div><!-- /.container -->
+    </div><!-- /.second-half -->
+
 </div>
