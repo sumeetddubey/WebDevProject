@@ -7,10 +7,10 @@
         .module("codingTutorial")
         .controller("HeaderController", HeaderController);
 
-    HeaderController.$inject = ['$scope', '$rootScope', '$location'];
+    HeaderController.$inject = ['$scope', '$rootScope', '$location', 'TutorialService'];
 
-    function HeaderController($scope, $rootScope, $location) {
-
+    function HeaderController($scope, $rootScope, $location, TutorialService) {
+        $scope.search = search;
         $scope.logout = logout;
         $scope.location = $location;
 
@@ -19,15 +19,14 @@
             $location.url("/");
         }
 
-        function search(keywords) {
-            SearchService.searchForTitle(keywords.keyword,
-                function(response) {
-                    if (response) {
-                        $rootScope.currentUser = response;
-                    }
-                    $location.url("/search");
-                });
-
+        function search(query){
+            var keyword = query.keyword;
+            function render(response){
+                $rootScope.results = response;
+                $location.url("/search");
+            }
+            console.log(keyword);
+            TutorialService.findTutorialsByKeyword(keyword, render)
         }
     }
 })();

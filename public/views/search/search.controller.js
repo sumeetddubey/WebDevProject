@@ -7,20 +7,10 @@
         .module("codingTutorial")
         .controller("SearchController", SearchController);
 
-    SearchController.$inject = ['$scope', '$rootScope', '$location', 'SearchService'];
+    SearchController.$inject = ['$scope', '$rootScope'];
 
-    function SearchController($scope, $rootScope, $location, SearchService) {
-        $scope.search = search;
-
-        function search(keywords) {
-            SearchService.searchForTitle(keywords.keyword,
-                function(response) {
-                    if (response) {
-                        $rootScope.currentUser = response;
-                    }
-                    $location.url("/search");
-                });
-
-        }
+    function SearchController($scope, $rootScope) {
+        $scope.results = $rootScope.results;
+        console.log($scope.results);
     }
 })();

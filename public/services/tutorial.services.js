@@ -10,15 +10,15 @@
             tutorials: [
                 {
                     "_id": 1, "name": "OOP", "language": "Python",
-                    "lessons": 12, "author": "Sumeet"
+                    "lessons": 12, "author": "Sumeet", "keywords":["python", "oop", "objects"]
                 },
                 {
                     "_id": 2, "name": "Java Programming", "language": "Java",
-                    "lessons": 10, "author": "Sumeet"
+                    "lessons": 10, "author": "Sumeet", "keywords": []
                 },
                 {
                     "_id": 3, "name": "Introduction to c", "language": "C",
-                    "lessons": 10, "author": "Sumeet"
+                    "lessons": 10, "author": "Sumeet", "keywords": []
                 }
             ],
 
@@ -27,7 +27,8 @@
             findAllTutorials: findAllTutorials,
             findTutorialsByName: findTutorialsByName,
             updateTutorialById: updateTutorialById,
-            deleteTutorialById: deleteTutorialById
+            deleteTutorialById: deleteTutorialById,
+            findTutorialsByKeyword: findTutorialsByKeyword
 
         };
 
@@ -42,7 +43,8 @@
                 "name": tutorial.name,
                 "language": tutorial.language,
                 "lessons": tutorial.lessons,
-                "author": tutorial.author
+                "author": tutorial.author,
+                "keywords": tutorial.keywords
             };
 
             model.tutorials.push(newTutorial);
@@ -91,6 +93,21 @@
                     callback(model.tutorials);
                 }
             }
+        }
+
+        function findTutorialsByKeyword(ipKeyword, callback) {
+            var tutorialIndex, tutorial;
+            var results=[];
+            for (tutorialIndex in model.tutorials) {
+                tutorial = model.tutorials[tutorialIndex];
+                if (tutorial.keywords.indexOf(ipKeyword)!= -1) {
+                    console.log("success");
+                    results.push(tutorial)
+                }
+            }
+
+            console.log(results);
+            callback(results)
         }
     }
 })();
