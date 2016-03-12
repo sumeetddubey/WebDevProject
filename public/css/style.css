@@ -32,8 +32,18 @@
     margin-right: 0;
     color: #ffffff;
 }
-
-
+.box{
+    padding: 50%;
+    background-color: #F25950;
+    max-height: 100px;
+}
+.screen{
+    margin-top: 5%;
+}
+.thumbnail{
+    width: 100%;
+    height: 70%;
+}
 
 /*****************************************/
 /* MARKETING CONTENT
