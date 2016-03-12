@@ -46,6 +46,8 @@
 }
 .pages-gap{
     margin-top: 4%;
+    width: auto;
+    max-width: 100%;
 }
 
 /*****************************************/
