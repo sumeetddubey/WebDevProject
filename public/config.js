@@ -24,6 +24,10 @@
             .when('/admin', {
                 templateUrl: "views/admin/admin.view.html"
             })
+            .when('/search', {
+                templateUrl: "views/search/search.view.html",
+                controller: "SearchController"
+            })
             .when('/dm-instructor', {
                 templateUrl: "views/dm-instructor/dminstructor.view.html",
                 controller: "DmInstructorController"

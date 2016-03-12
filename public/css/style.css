@@ -44,6 +44,11 @@
     width: 100%;
     height: 70%;
 }
+.pages-gap{
+    margin-top: 4%;
+    width: auto;
+    max-width: 100%;
+}
 
 /*****************************************/
 /* MARKETING CONTENT
