@@ -10,7 +10,6 @@
     HeaderController.$inject = ['$scope', '$rootScope', '$location'];
 
     function HeaderController($scope, $rootScope, $location) {
-        $scope.loginPage = loginPage;
 
         $scope.logout = logout;
         $scope.location = $location;
