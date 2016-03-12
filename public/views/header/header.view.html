@@ -11,7 +11,7 @@
             </button>
             <a class="navbar-brand" ng-class="{'active': location.url()=== '/'}" href="#/">Tutorial App</a>
         </div>
-        <div id="navbar" class="collapse navbar-collapse">
+        <div id="navbar" class="collapse navbar-collapse" ng-controller="HeaderController">
             <ul class="nav navbar-nav">
                 <li ng-show="user" ng-class="{'active': location.url()=== '/tutorials'}"><a href="#/tutorial">Tutorials</a></li>
                 <li ng-class="{'active': location.url()=== '/about'}"><a href="#/about">About</a></li>
@@ -19,11 +19,10 @@
                     <div class="form-group">
                         <input type="text" class="form-control" placeholder="Search">
                     </div>
-                    <button ng-click= ng-click}"
-                    type="submit" class="btn btn-default">Submit</button>
+                    <button ng-click= "" type="submit" class="btn btn-default">Submit</button>
                 </form>
-                <li ng-hide="user" ng-class="{'active': location.url()=== '/login'}"><a href="#/login">Sign In</a></li>
-                <li ng-hide="user" ng-class="{'active': location.url()=== '/register'}"><a href="#/register">Sign Up</a></li>
+                <li ng-hide="user" ng-class="{'active': location.url()==='/login'}"><a href="#/login">Sign In</a></li>
+                <li ng-hide="user" ng-class="{'active': location.url()==='/register'}"><a href="#/register">Sign Up</a></li>
                 <li ng-show="user"><a ng-click="logout()">Logout</a></li>
             </ul>
         </div><!--/.nav-collapse -->
