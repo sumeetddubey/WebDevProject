@@ -3,14 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Coding Tuturial</title>
+    <title>Coding Tutorial</title>
 </head>
 <body ng-controller="MainController">
+<div class="container">
     <div class="row">
         <div ng-include="'views/header/header.view.html'"></div>
         <div ng-view></div>
         <div ng-include="'views/footer/footer.view.html'"></div>
     </div>
+</div>
 
 
 <!-- Placed at the end of the document so the pages load faster -->
@@ -27,8 +29,14 @@
 <script src="views/home/home.controller.js"></script>
 <script src="views/header/header.controller.js"></script>
 <script src="views/footer/footer.controller.js"></script>
-<script src="views/register/register.controller.js"></script>
 <script src="views/tutorial/tutorial.controller.js"></script>
 <script src="services/user.services.js"></script>
+<script src="views/user/register/register.controller.js"></script>
+<script src="views/user/profile/profile.controller.js"></script>
+<script src="views/user/login/login.controller.js"></script>
+<script src="views/dm-instructor/dminstructor.controller.js"></script>
+<script src="views/dm-student/dmstudent.controller.js"></script>
+<script src="services/tutorial.services.js"></script>
+<script src="views/dm-tutorial/dmtutorial.controller.js"></script>
 </body>
 </html>

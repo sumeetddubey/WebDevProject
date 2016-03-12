@@ -1,0 +1,85 @@
+<div class="table-responsive">
+    <table class="table table-striped">
+        <tr>
+            <td>
+                ID
+            </td>
+            <td>
+                First Name
+            </td>
+            <td>
+                Last Name
+            </td>
+            <td>
+                Username
+            </td>
+            <td>
+                Password
+            </td>
+            <td>
+                Email
+            </td>
+            <td>
+                Roles
+            </td>
+            <td>
+                Total tutorials
+            </td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+
+            </td>
+            <td>
+                <input type="text" ng-model="user.firstName" class="form-control">
+            </td>
+            <td>
+                <input type="text" ng-model="user.lastName" class="form-control">
+            </td>
+            <td>
+                <input type="text" ng-model="user.username" class="form-control">
+            </td>
+            <td>
+                <input type="password" ng-model="user.password" class="form-control">
+            </td>
+            <td>
+                <input type="email" ng-model="user.email" class="form-control>">
+            </td>
+            <td>
+                <input type="text" ng-model="user.roles" class="form-control">
+            </td>
+            <td>
+                <input type="text" ng-model="user.progress" class="form-control">
+            </td>
+            <td class="btn-nowrap">
+                <a ng-click="addUser(user)" class="btn btn-success">
+                    <scan class="glyphicon glyphicon-plus"></scan>
+                </a>
+                <a ng-click="updateUser(user)" class="btn btn-warning">
+                    <scan class="glyphicon glyphicon-pencil"></scan>
+                </a>
+            </td>
+        </tr>
+        <tr ng-repeat="instructor in instructorUsers">
+            <td>{{instructor._id}}</td>
+            <td>{{instructor.firstName}}</td>
+            <td>{{instructor.lastName}}</td>
+            <td>{{instructor.username}}</td>
+            <td>{{instructor.password}}</td>
+            <td>{{instructor.email}}</td>
+            <td>{{instructor.roles}}</td>
+            <td>{{instructor.tutorials}}</td>
+            <td class="btn-nowrap">
+                <a ng-click="selectUser(instructor)" class="btn btn-primary">
+                    <scan class="glyphicon glyphicon-ok"></scan>
+                </a>
+                <a ng-click="deleteUser(instructor)" class="btn btn-danger">
+                    <scan class="glyphicon glyphicon-remove"></scan>
+                </a>
+            </td>
+        </tr>
+    </table>
+</div>

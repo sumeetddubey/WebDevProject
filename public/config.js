@@ -9,12 +9,32 @@
                 templateUrl: "views/home/home.view.html",
                 controller: "HomeController"
             })
+            .when('/login', {
+                templateUrl: "views/user/login/login.view.html",
+                controller: "LoginController"
+            })
             .when('/register', {
-                templateUrl: "views/register/register.view.html",
+                templateUrl: "views/user/register/register.view.html",
                 controller: "RegisterController"
             })
             .when('/profile', {
-                templateUrl: "views/profile/profile.view.html"
+                templateUrl: "views/user/profile/profile.view.html",
+                controller: "ProfileController"
+            })
+            .when('/admin', {
+                templateUrl: "views/admin/admin.view.html"
+            })
+            .when('/dm-instructor', {
+                templateUrl: "views/dm-instructor/dminstructor.view.html",
+                controller: "DmInstructorController"
+            })
+            .when('/dm-student', {
+                templateUrl: "views/dm-student/dmstudent.view.html",
+                controller: "DmStudentController"
+            })
+            .when('/dm-tutorial', {
+                templateUrl: "views/dm-tutorial/dmtutorial.view.html",
+                controller: "DmTutorialController"
             })
             .when('/tutorial', {
                 templateUrl: "views/tutorial/tutorial.view.html",

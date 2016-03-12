@@ -1,0 +1,61 @@
+<div class="table-responsive">
+    <table class="table table-striped">
+        <tr>
+            <td>
+                ID
+            </td>
+            <td>
+                Name
+            </td>
+            <td>
+                Language
+            </td>
+            <td>
+                Number of Lessons
+            </td>
+            <td>
+                Author
+            </td>
+        </tr>
+        <tr>
+            <td>
+
+            </td>
+            <td>
+                <input type="text" ng-model="tutorial.name" class="form-control">
+            </td>
+            <td>
+                <input type="text" ng-model="tutorial.language" class="form-control">
+            </td>
+            <td>
+                <input type="number" ng-model="tutorial.lessons" class="form-control">
+            </td>
+            <td>
+                <input type="text" ng-model="tutorial.author" class="form-control">
+            </td>
+            <td class="btn-nowrap">
+                <a ng-click="addTutorial(tutorial)" class="btn btn-success">
+                    <scan class="glyphicon glyphicon-plus"></scan>
+                </a>
+                <a ng-click="updateTutorial(tutorial)" class="btn btn-warning">
+                    <scan class="glyphicon glyphicon-pencil"></scan>
+                </a>
+            </td>
+        </tr>
+        <tr ng-repeat="item in tutorials">
+            <td>{{item._id}}</td>
+            <td>{{item.name}}</td>
+            <td>{{item.language}}</td>
+            <td>{{item.lessons}}</td>
+            <td>{{item.author}}</td>
+            <td class="btn-nowrap">
+                <a ng-click="selectTutorial(item)" class="btn btn-primary">
+                    <scan class="glyphicon glyphicon-ok"></scan>
+                </a>
+                <a ng-click="deleteTutorial(item)" class="btn btn-danger">
+                    <scan class="glyphicon glyphicon-remove"></scan>
+                </a>
+            </td>
+        </tr>
+    </table>
+</div>
