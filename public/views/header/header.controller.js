@@ -18,5 +18,16 @@
             $rootScope.currentUser = null;
             $location.url("/");
         }
+
+        function search(keywords) {
+            SearchService.searchForTitle(keywords.keyword,
+                function(response) {
+                    if (response) {
+                        $rootScope.currentUser = response;
+                    }
+                    $location.url("/search");
+                });
+
+        }
     }
 })();

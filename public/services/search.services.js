@@ -24,8 +24,9 @@
         function searchForTitle(keywords, callback) {
             var titleFound = null;
             for (var tutorial in tutorials){
-                if(tutorials[tutorial].title == keywords){
+                if(tutorials[tutorial].title.split(' ') == keywords){
                     titleFound = title;
+                    console.log(titleFound);
                 }
                 callback(titleFound);
             }
