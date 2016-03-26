@@ -1,0 +1,13 @@
+[
+  {
+    "_id": 1, "firstName": "Sumeet", "lastName": "Dubey",
+    "username": "sumeetdubey", "password": "pass@123", "email":"sumeet@abc.com",
+    "roles": ["dm-instructor"], "tutorials":0
+  },
+  {
+    "_id": 2, "firstName": "Rohit", "lastName": "Begani",
+    "username": "rohitbegani", "password": "pass@123", "email":"rohit@abc.com",
+    "roles": ["dm-student"], "badges":3
+  }
+]
+

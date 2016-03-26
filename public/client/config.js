@@ -5,7 +5,7 @@
     var app = angular.module("codingTutorial");
     app.config(function($routeProvider){
         $routeProvider
-            .when('/', {
+            .when('/home', {
                 templateUrl: "views/home/home.view.html",
                 controller: "HomeController"
             })

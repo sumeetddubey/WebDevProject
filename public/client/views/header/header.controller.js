@@ -16,7 +16,7 @@
 
         function logout() {
             $rootScope.currentUser = null;
-            $location.url("/");
+            $location.url("/home");
         }
 
         function search(query){
