@@ -31,6 +31,7 @@ module.exports = function(){
             "email": ipUser.email
         };
         mock.push(user);
+        console.log(mock);
         return user;
     }
 

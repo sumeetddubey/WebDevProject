@@ -8,4 +8,6 @@
     function ProfileController($scope, $rootScope){
         $scope.username = $rootScope.currentUser.username;
     }
+
+
 })();
