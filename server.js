@@ -7,7 +7,7 @@ var multer        = require('multer');
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use(multer());
+//app.use(multer());
 
 app.use(express.static(__dirname + '/public'));
 app.get('/hello', function(req, res){

@@ -6,7 +6,9 @@
     app.controller("ProfileController", ProfileController);
 
     function ProfileController($scope, $rootScope){
+        $scope.currentUser = $rootScope.currentUser;
         $scope.username = $rootScope.currentUser.username;
+        console.log($scope.currentUser.image);
     }
 
 

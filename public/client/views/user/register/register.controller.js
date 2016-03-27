@@ -9,12 +9,6 @@
         $scope.register = register;
 
         function register(user){
-            function render(response){
-                $rootScope.currentUser = response;
-                console.log(response);
-                $location.url("/profile");
-            }
-
             if (user == null) {
                 $window.alert("Please fill in the required fields");
                 return;

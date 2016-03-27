@@ -6,11 +6,20 @@
                 <div>
                     <h2>Welcome {{username}}</h2>
                 </div>
-                <div>
-                    <img class="wrapImage" src="http://placehold.it/140x140">
+                <div class="profile-pic-css">
+                    <!--<img class="wrapImage" src="http://placehold.it/140x140">-->
+                    <img class="img-responsive img-rounded" ng-src="{{currentUser.photo}}">
                 </div>
                 <div>
-                    <h3>Latest Lesson: </h3>
+                    <div>
+                        <h3>Latest Lesson: </h3>
+                        <div ng-show="currentUser.tutorials.length == 0">
+                            <button class="btn btn-primary">Take first lesson</button>
+                        </div>
+                        <div ng-show="currentUser.lastTutorial">
+                            <button class="btn btn-primary">{{currentUser.lastTutorial}}</button>
+                        </div>
+                    </div>
                     <h3>Activity: </h3>
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
                     incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
