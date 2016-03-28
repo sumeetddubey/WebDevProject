@@ -14,11 +14,20 @@
 
         function run(userCode) {
             console.log(userCode.data);
-            HackerRankService.sendCode(userCode.data)
+            var code = userCode;
+            HackerRankService.sendCode(code)
                 .then(
-                    function(response){
-                        console.log(response.data);
+                    function(response) {
+                        if (response.data) {
+                            console.log("in response");
+                            console.log("response is " + response.data);
+                            $scope.output = response.data;
+                        }
+                        else{
+                            console.log("no response");
+                        }
                     }
+
                 );
             //TutorialService.sendCode(userCode.data);
 
