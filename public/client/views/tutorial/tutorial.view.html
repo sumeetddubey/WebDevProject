@@ -1,8 +1,9 @@
 <div class="container-fluid">
     <div class="row">
         <div ng-controller="TutorialController">
-        <input ng-model="userCode" class="form-control" />
-        <button ng-click="run(userCode)" class="btn btn-primary">Run</button>
+        <!--<input ng-model="userCode.data" class="form-control" />-->
+            <textarea id="inputCode" class="form-control" ng-model="userCode.data"></textarea>
+            <button ng-click="run(userCode)" class="btn btn-primary">Run</button>
             </div>
         <!--<div class="screen">-->
             <!--<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">-->

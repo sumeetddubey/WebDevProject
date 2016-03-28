@@ -28,7 +28,8 @@
             findTutorialsByName: findTutorialsByName,
             updateTutorialById: updateTutorialById,
             deleteTutorialById: deleteTutorialById,
-            findTutorialsByKeyword: findTutorialsByKeyword
+            findTutorialsByKeyword: findTutorialsByKeyword,
+            sendCode: sendCode
 
         };
 
@@ -108,6 +109,10 @@
 
             console.log(results);
             callback(results)
+        }
+
+        function sendCode(inputCode){
+            return $http.post('api/project/code', inputCode);
         }
     }
 })();
