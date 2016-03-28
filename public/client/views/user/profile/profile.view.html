@@ -1,56 +1,110 @@
-<div class="container">
-    <div class="row">
-        <h1>Profile</h1>
-        <div class="col-xs-12">
-            <div class="panel panel-primary col-xs-5 box-profile">
-                <div>
+<div ng-controller="ProfileController">
+    <div layout="column">
+        <div layout="row">
+            <md-card flex="30">
+                <img src="{{currentUser.photo}}" class="md-card-image" alt="image caption">
+                <md-card-content>
                     <h2>Welcome {{username}}</h2>
-                </div>
-                <div class="profile-pic-css">
-                    <!--<img class="wrapImage" src="http://placehold.it/140x140">-->
-                    <img class="img-responsive img-rounded" ng-src="{{currentUser.photo}}">
-                </div>
-                <div>
-                    <div>
-                        <h3>Latest Lesson: </h3>
-                        <div ng-show="currentUser.tutorials.length == 0">
-                            <button class="btn btn-primary">Take first lesson</button>
-                        </div>
-                        <div ng-show="currentUser.lastTutorial">
-                            <button class="btn btn-primary">{{currentUser.lastTutorial}}</button>
-                        </div>
-                    </div>
-                    <h3>Activity: </h3>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                    incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
-                    exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure
-                    dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-                    Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt
-                    mollit anim id est laborum.
-                </div>
-            </div>
-            <div class="panel panel-primary col-sm-5 box-profile">
-                <div>
-                    <h2>Stats:</h2>
-                    <div>
-                        <p ng-show="currentUser.stats.length() == null"> none</p>
-                    </div>
-                </div>
-            </div>
-            <div class="panel panel-primary col-sm-5 box-profile">
-                <div>
-                    <h2>Achievements:</h2>
-                    <div>
-                        <p ng-show="currentUser.stats.length() == 0"> none</p>
-                    </div>
-                </div>
-            </div>
-        </div>
+                    <p>0 day streak</p>
+                    <md-font-icon
+                            class="material-icons md-48"
+                            aria-label="favorite">
+                        favorite_border
+                    </md-font-icon>
+                    <md-font-icon
+                            class="material-icons md-48"
+                            aria-label="share">
+                        share
+                    </md-font-icon>
+                </md-card-content>
+            </md-card>
 
-        <!--<div class="col-sm-12">-->
-            <!--<div class="panel panel-primary col-sm-5 box-profile">-->
+            <div layout="column" flex="70">
+                <md-card>
+                    <!--<canvas id="line" class="chart chart-line" chart-data="data"-->
+                            <!--chart-labels="labels" chart-legend="true" chart-series="series"-->
+                            <!--chart-click="onClick" >-->
+                    <!--</canvas>-->
+                    <md-card-header>
+                        <md-card-header-text>
+                            <span class="md-title">Stats:</span>
+                            <span class="md-subhead">Skill Level</span>
+                        </md-card-header-text>
+                    </md-card-header>
+
+                    <canvas id="radar" class="chart chart-radar"
+                            chart-data="data" chart-labels="labels">
+                    </canvas>
+
+                </md-card>
+
+                <md-card>
+
+                    <md-card-header>
+                        <md-card-header-text>
+                            <span class="md-subhead">Current course position</span>
+                        </md-card-header-text>
+                    </md-card-header>
+
+                    <md-slider
+                            ng-model="codeLevel"
+                            step="10"
+                            md-discrete aria-label="Disabled discrete 3"
+                            ng-readonly="true">
+
+                    </md-slider>
+
+                </md-card>
+            </div>
+
+        </div>
+    </div>
+
+    <div layout="column">
+        <div layout="row">
+            <md-card>
+                Continue where you left off:
+
+                <md-card-content ng-show="currentUser.tutorials.length == 0">
+                    <md-card-actions layout="row" layout-align="end center">
+                        <md-button>Take First Lesson</md-button>
+                    </md-card-actions>
+                </md-card-content>
+
+                <md-card-content ng-show="currentUser.lastTutorial">
+                    <md-card-actions layout="row" layout-align="end center">
+                        <md-button>{{currentUser.lastTutorial}}</md-button>
+                    </md-card-actions>
+                </md-card-content>
+
+            </md-card>
+        </div>
+    </div>
+
+</div>
+<!--<div class="container">-->
+    <!--<div class="row">-->
+        <!--<h1>Profile</h1>-->
+        <!--<div class="col-xs-12">-->
+            <!--<div class="panel panel-primary col-xs-5 box-profile">-->
                 <!--<div>-->
-                    <!--<h2>Achievements:</h2>-->
+                    <!--<h2>Welcome {{username}}</h2>-->
+                <!--</div>-->
+                <!--<div class="profile-pic-css">-->
+                    <!--&lt;!&ndash;<img class="wrapImage" src="http://placehold.it/140x140">&ndash;&gt;-->
+                    <!--<img class="img-responsive img-rounded" ng-src="{{currentUser.photo}}">-->
+                <!--</div>-->
+                <!--<div>-->
+                    <!--<div>-->
+                        <!--<h3>Latest Lesson: </h3>-->
+                        <!--<div ng-show="currentUser.tutorials.length == 0">-->
+                            <!--<button class="btn btn-primary">Take first lesson</button>-->
+                        <!--</div>-->
+                        <!--<div ng-show="currentUser.lastTutorial">-->
+                            <!--<button class="btn btn-primary">{{currentUser.lastTutorial}}</button>-->
+                        <!--</div>-->
+                    <!--</div>-->
+                    <!--<h3>Activity: </h3>-->
                     <!--Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor-->
                     <!--incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud-->
                     <!--exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure-->
@@ -59,8 +113,38 @@
                     <!--mollit anim id est laborum.-->
                 <!--</div>-->
             <!--</div>-->
+            <!--<div class="panel panel-primary col-sm-5 box-profile">-->
+                <!--<div>-->
+                    <!--<h2>Stats:</h2>-->
+                    <!--<div>-->
+                        <!--<p ng-show="currentUser.stats.length() == null"> none</p>-->
+                    <!--</div>-->
+                <!--</div>-->
+            <!--</div>-->
+            <!--<div class="panel panel-primary col-sm-5 box-profile">-->
+                <!--<div>-->
+                    <!--<h2>Achievements:</h2>-->
+                    <!--<div>-->
+                        <!--<p ng-show="currentUser.stats.length() == 0"> none</p>-->
+                    <!--</div>-->
+                <!--</div>-->
+            <!--</div>-->
         <!--</div>-->
 
-    </div>
-    </div>
-</div>
+        <!--&lt;!&ndash;<div class="col-sm-12">&ndash;&gt;-->
+            <!--&lt;!&ndash;<div class="panel panel-primary col-sm-5 box-profile">&ndash;&gt;-->
+                <!--&lt;!&ndash;<div>&ndash;&gt;-->
+                    <!--&lt;!&ndash;<h2>Achievements:</h2>&ndash;&gt;-->
+                    <!--&lt;!&ndash;Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor&ndash;&gt;-->
+                    <!--&lt;!&ndash;incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud&ndash;&gt;-->
+                    <!--&lt;!&ndash;exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure&ndash;&gt;-->
+                    <!--&lt;!&ndash;dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.&ndash;&gt;-->
+                    <!--&lt;!&ndash;Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt&ndash;&gt;-->
+                    <!--&lt;!&ndash;mollit anim id est laborum.&ndash;&gt;-->
+                <!--&lt;!&ndash;</div>&ndash;&gt;-->
+            <!--&lt;!&ndash;</div>&ndash;&gt;-->
+        <!--&lt;!&ndash;</div>&ndash;&gt;-->
+
+    <!--</div>-->
+    <!--</div>-->
+<!--</div>-->
