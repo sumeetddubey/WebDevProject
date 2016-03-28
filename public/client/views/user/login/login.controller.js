@@ -10,6 +10,7 @@
 
         function login(user) {
             if (!user) {
+                console.log(user.email);
                 return;
             }
             UserService.findUserByCredentials(user.email, user.password)
@@ -18,6 +19,7 @@
                         $rootScope.currentUser = response.data;
                         console.log(response.data);
                         $location.url("/profile");
+
                     }
                 })
         }

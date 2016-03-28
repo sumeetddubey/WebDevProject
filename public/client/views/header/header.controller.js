@@ -7,12 +7,15 @@
         .module("codingTutorial")
         .controller("HeaderController", HeaderController);
 
-    HeaderController.$inject = ['$scope', '$rootScope', '$location', 'TutorialService'];
+    HeaderController.$inject = ['$scope', '$rootScope', '$location', '$mdSidenav', 'TutorialService'];
 
-    function HeaderController($scope, $rootScope, $location, TutorialService) {
+    function HeaderController($scope, $rootScope, $location, $mdSidenav, TutorialService) {
         $scope.search = search;
         $scope.logout = logout;
         $scope.location = $location;
+        $scope.openLeftMenu = function() {
+            $mdSidenav('left').toggle();
+        };
 
         function logout() {
             $rootScope.currentUser = null;
