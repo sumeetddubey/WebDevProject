@@ -57,7 +57,8 @@
                 <md-input-container class="md-block">
                     <label>Code</label>
                     <textarea ng-model="userCode.data" md-maxlength="150" rows="5" md-select-on-focus></textarea>
-                    <md-button class="md-raised md-primary" ng-click="run(userCode)">Primary</md-button>
+                    <md-progress-linear md-mode="indeterminate" ng-if="isLoading" ng-hide></md-progress-linear>
+                    <md-button class="md-raised md-primary" ng-click="run(userCode); showloader()" >Run Code</md-button>
                 </md-input-container>
                 <md-input-container>
                     <label>Result</label>

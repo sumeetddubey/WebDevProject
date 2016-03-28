@@ -11,6 +11,11 @@
 
     function TutorialController($scope, HackerRankService){
         $scope.run = run;
+        $scope.showloader = showloader;
+
+        function showloader() {
+            $scope.isLoading = true;
+        }
 
         function run(userCode) {
             console.log(userCode.data);
@@ -19,11 +24,13 @@
                 .then(
                     function(response) {
                         if (response.data) {
+                            $scope.isLoading = false;
                             console.log("in response");
                             console.log("response is " + response.data);
                             $scope.output = response.data;
                         }
                         else{
+                            $scope.isLoading = false;
                             console.log("no response");
                         }
                     }
@@ -36,6 +43,7 @@
             //        console.log(response);
             //    })
         }
+
     }
 
 })();
