@@ -1,33 +1,85 @@
-<div layout="row" ng-controller="ProfileController">
-    <md-card>
-        <img src="{{currentUser.photo}}" class="md-card-image" alt="image caption">
-        <md-card-content>
-            <h2>Welcome {{username}}</h2>
-            <p>0 day streak</p>
-            <md-font-icon
-                    class="material-icons md-48"
-                    aria-label="favorite">
-                favorite_border
-            </md-font-icon>
-            <md-font-icon
-                    class="material-icons md-48"
-                    aria-label="share">
-                share
-            </md-font-icon>
-        </md-card-content>
-    </md-card>
+<div ng-controller="ProfileController">
+    <div layout="column">
+        <div layout="row">
+            <md-card flex="30">
+                <img src="{{currentUser.photo}}" class="md-card-image" alt="image caption">
+                <md-card-content>
+                    <h2>Welcome {{username}}</h2>
+                    <p>0 day streak</p>
+                    <md-font-icon
+                            class="material-icons md-48"
+                            aria-label="favorite">
+                        favorite_border
+                    </md-font-icon>
+                    <md-font-icon
+                            class="material-icons md-48"
+                            aria-label="share">
+                        share
+                    </md-font-icon>
+                </md-card-content>
+            </md-card>
 
-    <md-card>
-        <canvas id="line" class="chart chart-line" chart-data="data"
-                chart-labels="labels" chart-legend="true" chart-series="series"
-                chart-click="onClick" >
-        </canvas>
-    </md-card>
-    <md-card>
-        Continue where you left off:
+            <div layout="column" flex="70">
+                <md-card>
+                    <!--<canvas id="line" class="chart chart-line" chart-data="data"-->
+                            <!--chart-labels="labels" chart-legend="true" chart-series="series"-->
+                            <!--chart-click="onClick" >-->
+                    <!--</canvas>-->
+                    <md-card-header>
+                        <md-card-header-text>
+                            <span class="md-title">Stats:</span>
+                            <span class="md-subhead">Skill Level</span>
+                        </md-card-header-text>
+                    </md-card-header>
 
-    </md-card>
+                    <canvas id="radar" class="chart chart-radar"
+                            chart-data="data" chart-labels="labels">
+                    </canvas>
 
+                </md-card>
+
+                <md-card>
+
+                    <md-card-header>
+                        <md-card-header-text>
+                            <span class="md-subhead">Current course position</span>
+                        </md-card-header-text>
+                    </md-card-header>
+
+                    <md-slider
+                            ng-model="codeLevel"
+                            step="10"
+                            md-discrete aria-label="Disabled discrete 3"
+                            ng-readonly="true">
+
+                    </md-slider>
+
+                </md-card>
+            </div>
+
+        </div>
+    </div>
+
+    <div layout="column">
+        <div layout="row">
+            <md-card>
+                Continue where you left off:
+
+                <md-card-content ng-show="currentUser.tutorials.length == 0">
+                    <md-card-actions layout="row" layout-align="end center">
+                        <md-button>Take First Lesson</md-button>
+                    </md-card-actions>
+                </md-card-content>
+
+                <md-card-content ng-show="currentUser.lastTutorial">
+                    <md-card-actions layout="row" layout-align="end center">
+                        <md-button>{{currentUser.lastTutorial}}</md-button>
+                    </md-card-actions>
+                </md-card-content>
+
+            </md-card>
+        </div>
+    </div>
 
 </div>
 <!--<div class="container">-->

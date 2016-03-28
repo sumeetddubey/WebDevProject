@@ -1,42 +1,101 @@
-<div class="container-fluid">
-    <div class="row">
-        <div ng-controller="TutorialController">
-        <input ng-model="userCode" class="form-control" />
-        <button ng-click="run(userCode)" class="btn btn-primary">Run</button>
+<div ng-controller="TutorialController">
+    <div layout="column">
+        <md-card layout="row">
+            <md-card flex="30">
+
+                <md-card-title>
+                    <md-card-title-text>
+                        <span class="md-headline">Question</span>
+                    </md-card-title-text>
+                </md-card-title>
+
+                <md-card-content>
+                    <p>
+                        Introduce a little anarchy, upset the established order and everything becomes chaos.
+                        I'm an agent of chaos. Oh, and you know the thing about chaos?
+                    </p>
+                </md-card-content>
+
+                <md-card-actions layout="column" layout-align="center center">
+                    <md-card-icon-actions>
+                        <md-button class="md-icon-button" aria-label="Favorite">
+                            <md-icon
+                                    class="material-icons md-48"
+                                    aria-label="favorite">
+                                favorite
+                            </md-icon>
+                        </md-button>
+                        <md-button class="md-icon-button" aria-label="Share">
+                            <md-icon
+                                    class="material-icons md-48"
+                                    aria-label="share">
+                                share
+                            </md-icon>
+                        </md-button>
+                    </md-card-icon-actions>
+
+                    <div layout="row">
+                        <md-button>Hint 1</md-button>
+                        <md-button>Hint 2</md-button>
+                    </div>
+
+                </md-card-actions>
+
+
+            </md-card>
+
+        <md-card layout="row" flex="70">
+            <img ng-src="images/placeholder.jpg" alt="Placeholder">
+        </md-card>
+        </div>
+        <div layout="row">
+            <div flex="30"></div>
+            <div flex="70">
+                <!-- TODO: Compiler needs to be added -->
             </div>
-        <!--<div class="screen">-->
-            <!--<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">-->
-                <!--<div class="well-lg">-->
-                    <!--<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.?</p>-->
-                    <!--<p><i> Aenean molestie tellus quis lacinia auctor. Suspendisse interdum vitae nisi a pharetra.-->
-                        <!--Nullam vitae enim eu tortor pellentesque dapibus id euismod mauris. Quisque id risus sit amet-->
-                        <!--lectus vehicula rhoncus id sit amet velit. Fusce molestie ultrices sem, quis maximus lorem-->
-                        <!--ultrices vitae. Morbi molestie ultrices quam, pretium egestas massa blandit convallis. Ut-->
-                        <!--tempor sagittis ante et mollis. Praesent et malesuada urna. In in convallis mi. Pellentesque-->
-                        <!--scelerisque purus vel porttitor rhoncus. Curabitur vel magna rhoncus, placerat augue quis,-->
-                        <!--pretium turpis. Cras vitae facilisis velit. Integer sed porttitor augue.-->
-                    <!--</i></p>-->
-                <!--</div>-->
-                <!--<button class="btn btn-default col-lg-offset-2 col-md-offset-2 col-sm-offset-2 col-xs-offset-2">Hints-->
-                <!--</button>-->
-            <!--</div>-->
-            <!--<div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">-->
-                <!--<div class="thumbnail">-->
-                    <!--<img ng-src="images/placeholder.jpg" alt="Placeholder">-->
-                    <!--<div class="caption">-->
-                        <!--<h3>Write your code here:</h3>-->
-                        <!--<br>-->
-                        <!--<br>-->
-                        <!--<br>-->
-                        <!--<br>-->
-                        <!--<div class="row">-->
-                            <!--<p class="col-lg-2 col-md-2 col-sm-2 col-xs-6"><a href="#" class="btn btn-default"-->
-                                                                              <!--role="button">Run Code</a></p>-->
-                            <!--<p><a href="#" class="btn btn-success" role="button">Submit Code</a></p>-->
-                        <!--</div>-->
-                    <!--</div>-->
-                <!--</div>-->
-            <!--</div>-->
-        <!--</div>-->
+
+        </div>
     </div>
-    </div>
+</div>
+<!--<div class="container-fluid">-->
+    <!--<div class="row">-->
+        <!--<div ng-controller="TutorialController">-->
+        <!--<input ng-model="userCode" class="form-control" />-->
+        <!--<button ng-click="run(userCode)" class="btn btn-primary">Run</button>-->
+            <!--</div>-->
+        <!--&lt;!&ndash;<div class="screen">&ndash;&gt;-->
+            <!--&lt;!&ndash;<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">&ndash;&gt;-->
+                <!--&lt;!&ndash;<div class="well-lg">&ndash;&gt;-->
+                    <!--&lt;!&ndash;<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.?</p>&ndash;&gt;-->
+                    <!--&lt;!&ndash;<p><i> Aenean molestie tellus quis lacinia auctor. Suspendisse interdum vitae nisi a pharetra.&ndash;&gt;-->
+                        <!--&lt;!&ndash;Nullam vitae enim eu tortor pellentesque dapibus id euismod mauris. Quisque id risus sit amet&ndash;&gt;-->
+                        <!--&lt;!&ndash;lectus vehicula rhoncus id sit amet velit. Fusce molestie ultrices sem, quis maximus lorem&ndash;&gt;-->
+                        <!--&lt;!&ndash;ultrices vitae. Morbi molestie ultrices quam, pretium egestas massa blandit convallis. Ut&ndash;&gt;-->
+                        <!--&lt;!&ndash;tempor sagittis ante et mollis. Praesent et malesuada urna. In in convallis mi. Pellentesque&ndash;&gt;-->
+                        <!--&lt;!&ndash;scelerisque purus vel porttitor rhoncus. Curabitur vel magna rhoncus, placerat augue quis,&ndash;&gt;-->
+                        <!--&lt;!&ndash;pretium turpis. Cras vitae facilisis velit. Integer sed porttitor augue.&ndash;&gt;-->
+                    <!--&lt;!&ndash;</i></p>&ndash;&gt;-->
+                <!--&lt;!&ndash;</div>&ndash;&gt;-->
+                <!--&lt;!&ndash;<button class="btn btn-default col-lg-offset-2 col-md-offset-2 col-sm-offset-2 col-xs-offset-2">Hints&ndash;&gt;-->
+                <!--&lt;!&ndash;</button>&ndash;&gt;-->
+            <!--&lt;!&ndash;</div>&ndash;&gt;-->
+            <!--&lt;!&ndash;<div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">&ndash;&gt;-->
+                <!--&lt;!&ndash;<div class="thumbnail">&ndash;&gt;-->
+                    <!--&lt;!&ndash;<img ng-src="images/placeholder.jpg" alt="Placeholder">&ndash;&gt;-->
+                    <!--&lt;!&ndash;<div class="caption">&ndash;&gt;-->
+                        <!--&lt;!&ndash;<h3>Write your code here:</h3>&ndash;&gt;-->
+                        <!--&lt;!&ndash;<br>&ndash;&gt;-->
+                        <!--&lt;!&ndash;<br>&ndash;&gt;-->
+                        <!--&lt;!&ndash;<br>&ndash;&gt;-->
+                        <!--&lt;!&ndash;<br>&ndash;&gt;-->
+                        <!--&lt;!&ndash;<div class="row">&ndash;&gt;-->
+                            <!--&lt;!&ndash;<p class="col-lg-2 col-md-2 col-sm-2 col-xs-6"><a href="#" class="btn btn-default"&ndash;&gt;-->
+                                                                              <!--&lt;!&ndash;role="button">Run Code</a></p>&ndash;&gt;-->
+                            <!--&lt;!&ndash;<p><a href="#" class="btn btn-success" role="button">Submit Code</a></p>&ndash;&gt;-->
+                        <!--&lt;!&ndash;</div>&ndash;&gt;-->
+                    <!--&lt;!&ndash;</div>&ndash;&gt;-->
+                <!--&lt;!&ndash;</div>&ndash;&gt;-->
+            <!--&lt;!&ndash;</div>&ndash;&gt;-->
+        <!--&lt;!&ndash;</div>&ndash;&gt;-->
+    <!--</div>-->
+    <!--</div>-->
