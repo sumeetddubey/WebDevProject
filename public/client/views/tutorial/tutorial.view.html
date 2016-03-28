@@ -54,6 +54,23 @@
             <div flex="30"></div>
             <div flex="70">
                 <!-- TODO: Compiler needs to be added -->
+                <md-input-container class="md-block">
+                    <label>Code</label>
+                    <textarea ng-model="userCode.data" md-maxlength="150" rows="5" md-select-on-focus></textarea>
+                    <md-button class="md-raised md-primary" ng-click="run(userCode)">Primary</md-button>
+                </md-input-container>
+                <md-input-container>
+                    <label>Result</label>
+                    <textarea md-maxlength="150" rows="5" ng-model="output"></textarea>
+                </md-input-container>
+
+                <!--<textarea id="inputCode" class="form-control" ng-model="userCode.data"></textarea>-->
+                <!--<button ng-click="run(userCode)" class="btn btn-primary">Run</button>-->
+                <!--<div>-->
+                    <!--    <textarea class="form-group" style="height: 300px; width: 300px" id="outputTextArea" ng-model="output"></textarea>-->
+                <!--</div>-->
+            <!--</div>-->
+
             </div>
 
         </div>
