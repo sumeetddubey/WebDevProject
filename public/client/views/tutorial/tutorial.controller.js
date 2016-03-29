@@ -7,11 +7,33 @@
         .module("codingTutorial")
         .controller("TutorialController", TutorialController);
 
-    TutorialController.$inject = ['$scope','HackerRankService'];
+    TutorialController.$inject = ['$scope', '$mdDialog', 'HackerRankService'];
 
-    function TutorialController($scope, HackerRankService){
+    function TutorialController($scope, $mdDialog, HackerRankService){
         $scope.run = run;
         $scope.showloader = showloader;
+        $scope.openOffscreen = openOffscreen;
+
+        function openOffscreen() {
+            $mdDialog.show(
+                $mdDialog.alert()
+                    .clickOutsideToClose(true)
+                    .title('Hint')
+                    .textContent('You hung up your cape and your cowl but you did not move on. ' +
+                        'You never went to find a life.')
+                    .ariaLabel('Offscreen Demo')
+                    .ok('Close')
+                    // Or you can specify the rect to do the transition from
+                    .openFrom({
+                        top: -50,
+                        width: 30,
+                        height: 80
+                    })
+                    .closeTo({
+                        left: 1500
+                    })
+            );
+        };
 
         function showloader() {
             $scope.isLoading = true;
