@@ -30,11 +30,11 @@
             })
             .when('/dm-instructor', {
                 templateUrl: "views/dm-instructor/dminstructor.view.html",
-                controller: "DmInstructorController"
+                controller: "InstructorController"
             })
             .when('/dm-student', {
                 templateUrl: "views/dm-student/dmstudent.view.html",
-                controller: "DmStudentController"
+                controller: "StudentController"
             })
             .when('/dm-tutorial', {
                 templateUrl: "views/dm-tutorial/dmtutorial.view.html",
