@@ -19,7 +19,14 @@
                 $scope.studentUsers = response;
             }
 
-            UserService.findUserByRole("dm-student",render);
+            UserService.findUserByRole("dm-student")
+                .then(
+                    function(response){
+                        if(response.data){
+                            $scope.studentUsers = response.data;
+                        }
+                    }
+                )
         }
 
         findStudents();
@@ -32,7 +39,15 @@
             }
 
             if(newUser) {
-                UserService.createUser(newUser, render)
+                UserService.createUser(newUser)
+                    .then(
+                        function(response){
+                            if(response.data){
+                                console.log(response.data);
+                                findStudents();
+                            }
+                        }
+                    )
             }
             else{
                 $location.url("/dm-student");
@@ -41,25 +56,41 @@
 
         function updateUser(user){
             if(user) {
-                UserService.updateUserById($scope.selectedUserId, $scope.user, render);
+                UserService.updateUserById($scope.selectedUserId, $scope.user)
+                    .then(
+                        function(response){
+                            if(response.data){
+                                console.log(response.data);
+                                findStudents();
+                            }
+                        }
+                    );
 
-                function render(response) {
-                    console.log(response);
-                    $location.url("/dm-student");
-                    $route.reload();
-                }
+                //function render(response) {
+                //    console.log(response);
+                //    $location.url("/dm-student");
+                //    $route.reload();
+                //}
             }
 
         }
 
         function deleteUser(user){
-            UserService.deleteUserById(user._id, render);
+            UserService.deleteUserById(user._id)
+                .then(
+                    function(response){
+                        if(response.data){
+                            console.log(response.data);
+                            findStudents();
+                        }
+                    }
+                );
 
-            function render(response){
-                console.log(response);
-                $location.url("/dm-student");
-                $route.reload();
-            }
+            //function render(response){
+            //    console.log(response);
+            //    $location.url("/dm-student");
+            //    $route.reload();
+            //}
         }
 
         function selectUser(user){

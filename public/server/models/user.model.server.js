@@ -16,6 +16,7 @@ module.exports = function(){
         findUserById: findUserById,
         findUserByUsername: findUserByUsername,
         findUserByCredentials: findUserByCredentials,
+        findUserByRole: findUserByRole,
         deleteUserById: deleteUserById,
         updateUserById: updateUserById
     };
@@ -31,6 +32,19 @@ module.exports = function(){
             "password": ipUser.password,
             "email": ipUser.email
         };
+        if(ipUser.firstName){
+            user.firstName = ipUser.firstName;
+        }
+        if(ipUser.lastName){
+            user.lastName = ipUser.lastName;
+        }
+        if(ipUser.roles){
+            user.roles = ipUser.roles;
+        }
+        if(ipUser.tutorials){
+            user.tutorials = ipUser.tutorials;
+        }
+
         mock.push(user);
         console.log(mock);
         return user;
@@ -91,7 +105,7 @@ module.exports = function(){
                 mock.splice(user, 1);
             }
         }
-        return null;
+        return mock;
     }
 
     function updateUserById(userId, ipUser){
@@ -114,12 +128,26 @@ module.exports = function(){
                 if(ipUser.email) {
                     mock[user].email = ipUser.email;
                 }
+                if(ipUser.roles){
+                    mock[user].roles = ipUser.roles;
+                }
                 break;
             }
         }
-        console.log(mock[user]);
-        return mock[user];
+        console.log(mock);
+        return mock;
     }
+
+    function findUserByRole(role){
+        var result = [];
+        for(userIndex in mock){
+            if(mock[userIndex].roles.indexOf(role) != -1){
+                result.push(mock[userIndex]);
+            }
+        }
+        return result;
+    }
+
 
 
 

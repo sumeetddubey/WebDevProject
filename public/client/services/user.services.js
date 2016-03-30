@@ -9,6 +9,7 @@
         var api = {
             //method declarations
             findUserByUsername: findUserByUsername,
+            findUserByRole: findUserByRole,
             findUserByCredentials: findUserByCredentials,
             findAllUsers: findAllUsers,
             createUser: createUser,
@@ -19,6 +20,10 @@
 
         function findUserByUsername(username){
             return $http.get("/api/project/user?username="+username);
+        }
+
+        function findUserByRole(role){
+            return $http.get("/api/project/user?role=" +role);
         }
 
         function findUserByCredentials(email, password){
@@ -34,7 +39,7 @@
         }
 
         function deleteUserById(userId){
-            return $http.delete("/api/project/deleteUserById", userId);
+            return $http.delete('/api/project/user/'+userId);
         }
 
         function updateUserById(userId, user){

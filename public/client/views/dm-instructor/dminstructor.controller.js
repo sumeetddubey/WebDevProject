@@ -5,31 +5,46 @@
     var app = angular.module("codingTutorial");
     app.controller("InstructorController", InstructorController);
 
-    function InstructorController($scope, UserService, $route, $location){
+    function InstructorController($scope, UserService, $location){
         $scope.addUser = addUser;
         $scope.selectUser = selectUser;
         $scope.updateUser = updateUser;
         $scope.deleteUser = deleteUser;
 
         function findInstructors(){
-            function callback(response){
-                $scope.instructorUsers = response;
-            }
+            //function callback(response){
+            //    $scope.instructorUsers = response;
+            //}
 
-            UserService.findUserByRole("dm-instructor",callback);
+            UserService.findUserByRole("dm-instructor")
+                .then(
+                    function(response){
+                        if(response.data){
+                            $scope.instructorUsers = response.data;
+                        }
+                    }
+                )
         }
 
         findInstructors();
 
         function addUser(newUser){
-            function render(response){
-                console.log(response);
-                $location.url("/dm-instructor");
-                $route.reload();
-            }
+            //function render(response){
+            //    console.log(response);
+            //    $location.url("/dm-instructor");
+            //    $route.reload();
+            //}
 
             if(newUser) {
-                UserService.createUser(newUser, render)
+                UserService.createUser(newUser)
+                    .then(
+                        function(response){
+                            if(response.data){
+                                console.log(response.data);
+                                findInstructors();
+                            }
+                        }
+                    )
             }
             else{
                 $location.url("/dm-instructor");
@@ -38,25 +53,42 @@
 
         function updateUser(user){
             if(user) {
-                UserService.updateUserById($scope.selectedUserId, $scope.user, render);
+                UserService.updateUserById($scope.selectedUserId, $scope.user)
+                    .then(
+                        function(response){
+                            if(response.data){
+                                console.log(response.data);
+                                findInstructors();
+                                //$scope.instructorUsers = response.data;
+                            }
+                        }
+                    )
 
-                function render(response) {
-                    console.log(response);
-                    $location.url("/dm-instructor");
-                    $route.reload();
-                }
+                //function render(response) {
+                //    console.log(response);
+                //    $location.url("/dm-instructor");
+                //    $route.reload();
+                //}
             }
 
         }
 
         function deleteUser(user){
-            UserService.deleteUserById(user._id, render);
+            UserService.deleteUserById(user._id)
+                .then(
+                    function(response){
+                        if(response.data){
+                            console.log(response.data);
+                            findInstructors();
+                        }
+                    }
+                );
 
-            function render(response){
-                console.log(response);
-                $location.url("/dm-instructor");
-                $route.reload();
-            }
+            //function render(response){
+            //    console.log(response);
+            //    $location.url("/dm-instructor");
+            //    $route.reload();
+            //}
         }
 
         function selectUser(user){

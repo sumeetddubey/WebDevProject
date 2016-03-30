@@ -13,15 +13,53 @@
 /**
  * Created by sumeetdubey on 3/27/16.
  */
-module.exports = function(app, TutorialModel){
+module.exports = function(app, tutorialModel){
 
-    app.post('/api/project/tutorial', sendCode);
+    app.get('/api/project/tutorial', findTutorial);
+    app.post('/api/project/tutorial', createTutorial);
+    app.put('/api/project/tutorial/:id', updateTutorial);
+    app.delete('/api/project/tutorial/:id', deleteTutorial);
+    app.post('/api/project/tutorialCode', sendCode);
+
+
+    function findTutorial(req, res){
+        var response;
+        if(req.query.name){
+            response = tutorialModel.findTutorialByName(req.query.name);
+        }
+        else if(req.query.keyword){
+            response = tutorialModel.findTutorialByKeyword(req.query.keyword);
+        }
+        else{
+            response = tutorialModel.findAllTutorials();
+        }
+        res.json(response);
+    }
+
+    function createTutorial(req, res){
+        var tutorial = req.body;
+        var response = tutorialModel.createTutorial(tutorial);
+        res.json(response);
+    }
+
+    function updateTutorial(req, res){
+        var id = parseInt(req.params.id);
+        var tutorial = req.body;
+        var response = tutorialModel.updateTutorial(id, tutorial);
+        res.json(response);
+    }
+
+    function deleteTutorial(req, res){
+        var id = parseInt(req.params.id);
+        var response = tutorialModel.deleteTutorial(id);
+        res.json(response);
+    }
 
     function sendCode(req, res){
         console.log(req.body);
         var code = Object.keys(req.body)[0];
         console.log(code);
-        (TutorialModel.sendCodeToApi(code))
+        tutorialModel.sendCodeToApi(code)
             .then(
                 function(doc) {
                     var response = JSON.parse(doc);

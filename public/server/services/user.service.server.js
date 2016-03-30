@@ -33,9 +33,19 @@ module.exports = function(app, userModel) {
         else if(req.query.email){
             findUserByUsername(req, res);
         }
+        else if(req.query.role){
+            findUserByRole(req, res);
+        }
         else{
             console.log("error");
         }
+    }
+
+    function findUserByRole(req, res){
+        var role = req.query.role;
+        console.log("role is" +role);
+        var users = userModel.findUserByRole(role);
+        res.json(users);
     }
 
     function createUser(req, res){
@@ -65,7 +75,8 @@ module.exports = function(app, userModel) {
     }
 
     function deleteUser(req, res){
-        var userId = res.params.id;
+        var userId = parseInt(req.params.id);
+        console.log("user id is" +userId);
         res.json(userModel.deleteUserById(userId));
     }
 };
