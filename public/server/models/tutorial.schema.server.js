@@ -9,7 +9,9 @@ module.exports = function(){
     var TutorialSchema = mongoose.Schema({
             title: String,
             uploaderId: String,
-            lessons: [LessonSchema]
+            lessons: [String],
+            tags: [String],
+            language: String
         },
         {collection: 'tutorial'});
 

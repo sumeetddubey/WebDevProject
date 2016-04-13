@@ -7,7 +7,7 @@
         .module("codingTutorial")
         .factory("SearchService", SearchService);
 
-    function SearchService() {
+    function SearchService($http) {
         var tutorials=[];
         tutorials = [
             { "_id:":1, "title":"Hello World"},
@@ -16,7 +16,8 @@
         ];
 
         var api = {
-            searchForTitle: searchForTitle
+            searchForTitle: searchForTitle,
+            search: search
         };
 
         return api;
@@ -30,6 +31,10 @@
                 }
                 callback(titleFound);
             }
+        }
+
+        function search(data){
+            return $http.post('/api/project/search?data='+data);
         }
     }
 })();

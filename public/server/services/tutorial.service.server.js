@@ -20,6 +20,7 @@ module.exports = function(app, tutorialModel){
     app.put('/api/project/tutorial/:id', updateTutorial);
     app.delete('/api/project/tutorial/:id', deleteTutorial);
     app.post('/api/project/tutorialCode', sendCode);
+    app.post('/api/project/search', searchTutorial);
 
 
     function findTutorial(req, res){
@@ -79,6 +80,21 @@ module.exports = function(app, tutorialModel){
                     //console.log("the response is "+doc);
                 },
                 function (err){
+                    res.status(400).send(err);
+                }
+            )
+    }
+
+    function searchTutorial(req, res){
+        var data = req.query.data;
+        var response = tutorialModel.searchTutorial(data)
+            .then(
+                function(response){
+                    if(response){
+                        res.json(response);
+                    }
+                },
+                function(err){
                     res.status(400).send(err);
                 }
             )

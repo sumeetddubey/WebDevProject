@@ -9,7 +9,8 @@
 
     SearchController.$inject = ['$scope', '$rootScope'];
 
-    function SearchController($scope, $rootScope) {
+    function SearchController($scope, $rootScope){
+        console.log('in search page');
         $scope.results = $rootScope.results;
         console.log($scope.results);
     }

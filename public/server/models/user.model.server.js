@@ -144,9 +144,9 @@ module.exports = function(app, mongoose){
 
     function findUserByRole(role){
         var re = new RegExp(role);
-        console.log(role);
+        console.log(re);
         var deferred = q.defer();
-        UserModel.find({roles: role}, function(err, doc){
+        UserModel.find({roles: re}, function(err, doc){
             if(err){
                 deferred.reject(err);
             }
@@ -156,8 +156,4 @@ module.exports = function(app, mongoose){
         });
         return deferred.promise;
     }
-
-
-
-
 };

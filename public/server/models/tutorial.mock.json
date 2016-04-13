@@ -1,14 +1,14 @@
 [
   {
     "_id": 1, "name": "OOP", "language": "Python",
-    "lessons": 12, "author": "Sumeet", "keywords":["python", "oop", "objects"]
+    "lessons": 12, "tags":["python", "oop", "objects"]
   },
   {
     "_id": 2, "name": "Java Programming", "language": "Java",
-    "lessons": 10, "author": "Sumeet", "keywords": []
+    "lessons": 10, "tags": ["java", "oop"]
   },
   {
     "_id": 3, "name": "Introduction to c", "language": "C",
-    "lessons": 10, "author": "Sumeet", "keywords": []
+    "lessons": 10, "tags": ["c", "cpp"]
   }
 ]

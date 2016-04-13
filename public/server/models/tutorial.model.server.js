@@ -8,12 +8,10 @@ var mongoose = require('mongoose');
 module.exports = function(){
 
     var mock = require('./tutorial.mock.json');
-    var mongoose = require('mongoose');
-    var q = require("q");
     var HackerRank = require('machinepack-hackerrank');
 
     //load form schema
-    var TutorialSchema = require("./user.schema.server.js")(mongoose);
+    var TutorialSchema = require("./tutorial.schema.server.js")(mongoose);
     var TutorialModel = mongoose.model("Tutorial", TutorialSchema);
 
     var api = {
@@ -23,7 +21,8 @@ module.exports = function(){
         createTutorial: createTutorial,
         updateTutorial: updateTutorial,
         deleteTutorial: deleteTutorial,
-        sendCodeToApi: sendCodeToApi
+        sendCodeToApi: sendCodeToApi,
+        searchTutorial: searchTutorial
     };
 
     return api;
@@ -139,6 +138,23 @@ module.exports = function(){
             }
         });
 
+        return deferred.promise;
+    }
+
+    function searchTutorial(data){
+        var deferred = q.defer();
+        var reg = new RegExp(data);
+        console.log(reg);
+
+        TutorialModel.find({tags: {$in: [reg]}}, function(err, doc){
+            if(err){
+                deferred.reject(err);
+            }
+            else{
+                console.log(doc);
+                deferred.resolve(doc);
+            }
+        });
         return deferred.promise;
     }
 
