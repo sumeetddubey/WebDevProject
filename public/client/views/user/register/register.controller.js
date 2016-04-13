@@ -5,13 +5,13 @@
     var app = angular.module("codingTutorial");
     app.controller("RegisterController", RegisterController);
 
-    function RegisterController($scope, $window, $location, UserService, $rootScope) {
+    function RegisterController($scope, $location, UserService, $rootScope) {
         $scope.register = register;
 
         function register(user){
             console.log(user.username);
 
-            UserService.createUser($scope.user)
+            UserService.createUser(user)
                 .then(
                     function(response){
                         if(response.data){

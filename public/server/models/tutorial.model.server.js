@@ -1,28 +1,20 @@
-///**
-// * Created by sumeetdubey on 3/27/16.
-// */
-//module.export = function($http){
-//    var api = {
-//        getCodeFromApi: getCodeFromApi
-//    };
-//
-//    return api;
-//
-//    function getCodeFromApi(code){
-//        $http.post("/api.hackerrank.com/checker")
-//    }
-//};
-//
-//
-
 /**
  * Created by sumeetdubey on 3/27/16.
  */
+
+var q = require('q');
+var mongoose = require('mongoose');
+
 module.exports = function(){
 
     var mock = require('./tutorial.mock.json');
+    var mongoose = require('mongoose');
     var q = require("q");
     var HackerRank = require('machinepack-hackerrank');
+
+    //load form schema
+    var TutorialSchema = require("./user.schema.server.js")(mongoose);
+    var TutorialModel = mongoose.model("Tutorial", TutorialSchema);
 
     var api = {
         findAllTutorials: findAllTutorials,

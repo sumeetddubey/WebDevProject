@@ -19,8 +19,16 @@ module.exports = function(app, userModel) {
             "password": req.query.password
         };
 
-        var user = userModel.findUserByCredentials(credentials);
-        res.json(user);
+        userModel.findUserByCredentials(credentials)
+            .then(
+                function(doc){
+                    user = doc;
+                    res.json(user);
+                },
+                function(err){
+                    res.status(400).send(err);
+                }
+            )
     }
 
     function findUser(req, res){
@@ -44,39 +52,104 @@ module.exports = function(app, userModel) {
     function findUserByRole(req, res){
         var role = req.query.role;
         console.log("role is" +role);
-        var users = userModel.findUserByRole(role);
-        res.json(users);
+        userModel.findUserByRole(role)
+            .then(
+                function(doc){
+                    res.json(doc);
+                },
+                function(err){
+                    res.status(400).send(err);
+                }
+            )
     }
 
     function createUser(req, res){
         var user = req.body;
-        res.json(userModel.createUser(user));
+        userModel.createUser(user)
+            .then(
+                function(doc){
+                    user = doc;
+                    res.json(user);
+                },
+                function(err){
+                    res.status(400).send(err);
+                }
+            )
     }
 
     function findAllUsers(req, res){
-        res.json(userModel.findAllUsers());
+        var users = [];
+        userModel.findAllUsers()
+            .then(
+                function(doc){
+                    users = doc;
+                    res.json(users);
+                },
+                function(err){
+                    res.status(400).send(err);
+                }
+            )
     }
 
     function findUserById(req, res){
-        var userId = parseInt(req.params.id);
-        res.json(userModel.findUserById(userId));
+        var userId = req.params.id;
+        var user;
+        userModel.findUserById(userId)
+            .then(
+                function(doc){
+                    user = doc;
+                    res.json(user);
+                },
+                function(err){
+                    res.status(400).send(err);
+                }
+            )
     }
 
     function findUserByUsername(req, res){
         var username = req.query.username;
-        res.json(userModel.findUserByUsername(username));
+        var user;
+        userModel.findUserByUsername(username)
+            .then(
+                function(doc){
+                    user = doc;
+                    res.json(user);
+                },
+                function(err){
+                    res.status(400).send(err);
+                }
+            )
     }
 
     function updateUser(req, res){
         console.log("in update");
-        var userId = parseInt(req.params.id);
+        var userId = req.params.id;
         var userParams = req.body;
-        res.json(userModel.updateUserById(userId, userParams));
+        var user;
+        userModel.updateUserById(userId, userParams)
+            .then(
+                function(doc){
+                    user = doc;
+                    res.json(user);
+                },
+                function(err){
+                    res.status(400).send(err);
+                }
+            )
     }
 
     function deleteUser(req, res){
-        var userId = parseInt(req.params.id);
-        console.log("user id is" +userId);
-        res.json(userModel.deleteUserById(userId));
+        var userId = req.params.id;
+        var users;
+        userModel.deleteUserById(userId)
+            .then(
+                function(doc){
+                    users = doc;
+                    res.json(users);
+                },
+                function(err){
+                    res.status(400).send(err);
+                }
+            )
     }
 };

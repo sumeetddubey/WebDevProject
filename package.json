@@ -31,6 +31,7 @@
     "body-parser": "^1.15.0",
     "express": "^3.21.2",
     "machinepack-hackerrank": "^0.1.2",
+    "mongoose": "^4.4.12",
     "multer": "^1.1.0",
     "q": "^1.4.1"
   },

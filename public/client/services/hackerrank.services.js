@@ -18,6 +18,5 @@
             $http.defaults.headers.post["Content-Type"] = "application/x-www-form-urlencoded";
             return $http.post("/api/project/tutorialCode", code.data);
         }
-
     }
 })();
