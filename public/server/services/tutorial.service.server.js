@@ -58,7 +58,8 @@ module.exports = function(app, tutorialModel){
 
     function sendCode(req, res){
         console.log(req.body);
-        var code = Object.keys(req.body)[0];
+        //var code = Object.keys(req.body)[0];
+        var code = req.body[0];
         console.log(code);
         tutorialModel.sendCodeToApi(code)
             .then(

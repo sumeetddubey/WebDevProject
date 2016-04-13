@@ -41,8 +41,7 @@
 
         function run(userCode) {
             console.log(userCode.data);
-            var code = userCode;
-            console.log("code is "+code.data);
+            var code = [userCode.data];
             HackerRankService.sendCode(code)
                 .then(
                     function(response) {

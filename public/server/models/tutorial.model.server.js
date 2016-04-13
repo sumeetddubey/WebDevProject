@@ -113,19 +113,18 @@ module.exports = function(){
     }
 
     function sendCodeToApi(code){
-
+        //callbackUrl: '/api/tutorial/callback',
         var deferred = q.defer();
 
         console.log("in api 2");
         console.log(code);
         HackerRank.submit({
-            apiKey: 'hackerrank|902784-700|93c391311e30d1172470dfc810eeb0ea0b2c70dd',
+            apiKey: "hackerrank|902784-700|93c391311e30d1172470dfc810eeb0ea0b2c70dd",
             source: code,
             language: 5,
-            testcases: [" "],
+            testcases: [""],
             wait: true,
-            //callbackUrl: '/api/tutorial/callback',
-            format: 'json'
+            format: "json"
         }).exec({
 
             error: function (err){
