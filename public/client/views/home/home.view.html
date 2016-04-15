@@ -1,108 +1,266 @@
-<body class="container-fluid">
-<!-- Begin page content -->
-        <div class="row home-header" name="header-text">
-            <div>
-                <h1 class="col-lg-6 col-md-6 col-sm-6 col-xs-12 main-title">Play to Learn</h1>
-                <form class="form-horizontal form-card col-lg-5 col-md-5 col-sm-5 col-xs-12" role="form">
-                    <div class="form-group">
-                        <div class="col-lg-10 col-md-10 col-sm-10 col-xs-12">
-                            <input type="text" ng-model="user.username" class="form-control" id="inputUsername"
-                                   placeholder="Username">
-                        </div>
+<body>
+
+<header>
+    <div class="container">
+
+        <div class="row header-info">
+            <div class="col-sm-10 col-sm-offset-1 text-center">
+                <h1 class="wow fadeIn">Tutorial App</h1>
+                <br />
+                <p class="lead wow fadeIn" data-wow-delay="0.5s">Where coding is an adventure</p>
+                <br />
+
+                <div class="row">
+                    <div class="col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1">
+                        <div class="row">
+                            <div class="col-xs-6 text-right wow fadeInUp" data-wow-delay="1s">
+                                <a href="#be-the-first" class="btn btn-secondary btn-lg scroll">Sign In</a>
+                            </div>
+                            <div class="col-xs-6 text-left wow fadeInUp" data-wow-delay="1.4s">
+                                <a href="#invite" class="btn btn-primary btn-lg scroll">Register</a>
+                            </div>
+                        </div><!--End Button Row-->
                     </div>
-                    <div class="form-group">
-                        <div class="col-lg-10 col-md-10 col-sm-10 col-xs-12">
-                            <input type="email" ng-model="user.email" class="form-control" id="inputEmail"
-                                   placeholder="Email">
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <div class="col-lg-10 col-md-10 col-sm-10 col-xs-12">
-                            <input type="password" ng-model="user.password" class="form-control" id="inputPassword"
-                               placeholder="Password">
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <div class="col-lg-10 col-md-10 col-sm-10 col-xs-12">
-                            <input type="password" ng-model="user.verifyPassword" class="form-control"
-                                   id="inputVerifyPassword" placeholder="Verify Password">
-                        </div>
-                    </div>
-                    <button ng-click="register(user)" class="btn btn-default col-lg-10 col-md-10 col-sm-10 col-xs-10">
-                        Register</button>
-                </form>
+                </div>
+
             </div>
         </div>
+    </div>
+</header>
 
-    <div class="second-half">
-    <div class="container-fluid marketing">
+<div class="mouse-icon hidden-xs">
+    <div class="scroll"></div>
+</div>
 
-        <!-- Three columns of text below the carousel -->
+<section id="be-the-first" class="pad-xl">
+    <div class="container">
         <div class="row">
-            <div class="col-lg-4">
-                <img class="img-circle" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Generic placeholder image" width="140" height="140">
-                <h2>Heading</h2>
-                <p>Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod. Nullam id dolor id nibh ultricies vehicula ut id elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Praesent commodo cursus magna.</p>
-                <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
-            </div><!-- /.col-lg-4 -->
-            <div class="col-lg-4">
-                <img class="img-circle" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Generic placeholder image" width="140" height="140">
-                <h2>Heading</h2>
-                <p>Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Cras mattis consectetur purus sit amet fermentum. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh.</p>
-                <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
-            </div><!-- /.col-lg-4 -->
-            <div class="col-lg-4">
-                <img class="img-circle" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Generic placeholder image" width="140" height="140">
-                <h2>Heading</h2>
-                <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
-                <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
-            </div><!-- /.col-lg-4 -->
-        </div><!-- /.row -->
-
-
-        <!-- START THE FEATURETTES -->
-
-        <hr class="featurette-divider">
-
-        <div class="row featurette">
-            <div class="col-md-7">
-                <h2 class="featurette-heading">First featurette heading. <span class="text-muted">It'll blow your mind.</span></h2>
-                <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
-            </div>
-            <div class="col-md-5">
-                <img class="featurette-image img-responsive center-block" src="https://placehold.it/500x500" alt="Generic placeholder image">
+            <div class="col-sm-8 col-sm-offset-2 text-center margin-30 wow fadeIn" data-wow-delay="0.6s">
+                <h2>Be the first</h2>
+                <p class="lead">Lorem ipsum dolor sit amet, consectetur adipis.</p>
             </div>
         </div>
 
-        <hr class="featurette-divider">
+        <div class="iphone wow fadeInUp" data-wow-delay="1s">
+            <img src="images/iphone.png">
+        </div>
+    </div>
+</section>
 
-        <div class="row featurette">
-            <div class="col-md-7 col-md-push-5">
-                <h2 class="featurette-heading">Oh yeah, it's that good. <span class="text-muted">See for yourself.</span></h2>
-                <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
+<section id="main-info" class="pad-xl">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-4 wow fadeIn" data-wow-delay="0.4s">
+                <hr class="line purple">
+                <h3>Amazing Storyline</h3>
+                <p>Follow a gripping storyline while learning coding on the way.</p>
             </div>
-            <div class="col-md-5 col-md-pull-7">
-                <img class="featurette-image img-responsive center-block" src="https://placehold.it/500x500" alt="Generic placeholder image">
+            <div class="col-sm-4 wow fadeIn" data-wow-delay="0.8s">
+                <hr  class="line blue">
+                <h3>Learn at your own pace</h3>
+                <p>Put in as many hours you want or as few as you can. Use it whenever you want, wherever you want.</p>
+            </div>
+            <div class="col-sm-4 wow fadeIn" data-wow-delay="1.2s">
+                <hr  class="line yellow">
+                <h3>Try for free</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam viverra orci ut est facilisis, eu elementum mi volutpat. Pellentesque ac tristique nisi.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!--Pricing-->
+<section id="pricing" class="pad-lg">
+    <div class="container">
+        <div class="row margin-40">
+            <div class="col-sm-8 col-sm-offset-2 text-center">
+                <h2 class="white">Pricing</h2>
+                <p class="white">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam viverra orci ut.</p>
             </div>
         </div>
 
-        <hr class="featurette-divider">
+        <div class="row margin-50">
 
-        <div class="row featurette">
-            <div class="col-md-7">
-                <h2 class="featurette-heading">And lastly, this one. <span class="text-muted">Checkmate.</span></h2>
-                <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
+            <div class="col-sm-4 pricing-container wow fadeInUp" data-wow-delay="1s">
+                <br />
+                <ul class="list-unstyled pricing-table text-center">
+                    <li class="headline"><h5 class="white">Free</h5></li>
+                    <li class="price"><div class="amount">$0<small>/m</small></div></li>
+                    <li class="info">Get a month of free access to all videos on registering for the first time.</li>
+                    <li class="features first">100+ Lessons</li>
+                    <li class="features">10+ languages</li>
+                    <li class="features">Interactive storyline</li>
+                    <li class="features last btn btn-secondary btn-wide"><a href="#">Get Started</a></li>
+                </ul>
             </div>
-            <div class="col-md-5">
-                <img class="featurette-image img-responsive center-block" src="https://placehold.it/500x500" alt="Generic placeholder image">
+
+            <div class="col-sm-4 pricing-container wow fadeInUp" data-wow-delay="0.4s">
+                <ul class="list-unstyled pricing-table active text-center">
+                    <li class="headline"><h5 class="white">Professional</h5></li>
+                    <li class="price"><div class="amount">$12<small>/m</small></div></li>
+                    <li class="info">Single access accoun</li>
+                    <li class="features first">Up To 25 Projects</li>
+                    <li class="features">10GB Storage</li>
+                    <li class="features">Other info</li>
+                    <li class="features">Other info</li>
+                    <li class="features last btn btn-secondary btn-wide"><a href="#">Get Started</a></li>
+                </ul>
             </div>
+
+            <div class="col-sm-4 pricing-container wow fadeInUp" data-wow-delay="1.3s">
+                <br />
+                <ul class="list-unstyled pricing-table text-center">
+                    <li class="headline"><h5 class="white">Business</h5></li>
+                    <li class="price"><div class="amount">$24<small>/m</small></div></li>
+                    <li class="info">2 row section for you package information. You can include all details or icons</li>
+                    <li class="features first">Up To 25 Projects</li>
+                    <li class="features">10GB Storage</li>
+                    <li class="features">Other info</li>
+                    <li class="features last btn btn-secondary btn-wide"><a href="#">Get Started</a></li>
+                </ul>
+            </div>
+
         </div>
 
-        <hr class="featurette-divider">
+    </div>
+</section>
 
-        <!-- /END THE FEATURETTES -->
 
-    </div><!-- /.container -->
-    </div><!-- /.second-half -->
-</body>
+<section id="invite" class="pad-lg light-gray-bg">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-8 col-sm-offset-2 text-center">
+                <i class="fa fa-envelope-o margin-40"></i>
+                <h2 class="black">Register Now</h2>
+                <br />
+                <p class="black">Register now get your 30-day free trial</p>
+                <br />
+
+                <div class="row">
+                    <div class="col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
+                        <form role="form">
+                            <div class="form-group">
+                                <input type="email" class="form-control" ng-model="user.email" id="exampleInputEmail1" placeholder="Email">
+                            </div>
+                            <div class="form-group">
+                                <input type="password" class="form-control" ng-model="user.password" id="exampleInputPassword1" placeholder="Password">
+                            </div>
+                            <button type="submit" class="btn btn-primary btn-lg" ng-click="register(user)">Register</button>
+                        </form>
+                    </div>
+                </div><!--End Form row-->
+
+            </div>
+        </div>
+    </div>
+</section>
+
+<!--<body class="container-fluid">-->
+<!--&lt;!&ndash; Begin page content &ndash;&gt;-->
+        <!--<div class="row home-header" name="header-text">-->
+            <!--<div>-->
+                <!--<h1 class="col-lg-6 col-md-6 col-sm-6 col-xs-12 main-title">Play to Learn</h1>-->
+                <!--<form class="form-horizontal form-card col-lg-5 col-md-5 col-sm-5 col-xs-12" role="form">-->
+                    <!--<div class="form-group">-->
+                        <!--<div class="col-lg-10 col-md-10 col-sm-10 col-xs-12">-->
+                            <!--<input type="text" ng-model="user.username" class="form-control" id="inputUsername"-->
+                                   <!--placeholder="Username">-->
+                        <!--</div>-->
+                    <!--</div>-->
+                    <!--<div class="form-group">-->
+                        <!--<div class="col-lg-10 col-md-10 col-sm-10 col-xs-12">-->
+                            <!--<input type="email" ng-model="user.email" class="form-control" id="inputEmail"-->
+                                   <!--placeholder="Email">-->
+                        <!--</div>-->
+                    <!--</div>-->
+                    <!--<div class="form-group">-->
+                        <!--<div class="col-lg-10 col-md-10 col-sm-10 col-xs-12">-->
+                            <!--<input type="password" ng-model="user.password" class="form-control" id="inputPassword"-->
+                               <!--placeholder="Password">-->
+                        <!--</div>-->
+                    <!--</div>-->
+                    <!--<div class="form-group">-->
+                        <!--<div class="col-lg-10 col-md-10 col-sm-10 col-xs-12">-->
+                            <!--<input type="password" ng-model="user.verifyPassword" class="form-control"-->
+                                   <!--id="inputVerifyPassword" placeholder="Verify Password">-->
+                        <!--</div>-->
+                    <!--</div>-->
+                    <!--<button ng-click="register(user)" class="btn btn-default col-lg-10 col-md-10 col-sm-10 col-xs-10">-->
+                        <!--Register</button>-->
+                <!--</form>-->
+            <!--</div>-->
+        <!--</div>-->
+
+    <!--<div class="second-half">-->
+    <!--<div class="container-fluid marketing">-->
+
+        <!--&lt;!&ndash; Three columns of text below the carousel &ndash;&gt;-->
+        <!--<div class="row">-->
+            <!--<div class="col-lg-4">-->
+                <!--<img class="img-circle" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Generic placeholder image" width="140" height="140">-->
+                <!--<h2>Heading</h2>-->
+                <!--<p>Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod. Nullam id dolor id nibh ultricies vehicula ut id elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Praesent commodo cursus magna.</p>-->
+                <!--<p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>-->
+            <!--</div>&lt;!&ndash; /.col-lg-4 &ndash;&gt;-->
+            <!--<div class="col-lg-4">-->
+                <!--<img class="img-circle" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Generic placeholder image" width="140" height="140">-->
+                <!--<h2>Heading</h2>-->
+                <!--<p>Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Cras mattis consectetur purus sit amet fermentum. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh.</p>-->
+                <!--<p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>-->
+            <!--</div>&lt;!&ndash; /.col-lg-4 &ndash;&gt;-->
+            <!--<div class="col-lg-4">-->
+                <!--<img class="img-circle" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Generic placeholder image" width="140" height="140">-->
+                <!--<h2>Heading</h2>-->
+                <!--<p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>-->
+                <!--<p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>-->
+            <!--</div>&lt;!&ndash; /.col-lg-4 &ndash;&gt;-->
+        <!--</div>&lt;!&ndash; /.row &ndash;&gt;-->
+
+
+        <!--&lt;!&ndash; START THE FEATURETTES &ndash;&gt;-->
+
+        <!--<hr class="featurette-divider">-->
+
+        <!--<div class="row featurette">-->
+            <!--<div class="col-md-7">-->
+                <!--<h2 class="featurette-heading">First featurette heading. <span class="text-muted">It'll blow your mind.</span></h2>-->
+                <!--<p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>-->
+            <!--</div>-->
+            <!--<div class="col-md-5">-->
+                <!--<img class="featurette-image img-responsive center-block" src="https://placehold.it/500x500" alt="Generic placeholder image">-->
+            <!--</div>-->
+        <!--</div>-->
+
+        <!--<hr class="featurette-divider">-->
+
+        <!--<div class="row featurette">-->
+            <!--<div class="col-md-7 col-md-push-5">-->
+                <!--<h2 class="featurette-heading">Oh yeah, it's that good. <span class="text-muted">See for yourself.</span></h2>-->
+                <!--<p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>-->
+            <!--</div>-->
+            <!--<div class="col-md-5 col-md-pull-7">-->
+                <!--<img class="featurette-image img-responsive center-block" src="https://placehold.it/500x500" alt="Generic placeholder image">-->
+            <!--</div>-->
+        <!--</div>-->
+
+        <!--<hr class="featurette-divider">-->
+
+        <!--<div class="row featurette">-->
+            <!--<div class="col-md-7">-->
+                <!--<h2 class="featurette-heading">And lastly, this one. <span class="text-muted">Checkmate.</span></h2>-->
+                <!--<p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>-->
+            <!--</div>-->
+            <!--<div class="col-md-5">-->
+                <!--<img class="featurette-image img-responsive center-block" src="https://placehold.it/500x500" alt="Generic placeholder image">-->
+            <!--</div>-->
+        <!--</div>-->
+
+        <!--<hr class="featurette-divider">-->
+
+        <!--&lt;!&ndash; /END THE FEATURETTES &ndash;&gt;-->
+
+    <!--</div>&lt;!&ndash; /.container &ndash;&gt;-->
+    <!--</div>&lt;!&ndash; /.second-half &ndash;&gt;-->
+<!--</body>-->
 

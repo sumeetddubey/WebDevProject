@@ -1,7 +1,7 @@
 var express = require('express');
 var mongoose = require('mongoose');
 
-mongoose.connect('mongodb://localhost/webdev');
+mongoose.connect('mongodb://127.0.0.1:27017/webdev');
 
 var app = express();
 var ipaddress = process.env.OPENSHIFT_NODEJS_IP || '127.0.0.1';

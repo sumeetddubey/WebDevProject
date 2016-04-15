@@ -22,6 +22,7 @@ module.exports = function(app, userModel) {
         userModel.findUserByCredentials(credentials)
             .then(
                 function(doc){
+                    console.log(doc);
                     user = doc;
                     res.json(user);
                 },
