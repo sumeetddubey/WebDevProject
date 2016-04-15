@@ -46,7 +46,7 @@
             })
             .when('/tutorial-maker', {
                 templateUrl: "views/tutorial-maker/tutorial-maker.view.html",
-                //controller: "TutorialController"
+                controller: "TutorialMakerController"
             })
             .when('/lesson-maker', {
                 templateUrl: "views/lesson-maker/lesson-maker.view.html",
