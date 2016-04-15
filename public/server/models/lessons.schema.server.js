@@ -8,7 +8,7 @@ module.exports = function(){
         title: String,
         description: [String],
         multimedia: String,
-        hints: [String],
+        hints: String,
         keywords: [String],
         testcases: [String]
     },
