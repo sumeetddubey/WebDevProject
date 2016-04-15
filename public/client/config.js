@@ -44,6 +44,14 @@
                 templateUrl: "views/tutorial/tutorial.view.html",
                 //controller: "TutorialController"
             })
+            .when('/tutorial-maker', {
+                templateUrl: "views/tutorial-maker/tutorial-maker.view.html",
+                //controller: "TutorialController"
+            })
+            .when('/lesson-maker', {
+                templateUrl: "views/lesson-maker/lesson-maker.view.html",
+                //controller: "TutorialController"
+            })
             .otherwise({
                 redirectTo: "/"
             });
