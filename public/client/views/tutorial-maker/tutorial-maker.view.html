@@ -3,25 +3,42 @@
         <div>
             <form>
                 <div layout-gt-xs="column">
-                    <md-input-container class="md-block" flex-gt-xs>
-                        <label>Title</label>
-                        <input ng-model="tutorial.title">
-                    </md-input-container>
-                    <md-input-container class="md-block" flex-gt-xs>
-                        <label>UploaderId (Disabled)</label>
-                        <input ng-model="tutorial.uploaderId" disabled>
-                    </md-input-container>
-                    <md-input-container style="margin-right: 10px;">
-                        <label>Language</label>
-                        <md-select ng-model="tutorial.language">
-                            <md-option ng-repeat="language in languages" value="{{language}}">{{language}}</md-option>
-                        </md-select>
-                    </md-input-container>
-                    <md-input-container class="md-block" flex-gt-xs>
-                        <label>Tags</label>
-                        <input ng-model="tutorial.tags">
-                    </md-input-container>
-                    <md-button ng-click="createTutorial(tutorial)" class="md-raised md-primary">Create Tutorial</md-button>
+                    <div layout="row">
+                        <md-input-container class="md-block" flex-gt-xs>
+                            <label>Title</label>
+                            <input ng-model="tutorial.title">
+                        </md-input-container>
+                        <md-button ng-click="updateTutorial(tutorial.title)" class="md-raised material-icons">mode_edit</md-button>
+                        <md-button ng-click="deleteTutorial(tutorial.title)" class="md-raised md-warn material-icons">delete</md-button>
+                    </div>
+                    <div layout="row">
+                        <md-input-container class="md-block" flex-gt-xs>
+                            <label>UploaderId (Disabled)</label>
+                            <input ng-model="tutorial.uploaderId" disabled>
+                        </md-input-container>
+                        <md-button ng-click="updateTutorial(tutorial.uploaderId)" class="md-raised material-icons">mode_edit</md-button>
+                        <md-button ng-click="deleteTutorial(tutorial.uploaderId)" class="md-raised md-warn material-icons">delete</md-button>
+                    </div>
+                    <div layout="row">
+                        <md-input-container style="margin-right: 10px;">
+                            <label>Language</label>
+                            <md-select ng-model="tutorial.language">
+                                <md-option ng-repeat="language in languages" value="{{language}}">{{language}}</md-option>
+                            </md-select>
+                        </md-input-container>
+                        <md-button ng-click="updateTutorial(tutorial.language)" class="md-raised material-icons">mode_edit</md-button>
+                        <md-button ng-click="deleteTutorial(tutorial.language)" class="md-raised md-warn material-icons">delete</md-button>
+                    </div>
+                    <div layout="row">
+                        <md-input-container class="md-block" flex-gt-xs>
+                            <label>Tags</label>
+                            <input ng-model="tutorial.tags">
+                        </md-input-container>
+                        <md-button ng-click="updateTutorial(tutorial.tags)" class="md-raised material-icons">mode_edit</md-button>
+                        <md-button ng-click="deleteTutorial(tutorial.tags)" class="md-raised md-warn material-icons">delete</md-button>
+                    </div>
+                        <md-button ng-click="createTutorial(tutorial)" class="md-raised md-primary">Create Tutorial</md-button>
+                    </div>
                 </div>
             </form>
         </div>

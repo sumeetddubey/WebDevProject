@@ -14,8 +14,9 @@
         $scope.updateLesson = updateLesson;
         $scope.deleteLesson = deleteLesson;
 
-        $scope.keys = [$mdConstant.KEY_CODE.ENTER, $mdConstant.KEY_CODE.COMMA];
-        $scope.tags = [];
+        var semicolon = 186;
+        $scope.keys = [$mdConstant.KEY_CODE.ENTER, $mdConstant.KEY_CODE.COMMA, semicolon];
+        $scope.tags = ['programming'];
 
         var currentUser = $rootScope.currentUser;
         var tutorialId = $rootScope.tutorial._id;

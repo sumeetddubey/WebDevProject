@@ -3,32 +3,51 @@
         <div>
             <form>
                 <div layout-gt-xs="column">
-                    <md-input-container class="md-block" flex-gt-xs>
-                        <label>Title</label>
-                        <input ng-model="lesson.title">
-                    </md-input-container>
-                    <md-input-container class="md-block">
-                        <label>Description</label>
-                        <textarea ng-model="lesson.description" md-maxlength="150" rows="5" md-select-on-focus></textarea>
-                    </md-input-container>
-                    <md-input-container class="md-block">
-                        <label>Test Cases</label>
-                        <textarea ng-model="lesson.testcases" md-maxlength="150" rows="5" md-select-on-focus></textarea>
-                    </md-input-container>
-                    <md-input-container class="md-block" flex-gt-xs>
-                        <label>Keywords</label>
-                        <input ng-model="lesson.keywords">
-                    </md-input-container>
-                    <md-input-container class="md-block" flex-gt-xs>
-                        <label>Hints</label>
-                        <input ng-model="lesson.hints">
-                    </md-input-container>
-                    <md-chips
-                            ng-model="lesson.tags"
-                            md-separator-keys="lesson.tags"
-                            placeholder="Enter a tag"
-                            secondary-placeholder="Comma separated tags">
-                    </md-chips>
+                    <div layout="row">
+                        <md-input-container class="md-block" flex-gt-xs>
+                            <label>Title</label>
+                            <input ng-model="lesson.title">
+                        </md-input-container>
+                        <md-button ng-click="updateTutorial(tutorial.title)" class="md-raised material-icons">mode_edit</md-button>
+                        <md-button ng-click="deleteTutorial(tutorial.title)" class="md-raised md-warn material-icons">delete</md-button>
+                    </div>
+                    <div layout="row">
+                        <md-input-container class="md-block">
+                            <label>Description</label>
+                            <textarea ng-model="lesson.description" md-maxlength="150" rows="5" md-select-on-focus></textarea>
+                        </md-input-container>
+                        <md-button ng-click="updateTutorial(tutorial.title)" class="md-raised material-icons">mode_edit</md-button>
+                        <md-button ng-click="deleteTutorial(tutorial.title)" class="md-raised md-warn material-icons">delete</md-button>
+                    </div>
+                    <div layout="row">
+                        <md-input-container class="md-block">
+                            <label>Test Cases</label>
+                            <textarea ng-model="lesson.testcases" md-maxlength="150" rows="5" md-select-on-focus></textarea>
+                        </md-input-container>
+                        <md-button ng-click="updateTutorial(tutorial.title)" class="md-raised material-icons">mode_edit</md-button>
+                        <md-button ng-click="deleteTutorial(tutorial.title)" class="md-raised md-warn material-icons">delete</md-button>
+                    </div>
+                    <!--<md-input-container class="md-block" flex-gt-xs>-->
+                        <!--<label>Keywords</label>-->
+                        <!--<input ng-model="lesson.keywords">-->
+                    <!--</md-input-container>-->
+                    <div layout="row">
+                        <md-input-container class="md-block" flex-gt-xs>
+                            <label>Hints</label>
+                            <input ng-model="lesson.hints">
+                        </md-input-container>
+                        <md-button ng-click="updateTutorial(tutorial.title)" class="md-raised material-icons">mode_edit</md-button>
+                        <md-button ng-click="deleteTutorial(tutorial.title)" class="md-raised md-warn material-icons">delete</md-button>
+                    </div>
+                    <div layout="row">
+                        <h2 class="md-title">Tags</h2>
+                        <md-chips
+                                ng-model="lesson.tags"
+                                md-separator-keys="lesson.tags"
+                                placeholder="Enter a tag"
+                                secondary-placeholder="Comma separated tags">
+                        </md-chips>
+                    </div>
                     <md-button ng-click="createLesson(lesson)" class="md-raised md-primary">Create Lesson</md-button>
                 </div>
             </form>
