@@ -71,7 +71,7 @@ module.exports = function(){
 
     function createTutorial(ipTutorial){
         var deferred = q.defer();
-        var tutorial = null;
+        var tutorial = {};
 
         if(ipTutorial.title){
             tutorial.title = ipTutorial.title;
@@ -88,6 +88,8 @@ module.exports = function(){
         if(ipTutorial.language){
             tutorial.language = ipTutorial.language;
         }
+        console.log("the tutorial is");
+        console.log(tutorial);
         TutorialModel.create(tutorial, function(err, doc){
             if(err){
                 deferred.reject(err);

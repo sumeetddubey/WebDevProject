@@ -45,9 +45,17 @@ module.exports = function(app, tutorialModel){
     }
 
     function createTutorial(req, res){
+        console.log("in server service");
         var tutorial = req.body;
-        var response = tutorialModel.createTutorial(tutorial);
-        res.json(response);
+        tutorialModel.createTutorial(tutorial)
+            .then(
+                function(doc){
+                    res.json(doc);
+                },
+                function(err){
+                    res.status(400).send(err);
+                }
+            )
     }
 
     function updateTutorial(req, res){

@@ -5,10 +5,14 @@
     var app = angular.module("codingTutorial");
     app.controller("TutorialMakerController", TutorialMakerController);
 
-    TutorialMakerController.$inject = ['$scope', '$rootScope'];
+    TutorialMakerController.$inject = ['$scope', '$rootScope', 'TutorialService'];
 
-    function TutorialMakerController($scope, $rootScope){
+    function TutorialMakerController($scope, $rootScope, TutorialService){
+
+        $scope.createTutorial = createTutorial;
+
         var currentUser = $rootScope.currentUser;
+
         $scope.languages = [
             "Python",
             "JavaScript",
@@ -42,13 +46,18 @@
         }
 
         function createTutorial(tutorial){
+            console.log("in client create");
+            console.log(currentUser);
+            console.log(tutorial);
             if(currentUser && tutorial){
+                console.log('here');
                 TutorialService.createTutorial(tutorial)
                     .then(
                         function(response){
                             if(response){
                                 $scope.userTutorials = response.data;
                                 console.log(response.data);
+                                $location.url('/lesson-maker');
                             }
                         }
                     )
