@@ -2,7 +2,7 @@
     <md-content layout-padding>
         <div>
             <form>
-                <div layout-gt-xs="row">
+                <div layout-gt-xs="column">
                     <md-input-container class="md-block" flex-gt-xs>
                         <label>Title</label>
                         <input ng-model="tutorial.title">
@@ -17,6 +17,11 @@
                             <md-option ng-repeat="language in languages" value="{{language}}">{{language}}</md-option>
                         </md-select>
                     </md-input-container>
+                    <md-input-container class="md-block" flex-gt-xs>
+                        <label>Tags</label>
+                        <input ng-model="tutorial.tags">
+                    </md-input-container>
+                    <md-button class="md-raised md-primary">Create Lesson</md-button>
                 </div>
             </form>
         </div>
