@@ -16,6 +16,7 @@
 module.exports = function(app, tutorialModel){
 
     app.get('/api/project/tutorial', findTutorial);
+    app.get('/api/project/user/:userId/tutorial', findTutorialsByUserId);
     app.post('/api/project/tutorial', createTutorial);
     app.put('/api/project/tutorial/:id', updateTutorial);
     app.delete('/api/project/tutorial/:id', deleteTutorial);
@@ -34,6 +35,12 @@ module.exports = function(app, tutorialModel){
         else{
             response = tutorialModel.findAllTutorials();
         }
+        res.json(response);
+    }
+
+    function findTutorialsByUserId(req, res){
+        var userId = req.params.userId;
+        var response = tutorialModel.findTutorialsByUserId(userId);
         res.json(response);
     }
 

@@ -7,6 +7,7 @@ var mongoose = require('mongoose');
 
 module.exports = function(){
 
+    var q = require('q');
     var mock = require('./tutorial.mock.json');
     var HackerRank = require('machinepack-hackerrank');
 
@@ -16,6 +17,7 @@ module.exports = function(){
 
     var api = {
         findAllTutorials: findAllTutorials,
+        findTutorialsByUserId: findTutorialsByUserId,
         findTutorialByName: findTutorialByName,
         findTutorialByKeyword: findTutorialByKeyword,
         createTutorial: createTutorial,
@@ -30,6 +32,21 @@ module.exports = function(){
     function findAllTutorials(){
         console.log("in tutorial model");
         return mock;
+    }
+
+    function findTutorialsByUserId(userId){
+        var deferred = q.defer();
+        var tutorials = [];
+        TutorialModel.find({'userId': userId}, function(err, doc){
+            if(err){
+                deferred.reject(err);
+            }
+            else{
+                deferred.resolve(doc);
+            }
+        });
+
+        return deferred.promise;
     }
 
     function findTutorialByName(name){
@@ -53,49 +70,52 @@ module.exports = function(){
     }
 
     function createTutorial(ipTutorial){
-        var d = new Date();
-        var t = d.getTime();
-        var tutorial = {
-            "_id": t
-        };
-        if(ipTutorial.name){
-            tutorial.name = ipTutorial.name;
+        var deferred = q.defer();
+        var tutorial = null;
+
+        if(ipTutorial.title){
+            tutorial.title = ipTutorial.title;
         }
-        if(ipTutorial.language){
-            tutorial.language = ipTutorial.language;
+        if(ipTutorial.uploaderId){
+            tutorial.uploaderId = ipTutorial.uploaderId;
         }
         if(ipTutorial.lessons){
             tutorial.lessons = ipTutorial.lessons;
         }
-        if(ipTutorial.author){
-            tutorial.author = ipTutorial.author;
+        if(ipTutorial.tags){
+            tutorial.tags = ipTutorial.tags;
         }
-        if(ipTutorial.keywords){
-            tutorial.keywords = ipTutorial.keywords;
+        if(ipTutorial.language){
+            tutorial.language = ipTutorial.language;
         }
-
-        mock.push(tutorial);
-        console.log(mock);
-        return mock;
+        TutorialModel.create(tutorial, function(err, doc){
+            if(err){
+                deferred.reject(err);
+            }
+            else{
+                deferred.resolve(doc);
+            }
+        });
+        return deferred.promise;
     }
 
     function updateTutorial(id, tutorial) {
         for(var index in mock){
             if(mock[index]._id === id){
-                if(tutorial.name){
-                    mock[index].name = tutorial.name;
+                if(tutorial.title){
+                    mock[index].title = tutorial.title;
                 }
-                if(tutorial.language){
-                    mock[index].language = tutorial.language;
+                if(tutorial.uploaderId){
+                    mock[index].uploaderId = tutorial.uploaderId;
                 }
                 if(tutorial.lessons){
                     mock[index].lessons = tutorial.lessons;
                 }
-                if(tutorial.author){
-                    mock[index].author = tutorial.author;
+                if(tutorial.tags){
+                    mock[index].tags = tutorial.tags;
                 }
-                if(tutorial.keywords){
-                    mock[index].keywords = tutorial.keywords;
+                if(tutorial.language){
+                    mock[index].language = tutorial.language;
                 }
             }
         }
