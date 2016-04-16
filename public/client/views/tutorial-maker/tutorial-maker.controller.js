@@ -5,9 +5,9 @@
     var app = angular.module("codingTutorial");
     app.controller("TutorialMakerController", TutorialMakerController);
 
-    TutorialMakerController.$inject = ['$scope', '$rootScope', 'TutorialService'];
+    TutorialMakerController.$inject = ['$scope', '$rootScope', 'TutorialService', '$location'];
 
-    function TutorialMakerController($scope, $rootScope, TutorialService){
+    function TutorialMakerController($scope, $rootScope, TutorialService, $location){
 
         $scope.createTutorial = createTutorial;
 
@@ -39,6 +39,7 @@
                 .then(
                     function(response){
                         if(response){
+                            $rootScope.tutorial = response.data;
                             $scope.userTutorials = response.data;
                         }
                     }
@@ -55,6 +56,7 @@
                     .then(
                         function(response){
                             if(response){
+                                $rootScope.tutorial = response.data;
                                 $scope.userTutorials = response.data;
                                 console.log(response.data);
                                 $location.url('/lesson-maker');

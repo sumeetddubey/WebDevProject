@@ -13,7 +13,7 @@ module.exports = function(){
         testcases: [String]
     },
         {
-            collection: 'tutorial.lesson'
+            collection: 'tutorial.lessons'
         });
 
     return LessonSchema;

@@ -14,7 +14,7 @@
             findTutorialByKeyword: findTutorialByKeyword,
             createTutorial: createTutorial,
             updateTutorial: updateTutorial,
-            deleteTutorial: deleteTutorial
+            deleteTutorial: deleteTutorial,
         };
         return api;
 
