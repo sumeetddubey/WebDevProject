@@ -2,6 +2,15 @@ h1, h2, h3, h4, h5, h6, p, .btn, .navbar-nav a, .form-control, .list-inline, sma
     font-family: 'Montserrat', sans-serif;
 }
 
+.md-card-title{
+    background-color: dodgerblue;
+}
+
+.better-header{
+    padding: 0!important;
+}
+
+
 p, .lead {
     font-family: 'Raleway', sans-serif;
 }

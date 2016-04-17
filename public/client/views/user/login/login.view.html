@@ -1,22 +1,37 @@
 <div layout="column" ng-controller="LoginController" ng-cloak class="md-form">
-    <md-content layout-gt-sm="row" layout-align="center center" layout-padding>
-        <md-card>
-            <md-card-content layout="column">
-                <md-card-title>
-                    <md-headline>Login Form</md-headline>
-                </md-card-title>
-                <md-input-container>
-                    <label>Email Address</label>
-                    <input type="email" ng-model="user.email" />
-                </md-input-container>
-                <md-input-container>
-                    <label>Password</label>
-                    <input type="password" ng-model="user.password" />
-                </md-input-container>
-                <md-button ng-click="login(user)" class="md-raised md-primary">Submit</md-button>
-            </md-card-content>
-        </md-card>
-    </md-content>
+    <div layout="row" style="margin-top: 10%">
+
+        <div flex="25">
+            <!--First-->
+        </div>
+
+        <div flex="50">
+            <md-content layout-gt-sm="row" layout-align="center center" layout-padding>
+                <md-card flex class="better-header">
+
+                    <md-toolbar class="md-toolbar-tools">
+                        <h2><span>Login Form</span></h2>
+                    </md-toolbar>
+
+                    <md-card-content layout="column" style="margin-top: 5%;">
+                        <md-input-container>
+                            <label>Email Address</label>
+                            <input type="email" ng-model="user.email" />
+                        </md-input-container>
+                        <md-input-container>
+                            <label>Password</label>
+                            <input type="password" ng-model="user.password" />
+                        </md-input-container>
+                        <md-button ng-click="login(user)" class="md-raised md-primary" style="margin-top: 5%;">Submit</md-button>
+                    </md-card-content>
+
+                </md-card>
+            </md-content>
+        </div>
+
+        <div flex="25">
+            <!--Second-->
+        </div>
 </div>
 
     <!--<md-content>-->
