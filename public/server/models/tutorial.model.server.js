@@ -30,8 +30,16 @@ module.exports = function(){
     return api;
 
     function findAllTutorials(){
-        console.log("in tutorial model");
-        return mock;
+        var deferred = q.defer();
+        TutorialModel.find(function(err, doc){
+            if(err){
+                deferred.reject(err);
+            }
+            else{
+                deferred.resolve(doc);
+            }
+        });
+        return deferred.promise;
     }
 
     function findTutorialsByUserId(userId){

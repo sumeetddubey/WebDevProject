@@ -52,6 +52,10 @@
                 templateUrl: "views/lesson-maker/lesson-maker.view.html",
                 controller: "LessonMakerController"
             })
+            .when('/tutorial-list', {
+                templateUrl: 'views/tutorial-list/tutorial-list.view.html',
+                controller: "TutorialListController"
+            })
             .otherwise({
                 redirectTo: "/"
             });

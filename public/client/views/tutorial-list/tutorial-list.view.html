@@ -1,0 +1,7 @@
+<ul>
+    <li ng-repeat="tutorial in tutorials">{{tutorial.title}}
+        <ul>
+            <li ng-repeat="lesson in tutorial.lessons">{{lesson.title}}</li>
+        </ul>
+    </li>
+</ul>

@@ -27,15 +27,39 @@ module.exports = function(app, tutorialModel){
     function findTutorial(req, res){
         var response;
         if(req.query.name){
-            response = tutorialModel.findTutorialByName(req.query.name);
+            tutorialModel.findTutorialByName(req.query.name)
+                .then(
+                    function(doc){
+                        res.json(doc);
+                    },
+                    function(err){
+                        res.status(400).send(err);
+                    }
+                )
         }
         else if(req.query.keyword){
-            response = tutorialModel.findTutorialByKeyword(req.query.keyword);
+            tutorialModel.findTutorialByKeyword(req.query.keyword)
+                .then(
+                    function(doc){
+                        res.json(doc);
+                    },
+                    function(err){
+                        res.status(400).send(err);
+                    }
+                )
         }
         else{
-            response = tutorialModel.findAllTutorials();
+            console.log("finding all tutorials");
+            tutorialModel.findAllTutorials()
+                .then(
+                    function(doc){
+                        res.json(doc);
+                    },
+                    function(err){
+                        res.status(400).send(err);
+                    }
+                )
         }
-        res.json(response);
     }
 
     function findTutorialsByUserId(req, res){

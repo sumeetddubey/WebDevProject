@@ -1,14 +1,82 @@
 [
   {
-    "_id": 1, "name": "OOP", "language": "Python",
-    "lessons": 12, "tags":["python", "oop", "objects"]
+    "title": "Python Programming",
+    "uploaderId": "1",
+    "lessons": [
+      {
+        "title": "Introduction to Python",
+        "description": ["A simple introduction to python"],
+        "multimedia": "",
+        "hints": "No hints",
+        "keywords": ["intro", "python"],
+        "testcases": []
+      },
+      {
+        "title": "Python Datatypes",
+        "description": ["Different datatypes in python"],
+        "multimedia": "",
+        "hints": "No hints",
+        "keywords": ["datatypes", "python"],
+        "testcases": []
+      }
+    ],
+    "tags":["python", "oop", "objects"],
+    "language": "Python"
   },
   {
-    "_id": 2, "name": "Java Programming", "language": "Java",
-    "lessons": 10, "tags": ["java", "oop"]
+    "title": "OOP",
+    "uploaderId": "1",
+    "lessons": [
+      {
+        "title": "Introduction to Java",
+        "description": ["A simple introduction to Java"],
+        "multimedia": "",
+        "hints": "No hints",
+        "keywords": ["intro", "Java"],
+        "testcases": []
+      },
+      {
+        "title": "Java Datatypes",
+        "description": ["Different datatypes in Java"],
+        "multimedia": "",
+        "hints": "No hints",
+        "keywords": ["datatypes", "Java"],
+        "testcases": []
+      },
+      {
+        "title": "Java Methods",
+        "description": ["Implementation of functions in Java"],
+        "multimedia": "",
+        "hints": "No hints",
+        "keywords": ["functions", "Java"],
+        "testcases": []
+      }
+    ],
+    "tags":["java", "oop", "object", "class"],
+    "language": "Java"
   },
   {
-    "_id": 3, "name": "Introduction to c", "language": "C",
-    "lessons": 10, "tags": ["c", "cpp"]
+    "title": "JavaScript",
+    "uploaderId": "1",
+    "lessons": [
+      {
+        "title": "Introduction to Javascript",
+        "description": ["An introduction to web programming and JavaScript"],
+        "multimedia": "",
+        "hints": "No hints",
+        "keywords": ["intro", "js", "javascript"],
+        "testcases": []
+      },
+      {
+        "title": "Javascript Variables",
+        "description": ["Usage of variables in JavaScript"],
+        "multimedia": "",
+        "hints": "No hints",
+        "keywords": ["variables", "js"],
+        "testcases": []
+      }
+    ],
+    "tags":["js", "web"],
+    "language": "JavaScript"
   }
 ]
