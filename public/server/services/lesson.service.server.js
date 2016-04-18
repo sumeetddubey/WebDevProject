@@ -23,6 +23,7 @@ module.exports  = function(app, lessonModel){
     function createLesson(req, res){
         var tutorialId = req.params.tutorialId;
         var lesson = req.body;
+
         lessonModel.createLesson(tutorialId, lesson)
             .then(
                 function(doc){

@@ -9,7 +9,7 @@
         "multimedia": "",
         "hints": "No hints",
         "keywords": ["intro", "python"],
-        "testcases": []
+        "testcases": [""]
       },
       {
         "title": "Python Datatypes",
@@ -17,7 +17,7 @@
         "multimedia": "",
         "hints": "No hints",
         "keywords": ["datatypes", "python"],
-        "testcases": []
+        "testcases": [""]
       }
     ],
     "tags":["python", "oop", "objects"],
@@ -33,7 +33,7 @@
         "multimedia": "",
         "hints": "No hints",
         "keywords": ["intro", "Java"],
-        "testcases": []
+        "testcases": [""]
       },
       {
         "title": "Java Datatypes",
@@ -41,7 +41,7 @@
         "multimedia": "",
         "hints": "No hints",
         "keywords": ["datatypes", "Java"],
-        "testcases": []
+        "testcases": [""]
       },
       {
         "title": "Java Methods",
@@ -49,7 +49,7 @@
         "multimedia": "",
         "hints": "No hints",
         "keywords": ["functions", "Java"],
-        "testcases": []
+        "testcases": [""]
       }
     ],
     "tags":["java", "oop", "object", "class"],
@@ -65,7 +65,7 @@
         "multimedia": "",
         "hints": "No hints",
         "keywords": ["intro", "js", "javascript"],
-        "testcases": []
+        "testcases": [""]
       },
       {
         "title": "Javascript Variables",
@@ -73,7 +73,7 @@
         "multimedia": "",
         "hints": "No hints",
         "keywords": ["variables", "js"],
-        "testcases": []
+        "testcases": [""]
       }
     ],
     "tags":["js", "web"],

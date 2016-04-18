@@ -9,6 +9,7 @@
         var api = {
             //method declarations
             findAllTutorials: findAllTutorials,
+            findTutorialById: findTutorialById,
             findTutorialsByUserId: findTutorialsByUserId,
             findTutorialByName: findTutorialByName,
             findTutorialByKeyword: findTutorialByKeyword,
@@ -20,6 +21,10 @@
 
         function findAllTutorials(){
             return $http.get('/api/project/tutorial');
+        }
+
+        function findTutorialById(tutorialId){
+            return $http.get('/api/project/tutorial/' +tutorialId);
         }
 
         function findTutorialsByUserId(userId){

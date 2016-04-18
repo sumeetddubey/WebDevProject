@@ -1,10 +1,14 @@
-<!--<ul>-->
-    <!--<li ng-repeat="tutorial in tutorials">{{tutorial.title}}-->
-        <!--<ul>-->
-            <!--<li ng-repeat="lesson in tutorial.lessons">{{lesson.title}}</li>-->
-        <!--</ul>-->
-    <!--</li>-->
-<!--</ul>-->
+<ul>
+    <li ng-repeat="tutorial in tutorials">
+        <button class="list-group-item" ng-click="openTutorial(tutorial)">{{tutorial.title}}</button>
+        <ul>
+            <li ng-repeat="lesson in tutorial.lessons">
+                <button class="list-group-item">{{lesson.title}}</button>
+            </li>
+        </ul>
+    </li>
+</ul>
+
 <div ng-controller="TutorialListController" ng-cloak layout="column">
     <div layout="row">
         <div flex="20">
@@ -43,3 +47,15 @@
         </div>
     </div>
 </div>
+=======
+<ul>
+    <li ng-repeat="tutorial in tutorials">
+        <button class="list-group-item" ng-click="openTutorial(tutorial)">{{tutorial.title}}</button>
+        <ul>
+            <li ng-repeat="lesson in tutorial.lessons">
+                <button class="list-group-item">{{lesson.title}}</button>
+            </li>
+        </ul>
+    </li>
+</ul>
+>>>>>>> f3fcc7cfd29cb48a8d785c56cc12b2fac99f4087
