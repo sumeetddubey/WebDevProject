@@ -54,7 +54,7 @@
 
         function run(userCode) {
             var language = $scope.tutorial.language;
-            var testcases = $scope.tutorial.testcases;
+            var testcases = JSON.stringify(["1\n"]);
             console.log(userCode.data);
             var code = [userCode.data];
             HackerRankService.sendCode(code, language, testcases)
@@ -62,9 +62,16 @@
                     function(response) {
                         if (response.data) {
                             $scope.isLoading = false;
-                            console.log("in response");
-                            console.log("response is " + response.data);
+                            console.log(JSON.stringify(response.data));
+                            console.log(String(response.data));
+                            console.log("response is "+response.data);
                             $scope.output = response.data;
+                            if(JSON.stringify(response.data) === testcases){
+                                window.alert('correct output');
+                            }
+                            else{
+                                window.alert('wrong output');
+                            }
                         }
                         else{
                             $scope.isLoading = false;
@@ -77,5 +84,4 @@
 
         initTutorial();
     }
-
 })();
