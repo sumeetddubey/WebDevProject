@@ -1,7 +1,45 @@
-<ul>
-    <li ng-repeat="tutorial in tutorials">{{tutorial.title}}
-        <ul>
-            <li ng-repeat="lesson in tutorial.lessons">{{lesson.title}}</li>
-        </ul>
-    </li>
-</ul>
+<!--<ul>-->
+    <!--<li ng-repeat="tutorial in tutorials">{{tutorial.title}}-->
+        <!--<ul>-->
+            <!--<li ng-repeat="lesson in tutorial.lessons">{{lesson.title}}</li>-->
+        <!--</ul>-->
+    <!--</li>-->
+<!--</ul>-->
+<div ng-controller="TutorialListController" ng-cloak layout="column">
+    <div layout="row">
+        <div flex="20">
+            <!--left-->
+        </div>
+        <div flex="60">
+            <md-content>
+                <md-card>
+                <md-toolbar layout="row">
+                    <div class="md-toolbar-tools">
+                        <span>Tutorial List</span>
+                    </div>
+                </md-toolbar>
+                <md-content>
+                    <md-list flex>
+                        <md-subheader class="md-no-sticky">List of all the Tutorials & Lessons</md-subheader>
+                        <md-list-item class="md-3-line" ng-repeat="tutorial in tutorials" ng-click="openTutorial(tutorial)">
+                            <div class="md-list-item-text" layout="column" style="margin-top: 2%">
+                                <h3>{{tutorial.title}}</h3>
+                                <md-list-item class="md-3-line" ng-repeat="lesson in tutorial.lessons">
+                                    <div class="md-list-item-text" layout="column">
+                                        <p>{{lesson.title}}</p>
+                                        <md-divider ng-if="!$last"></md-divider>
+                                    </div>
+                                </md-list-item>
+                                <md-divider ng-if="!$last"></md-divider>
+                            </div>
+                        </md-list-item>
+                    </md-list>
+                </md-content>
+                </md-card>
+            </md-content>
+        </div>
+        <div flex="20">
+            <!--right-->
+        </div>
+    </div>
+</div>
