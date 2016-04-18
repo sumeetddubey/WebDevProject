@@ -13,6 +13,9 @@
         $scope.run = run;
         $scope.showloader = showloader;
         $scope.openOffscreen = openOffscreen;
+        $scope.nextLesson = nextLesson;
+
+        var count = 0;
 
         function initTutorial(){
             var tutorialId = $rootScope.tutorial._id;
@@ -21,7 +24,44 @@
                     function(response){
                         if(response){
                             $scope.tutorial = response.data;
-                            console.log($scope.tutorial);
+                            $scope.currentLesson = response.data.lessons[count];
+                            console.log($scope.currentLesson);
+                        }
+                    }
+                )
+        }
+
+        function lessonCounter(tutorial){
+            var lessons = tutorial.lessons;
+            var len = lessons.length;
+            if(count<len){
+                count++;
+                $scope.currentLesson = tutorial.lessons[count];
+            }
+        }
+
+        function nextLesson(userCode){
+            var code = [userCode.data];
+            var language = $scope.tutorial.language;
+            var testcases = ["1\n"];
+            HackerRankService.sendCode(code, language, testcases)
+                .then(
+                    function(response){
+                        if(response){
+                            $scope.output = response.data;
+                            $scope.isLoading = false;
+                            testcases = JSON.stringify(testcases);
+                            var output = JSON.stringify(response.data);
+                            console.log(testcases);
+                            console.log(output);
+                            if(testcases == output){
+                                lessonCounter($scope.tutorial);
+                                console.log(count);
+                                console.log($scope.currentLesson);
+                            }
+                            else{
+                                console.log('wrong output');
+                            }
                         }
                     }
                 )
@@ -62,16 +102,7 @@
                     function(response) {
                         if (response.data) {
                             $scope.isLoading = false;
-                            console.log(JSON.stringify(response.data));
-                            console.log(String(response.data));
-                            console.log("response is "+response.data);
                             $scope.output = response.data;
-                            if(JSON.stringify(response.data) === testcases){
-                                window.alert('correct output');
-                            }
-                            else{
-                                window.alert('wrong output');
-                            }
                         }
                         else{
                             $scope.isLoading = false;
