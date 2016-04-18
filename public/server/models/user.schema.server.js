@@ -1,8 +1,9 @@
 /**
  * Created by sumeetdubey on 4/12/16.
  */
-
 module.exports = function(mongoose){
+    var Grid = require('gridfs-stream');
+
     var UserSchema = mongoose.Schema({
         firstName: String,
         lastName: String,

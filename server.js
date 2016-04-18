@@ -1,7 +1,10 @@
 var express = require('express');
 var mongoose = require('mongoose');
+var mongo = require('mongodb');
+var Grid = require('gridfs-stream');
 
-mongoose.connect('mongodb://127.0.0.1:27017/webdev');
+var db = mongoose.connect('mongodb://127.0.0.1:27017/webdev');
+var gfs = Grid(db, mongoose.mongo);
 
 var app = express();
 var ipaddress = process.env.OPENSHIFT_NODEJS_IP || '127.0.0.1';
@@ -19,6 +22,6 @@ app.get('/hello', function(req, res){
     res.send('hello world');
 });
 
-require("./public/server/app.js")(app, mongoose);
+require("./public/server/app.js")(app, mongoose, gfs);
 
 app.listen(port, ipaddress);
