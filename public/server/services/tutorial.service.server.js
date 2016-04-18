@@ -16,6 +16,7 @@
 module.exports = function(app, tutorialModel){
 
     app.get('/api/project/tutorial', findTutorial);
+    app.get('/api/project/tutorial/:id', findTutorialById);
     app.get('/api/project/user/:userId/tutorial', findTutorialsByUserId);
     app.post('/api/project/tutorial', createTutorial);
     app.put('/api/project/tutorial/:id', updateTutorial);
@@ -62,6 +63,20 @@ module.exports = function(app, tutorialModel){
         }
     }
 
+    function findTutorialById(req, res){
+        var tutorialId = req.params.id;
+        console.log(tutorialId);
+        tutorialModel.findTutorialById(tutorialId)
+            .then(
+                function(response){
+                    res.json(response);
+                },
+                function(err){
+                    res.status(400).send(err);
+                }
+            )
+    }
+
     function findTutorialsByUserId(req, res){
         var userId = req.params.userId;
         var response = tutorialModel.findTutorialsByUserId(userId);
@@ -85,17 +100,35 @@ module.exports = function(app, tutorialModel){
     function updateTutorial(req, res){
         var id = parseInt(req.params.id);
         var tutorial = req.body;
-        var response = tutorialModel.updateTutorial(id, tutorial);
-        res.json(response);
+        tutorialModel.updateTutorial(id, tutorial)
+            .then(
+                function(doc){
+                    res.json(doc);
+                },
+                function(err){
+                    res.status(400).send(err);
+                }
+            )
     }
 
     function deleteTutorial(req, res){
         var id = parseInt(req.params.id);
-        var response = tutorialModel.deleteTutorial(id);
-        res.json(response);
+        tutorialModel.deleteTutorial(id)
+            .then(
+                function(doc){
+                    res.json(doc);
+                },
+                function(err){
+                    res.status(400).sned(err);
+                }
+            )
     }
 
     function sendCode(req, res){
+        var language = req.query.lang;
+        var testcases= req.query.testcases;
+        console.log(language);
+        console.log(testcases);
         console.log(req.body);
         //var code = Object.keys(req.body)[0];
         var code = req.body[0];

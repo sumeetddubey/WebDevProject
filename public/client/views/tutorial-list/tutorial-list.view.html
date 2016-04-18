@@ -1,7 +1,10 @@
 <ul>
-    <li ng-repeat="tutorial in tutorials">{{tutorial.title}}
+    <li ng-repeat="tutorial in tutorials">
+        <button class="list-group-item" ng-click="openTutorial(tutorial)">{{tutorial.title}}</button>
         <ul>
-            <li ng-repeat="lesson in tutorial.lessons">{{lesson.title}}</li>
+            <li ng-repeat="lesson in tutorial.lessons">
+                <button class="list-group-item">{{lesson.title}}</button>
+            </li>
         </ul>
     </li>
 </ul>

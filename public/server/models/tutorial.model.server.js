@@ -17,6 +17,7 @@ module.exports = function(){
 
     var api = {
         findAllTutorials: findAllTutorials,
+        findTutorialById: findTutorialById,
         findTutorialsByUserId: findTutorialsByUserId,
         findTutorialByName: findTutorialByName,
         findTutorialByKeyword: findTutorialByKeyword,
@@ -42,9 +43,22 @@ module.exports = function(){
         return deferred.promise;
     }
 
+    function findTutorialById(tutorialId){
+        var deferred = q.defer();
+
+        TutorialModel.findById(tutorialId, function(err, doc){
+            if(err){
+                deferred.reject(err);
+            }
+            else{
+                deferred.resolve(doc);
+            }
+        });
+        return deferred.promise;
+    }
+
     function findTutorialsByUserId(userId){
         var deferred = q.defer();
-        var tutorials = [];
         TutorialModel.find({'userId': userId}, function(err, doc){
             if(err){
                 deferred.reject(err);
@@ -58,23 +72,29 @@ module.exports = function(){
     }
 
     function findTutorialByName(name){
-        var tutorials = [];
-        for(var index in mock){
-            if(mock[index].name == name){
-                tutorials.push(mock[index]);
+        var deferred = q.defer();
+        TutorialModel.find({'title': name}, function(err, doc){
+            if(err){
+                deferred.reject(err);
             }
-        }
-        return tutorials;
+            else{
+                deferred.resolve(doc);
+            }
+        });
+        return deferred.promise;
     }
 
     function findTutorialByKeyword(keyword){
-        var tutorials = [];
-        for(var index in mock){
-            if(mock[index].keyword == keyword){
-                tutorials.push(mock[index]);
+        var deferred = q.defer();
+        TutorialModel.find({'tags': keyword}, function(err, doc){
+            if(err){
+                deferred.reject(err);
             }
-        }
-        return tutorials;
+            else{
+                deferred.resolve(doc);
+            }
+        });
+        return deferred.promise;
     }
 
     function createTutorial(ipTutorial){
@@ -110,44 +130,38 @@ module.exports = function(){
     }
 
     function updateTutorial(id, tutorial) {
-        for(var index in mock){
-            if(mock[index]._id === id){
-                if(tutorial.title){
-                    mock[index].title = tutorial.title;
-                }
-                if(tutorial.uploaderId){
-                    mock[index].uploaderId = tutorial.uploaderId;
-                }
-                if(tutorial.lessons){
-                    mock[index].lessons = tutorial.lessons;
-                }
-                if(tutorial.tags){
-                    mock[index].tags = tutorial.tags;
-                }
-                if(tutorial.language){
-                    mock[index].language = tutorial.language;
-                }
+        var deferred = q.defer();
+        TutorialModel.update({'_id': id},{
+            title: tutorial.title,
+            lessons: tutorial.lessons,
+            tags: tutorial.tags,
+            language: tutorial.language
+        }, function(err, doc){
+            if(err){
+                deferred.reject(err);
             }
-        }
-        return mock;
+            else{
+                deferred.resolve(doc);
+            }
+        });
+        return deferred.promise;
     }
 
     function deleteTutorial(id){
-        for(var index in mock){
-            if(mock[index]._id === id){
-                mock.splice(index, 1);
-                break;
+        var deferred = q.defer();
+        TutorialModel.remove({'_id': id}, function(err, doc){
+            if(err){
+                deferred.reject(err);
             }
-        }
-        return mock;
+            else{
+                deferred.resolve(doc);
+            }
+        })
     }
 
     function sendCodeToApi(code){
         //callbackUrl: '/api/tutorial/callback',
         var deferred = q.defer();
-
-        console.log("in api 2");
-        console.log(code);
         HackerRank.submit({
             apiKey: "hackerrank|902784-700|93c391311e30d1172470dfc810eeb0ea0b2c70dd",
             source: code,

@@ -7,12 +7,25 @@
         .module("codingTutorial")
         .controller("TutorialController", TutorialController);
 
-    TutorialController.$inject = ['$scope', '$mdDialog', 'HackerRankService'];
+    TutorialController.$inject = ['$scope', '$mdDialog', 'HackerRankService', 'TutorialService', '$rootScope'];
 
-    function TutorialController($scope, $mdDialog, HackerRankService){
+    function TutorialController($scope, $mdDialog, HackerRankService, TutorialService, $rootScope){
         $scope.run = run;
         $scope.showloader = showloader;
         $scope.openOffscreen = openOffscreen;
+
+        function initTutorial(){
+            var tutorialId = $rootScope.tutorial._id;
+            TutorialService.findTutorialById(tutorialId)
+                .then(
+                    function(response){
+                        if(response){
+                            $scope.tutorial = response.data;
+                            console.log($scope.tutorial);
+                        }
+                    }
+                )
+        }
 
         function openOffscreen() {
             $mdDialog.show(
@@ -40,9 +53,11 @@
         }
 
         function run(userCode) {
+            var language = $scope.tutorial.language;
+            var testcases = $scope.tutorial.testcases;
             console.log(userCode.data);
             var code = [userCode.data];
-            HackerRankService.sendCode(code)
+            HackerRankService.sendCode(code, language, testcases)
                 .then(
                     function(response) {
                         if (response.data) {
@@ -58,14 +73,9 @@
                     }
 
                 );
-            //TutorialService.sendCode(userCode.data);
-
-            //$http.post("api.hackerrank.com/checker/submission.json -d 'source=print 1&lang=5&testcases=['1']&api_key=07913d61ce2ab2fa56f514dee20af8c36a2c0cf7'")
-            //    .success(function(response){
-            //        console.log(response);
-            //    })
         }
 
+        initTutorial();
     }
 
 })();
