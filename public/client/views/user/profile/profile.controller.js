@@ -5,34 +5,32 @@
     var app = angular.module("codingTutorial");
     app.controller("ProfileController", ProfileController);
 
-    function ProfileController($scope, $rootScope, $location, TutorialService) {
+    function ProfileController($rootScope, $location, TutorialService) {
 
+        var vm = this;
         var tutorials = {};
-        //var image = $flow.files[0];
-        //console.log(image);
-        //$scope.codeLevel = 70;
-        //
+
         if ($rootScope.currentUser) {
-            $scope.currentUser = $rootScope.currentUser;
-            //if($scope.currentUser.photo === ""){
-            //    $scope.currentUser.photo = "http://placehold.it/200x200";
+            vm.currentUser = $rootScope.currentUser;
+            //if(vm.currentUser.photo === ""){
+            //    vm.currentUser.photo = "http://placehold.it/200x200";
             //}
-            $scope.username = $rootScope.currentUser.username;
+            vm.username = $rootScope.currentUser.username;
             //console.log(currentUser.photo);
         }
         else {
             $location.url("/home");
         }
 
-        $scope.openTutorial = openTutorial;
-        $scope.edit = edit;
+        vm.openTutorial = openTutorial;
+        vm.edit = edit;
 
         TutorialService.findAllTutorials()
             .then(
                 function(response){
                     if(response){
                         console.log(response.data);
-                        $scope.tutorials = response.data;
+                        vm.tutorials = response.data;
                     }
                 }
             );

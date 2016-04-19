@@ -5,8 +5,12 @@
     var app = angular.module("codingTutorial");
     app.controller("RegisterController", RegisterController);
 
-    function RegisterController($scope, $location, UserService, $rootScope) {
-        $scope.register = register;
+    function RegisterController($location, UserService, $rootScope) {
+
+        var vm = this;
+
+        //instances for methods
+        vm.register = register;
 
         function register(user){
             console.log(user.username);
@@ -21,7 +25,6 @@
                         }
                     }
                 );
-            //UserService.createUser($scope.user, render);
         }
     }
 })();

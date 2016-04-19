@@ -7,54 +7,68 @@
         $routeProvider
             .when('/home', {
                 templateUrl: "views/home/home.view.html",
-                controller: "HomeController"
+                controller: "HomeController",
+                controllerAs: 'model'
             })
             .when('/login', {
                 templateUrl: "views/user/login/login.view.html",
-                controller: "LoginController"
+                controller: "LoginController",
+                controllerAs: 'model'
             })
             .when('/register', {
                 templateUrl: "views/user/register/register.view.html",
-                controller: "RegisterController"
+                controller: "RegisterController",
+                controllerAs: 'model'
             })
             .when('/profile', {
                 templateUrl: "views/user/profile/profile.view.html",
-                controller: "ProfileController"
+                controller: "ProfileController",
+                controllerAs: 'model'
             })
             .when('/admin', {
-                templateUrl: "views/admin/admin.view.html"
+                templateUrl: "views/admin/admin.view.html",
+                controllerAs: 'model'
             })
             .when('/search', {
                 templateUrl: "views/search/search.view.html",
-                controller: "SearchController"
+                controller: "SearchController",
+                controllerAs: 'model'
             })
             .when('/dm-instructor', {
                 templateUrl: "views/dm-instructor/dminstructor.view.html",
-                controller: "InstructorController"
+                controller: "InstructorController",
+                controllerAs: 'model'
             })
             .when('/dm-student', {
                 templateUrl: "views/dm-student/dmstudent.view.html",
-                controller: "StudentController"
+                controller: "StudentController",
+                controllerAs: 'model'
             })
             .when('/dm-tutorial', {
                 templateUrl: "views/dm-tutorial/dmtutorial.view.html",
-                controller: "DmTutorialController"
+                controller: "DmTutorialController",
+                controllerAs: 'model'
             })
             .when('/tutorial', {
                 templateUrl: "views/tutorial/tutorial.view.html",
                 controller: "TutorialController"
+                controller: "TutorialController",
+                controllerAs: 'model'
             })
             .when('/tutorial-maker', {
                 templateUrl: "views/tutorial-maker/tutorial-maker.view.html",
-                controller: "TutorialMakerController"
+                controller: "TutorialMakerController",
+                controllerAs: 'model'
             })
             .when('/lesson-maker', {
                 templateUrl: "views/lesson-maker/lesson-maker.view.html",
-                controller: "LessonMakerController"
+                controller: "LessonMakerController",
+                controllerAs: 'model'
             })
             .when('/tutorial-list', {
                 templateUrl: 'views/tutorial-list/tutorial-list.view.html',
-                controller: "TutorialListController"
+                controller: "TutorialListController",
+                controllerAs: 'model'
             })
             .otherwise({
                 redirectTo: "/"

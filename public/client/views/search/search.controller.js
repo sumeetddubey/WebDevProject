@@ -7,11 +7,13 @@
         .module("codingTutorial")
         .controller("SearchController", SearchController);
 
-    SearchController.$inject = ['$scope', '$rootScope'];
+    SearchController.$inject = ['$rootScope'];
 
-    function SearchController($scope, $rootScope){
-        console.log('in search page');
-        $scope.results = $rootScope.results;
-        console.log($scope.results);
+    function SearchController($rootScope){
+
+        var vm = this;
+
+        vm.results = $rootScope.results;
+        console.log(vm.results);
     }
 })();

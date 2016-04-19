@@ -1,4 +1,4 @@
-<div ng-controller="TutorialController">
+<div>
     <div layout="row">
         <md-card flex="'40">
                 <md-card-title>
@@ -78,6 +78,11 @@
                     <label>Result</label>
                     <textarea md-maxlength="150" rows="5" ng-model="output"></textarea>
                 </md-input-container>
+                <div class='ace-editor' ng-model="userCode.data" ui-ace="{
+                      theme:'monokai',
+                      mode: 'javascript',
+                     }">
+                </div>
 
                 <!--<textarea id="inputCode" class="form-control" ng-model="userCode.data"></textarea>-->
                 <!--<button ng-click="run(userCode)" class="btn btn-primary">Run</button>-->

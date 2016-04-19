@@ -7,14 +7,21 @@
         .module("codingTutorial")
         .controller("TutorialController", TutorialController);
 
-    TutorialController.$inject = ['$scope', '$mdDialog', 'HackerRankService', 'TutorialService', '$rootScope'];
+    TutorialController.$inject = ['$mdDialog', 'HackerRankService', 'TutorialService', '$rootScope'];
 
-    function TutorialController($scope, $mdDialog, HackerRankService, TutorialService, $rootScope){
-        $scope.run = run;
-        $scope.showloader = showloader;
-        $scope.openOffscreen = openOffscreen;
-        $scope.nextLesson = nextLesson;
-        $scope.link = 'https://www.youtube.com/watch?v=7SWvDHvWXok';
+    function TutorialController($mdDialog, HackerRankService, TutorialService, $rootScope){
+
+        var vm = this;
+        console.log('tutorial is' +vm.tutorial);
+
+        //instances for methods
+        vm.run = run;
+        vm.showloader = showloader;
+        vm.openOffscreen = openOffscreen;
+        vm.nextLesson = nextLesson;
+        vm.onEditorLoad = onEditorLoad;
+        vm.onEditorChange = onEditorChange;
+        vm.link = 'https://www.youtube.com/watch?v=7SWvDHvWXok';
 
         var count = 0;
 
@@ -24,9 +31,9 @@
                 .then(
                     function(response){
                         if(response){
-                            $scope.tutorial = response.data;
-                            $scope.currentLesson = response.data.lessons[count];
-                            console.log($scope.currentLesson);
+                            vm.tutorial = response.data;
+                            vm.currentLesson = response.data.lessons[count];
+                            console.log(vm.currentLesson);
                         }
                     }
                 )
@@ -37,30 +44,30 @@
             var len = lessons.length;
             if(count<len){
                 count++;
-                $scope.currentLesson = tutorial.lessons[count];
+                vm.currentLesson = tutorial.lessons[count];
             }
         }
 
         function nextLesson(userCode){
             var code = [userCode.data];
-            var language = $scope.tutorial.language;
+            var language = vm.tutorial.language;
             var testcases = ["1\n"];
             HackerRankService.sendCode(code, language, testcases)
                 .then(
                     function(response){
                         if(response){
-                            $scope.output = response.data;
-                            $scope.isLoading = false;
+                            vm.output = response.data;
+                            vm.isLoading = false;
                             testcases = JSON.stringify(testcases);
                             var output = JSON.stringify(response.data);
                             console.log(testcases);
                             console.log(output);
                             if(testcases == output){
-                                lessonCounter($scope.tutorial);
+                                lessonCounter(vm.tutorial);
                                 console.log(count);
-                                console.log($scope.currentLesson);
-                                $scope.userCode.data = '';
-                                $scope.output = '';
+                                console.log(vm.currentLesson);
+                                vm.userCode.data = '';
+                                vm.output = '';
                             }
                             else{
                                 console.log('wrong output');
@@ -75,7 +82,7 @@
                 $mdDialog.alert()
                     .clickOutsideToClose(true)
                     .title('Hint')
-                    .textContent($scope.currentLesson.hints)
+                    .textContent(vm.currentLesson.hints)
                     .ariaLabel('Offscreen Demo')
                     .ok('Close')
                     // Or you can specify the rect to do the transition from
@@ -91,11 +98,11 @@
         };
 
         function showloader() {
-            $scope.isLoading = true;
+            vm.isLoading = true;
         }
 
         function run(userCode) {
-            var language = $scope.tutorial.language;
+            var language = vm.tutorial.language;
             var testcases = JSON.stringify(["1\n"]);
             console.log(userCode.data);
             var code = [userCode.data];
@@ -103,16 +110,25 @@
                 .then(
                     function(response) {
                         if (response.data) {
-                            $scope.isLoading = false;
-                            $scope.output = response.data;
+                            vm.isLoading = false;
+                            vm.output = response.data;
                         }
                         else{
-                            $scope.isLoading = false;
+                            vm.isLoading = false;
                             console.log("no response");
                         }
                     }
 
                 );
+        }
+
+        function onEditorLoad(_editor){
+            _editor.setReadOnly(true);
+            console.log('ace loaded');
+        }
+
+        function onEditorChange(e){
+            console.log(e);
         }
 
         initTutorial();

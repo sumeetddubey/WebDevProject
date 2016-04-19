@@ -12,6 +12,8 @@
             //'angular-sanitize',
             'textAngular',
             'ng-mfb'])
+            'textAngular',
+            'ui.ace'])
         .config(function($mdThemingProvider) {
             $mdThemingProvider.theme('default')
                 .primaryPalette('blue-grey')
