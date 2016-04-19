@@ -10,9 +10,10 @@
         var vm = this;
 
         //instances for methods
-            vm.login = login;
+        vm.login = login;
 
         function login(user) {
+            console.log(user);
             if (!user) {
                 console.log(user.email);
                 return;

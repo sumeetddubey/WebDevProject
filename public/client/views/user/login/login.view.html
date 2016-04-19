@@ -1,4 +1,4 @@
-<div layout="column" ng-controller="LoginController" ng-cloak class="md-form">
+<div layout="column" ng-cloak class="md-form">
     <div layout="row" style="margin-top: 10%">
 
         <div flex="25">
@@ -22,7 +22,7 @@
                             <label>Password</label>
                             <input type="password" ng-model="user.password" />
                         </md-input-container>
-                        <md-button ng-click="login(user)" class="md-raised md-primary" style="margin-top: 5%;">Submit</md-button>
+                        <md-button ng-click="model.login(user)" class="md-raised md-primary" style="margin-top: 5%;">Submit</md-button>
                     </md-card-content>
 
                 </md-card>
@@ -32,25 +32,5 @@
         <div flex="25">
             <!--Second-->
         </div>
+    </div>
 </div>
-
-    <!--<md-content>-->
-        <!--<md-button md-no-ink class="md-primary">Primary (md-noink)</md-button>-->
-    <!--</md-content>-->
-        <!--<form>-->
-            <!--<div class="form-group">-->
-                <!--<label for="inputEmail">Email address</label>-->
-                <!--<input type="email" ng-model="user.email" class="form-control" id="inputEmail" placeholder="Email">-->
-            <!--</div>-->
-            <!--<div class="form-group">-->
-                <!--<label for="inputPassword">Password</label>-->
-                <!--<input type="password" ng-model="user.password" class="form-control" id="inputPassword" placeholder="Password">-->
-            <!--</div>-->
-            <!--<div class="checkbox">-->
-                <!--<label>-->
-                    <!--<input type="checkbox"> Remember-->
-                <!--</label>-->
-            <!--</div>-->
-            <!--<button ng-click="login(user)" class="btn btn-default">Login</button>-->
-        <!--</form>-->
-    <!--</div>-->
