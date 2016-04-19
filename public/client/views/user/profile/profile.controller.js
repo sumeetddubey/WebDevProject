@@ -8,18 +8,21 @@
     function ProfileController($scope, $rootScope, $location, TutorialService) {
 
         var tutorials = {};
+        //var image = $flow.files[0];
+        //console.log(image);
         //$scope.codeLevel = 70;
         //
-        //if ($rootScope.currentUser) {
-        //    $scope.currentUser = $rootScope.currentUser;
-        //    if($scope.currentUser.photo === ""){
-        //        $scope.currentUser.photo = "http://placehold.it/200x200";
-        //    }
-        //    $scope.username = $rootScope.currentUser.username;
-        //}
-        //else {
-        //    $location.url("/home");
-        //}
+        if ($rootScope.currentUser) {
+            $scope.currentUser = $rootScope.currentUser;
+            //if($scope.currentUser.photo === ""){
+            //    $scope.currentUser.photo = "http://placehold.it/200x200";
+            //}
+            $scope.username = $rootScope.currentUser.username;
+            //console.log(currentUser.photo);
+        }
+        else {
+            $location.url("/home");
+        }
 
         $scope.openTutorial = openTutorial;
         //$scope.openLesson = openLesson;

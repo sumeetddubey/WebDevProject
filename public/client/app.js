@@ -2,7 +2,7 @@
  * Created by sumeetdubey on 3/10/16.
  */
 (function(){
-    var app = angular.module('codingTutorial',['ngRoute', 'ngMaterial', 'chart.js', 'md.data.table', 'flow'])
+    var app = angular.module('codingTutorial',['ngRoute', 'ngMaterial', 'chart.js', 'md.data.table', 'flow', 'ngYoutubeEmbed'])
         .config(function($mdThemingProvider) {
             $mdThemingProvider.theme('default')
                 .primaryPalette('blue-grey')

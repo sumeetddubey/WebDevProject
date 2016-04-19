@@ -14,6 +14,7 @@
         $scope.showloader = showloader;
         $scope.openOffscreen = openOffscreen;
         $scope.nextLesson = nextLesson;
+        $scope.link = 'https://www.youtube.com/watch?v=7SWvDHvWXok';
 
         var count = 0;
 

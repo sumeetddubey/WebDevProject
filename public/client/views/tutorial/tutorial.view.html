@@ -1,8 +1,6 @@
 <div ng-controller="TutorialController">
-    <div layout="column">
-        <md-card layout="row">
-            <md-card flex="30">
-
+    <div layout="row">
+        <md-card flex="'40">
                 <md-card-title>
                     <md-card-title-text>
                         <span class="md-headline">Question</span>
@@ -43,16 +41,32 @@
 
 
             </md-card>
+            <div layout="column" flex="60">
 
-        <md-card layout="row" flex="70">
-            <img ng-src="images/placeholder.jpg" alt="Placeholder">
-        </md-card>
-        </div>
+                <md-card>
+                    <ng-youtube-embed
+                            url="link"
+                            autoplay="true"
+                            autohide="true"
+                            color="white"
+                            controls="true"
+                            width="100%"
+                            height="100%"
+                            disablekb="true"
+                            ivloadpolicy="false"
+                            rel="false"
+                            showinfo="false"
+                            theme="dark">
+                    </ng-youtube-embed>
+                </md-card>
+
+        <!--<md-card layout="row" flex="70">-->
+            <!--<img ng-src="images/placeholder.jpg" alt="Placeholder">-->
+        <!--</md-card>-->
 
         <div layout="row">
             <div flex="30"></div>
             <div flex="70">
-                <!-- TODO: Compiler needs to be added -->
                 <md-input-container class="md-block">
                     <label>Code</label>
                     <textarea ng-model="userCode.data" md-maxlength="150" rows="5" md-select-on-focus></textarea>
@@ -73,10 +87,11 @@
             <!--</div>-->
 
             </div>
+            </div>
+            </div>
 
         </div>
     </div>
-</div>
 <!--<div class="container-fluid">-->
     <!--<div class="row">-->
         <!--<div ng-controller="TutorialController">-->
