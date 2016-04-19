@@ -29,6 +29,7 @@
     "angular-material": "^1.0.7",
     "angular-material-data-table": "^0.10.1",
     "angular-messages": "^1.5.3",
+    "angular-trix": "^1.0.2",
     "angular-youtube-embed": "^1.2.0",
     "body-parser": "^1.15.0",
     "express": "^3.21.2",
@@ -39,7 +40,8 @@
     "mongoose-crate": "^1.0.10",
     "multer": "^1.1.0",
     "ng-youtube-embed": "^0.2.2",
-    "q": "^1.4.1"
+    "q": "^1.4.1",
+    "textangular": "^1.5.0"
   },
   "devDependencies": {},
   "bundleDependencies": [],

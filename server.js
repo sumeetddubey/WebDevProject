@@ -1,6 +1,6 @@
 var express = require('express');
 var mongoose = require('mongoose');
-var mongo = require('mongodb');
+/*var mongo = require('mongodb');*/
 var Grid = require('gridfs-stream');
 
 var db = mongoose.connect('mongodb://127.0.0.1:27017/webdev');
@@ -18,6 +18,7 @@ app.use(multer());
 
 app.use(express.static(__dirname + '/public'));
 app.use('/bower_components',  express.static(__dirname + '/bower_components'));
+//app.use('/node_modules',  express.static(__dirname + '/node_modules'));
 app.get('/hello', function(req, res){
     res.send('hello world');
 });

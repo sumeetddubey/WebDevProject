@@ -13,10 +13,11 @@
         $scope.createLesson = createLesson;
         $scope.updateLesson = updateLesson;
         $scope.deleteLesson = deleteLesson;
+        //$scope.trix = '<h4>Write your description as shown below:</h4><br><h5>Hello! Welcome to the JavaScript Tutorial</h5><br><p>Here you will meet your friendst</p>';
 
         var semicolon = 186;
         $scope.keys = [$mdConstant.KEY_CODE.ENTER, $mdConstant.KEY_CODE.COMMA, semicolon];
-        $scope.tags = ['programming'];
+        $scope.tags = [];
 
         var currentUser = $rootScope.currentUser;
         var tutorialId = $rootScope.tutorial._id;
