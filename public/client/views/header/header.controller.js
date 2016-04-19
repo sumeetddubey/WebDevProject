@@ -7,16 +7,20 @@
         .module("codingTutorial")
         .controller("HeaderController", HeaderController);
 
-    HeaderController.$inject = ['$scope', '$rootScope', '$location', '$mdSidenav', 'SearchService'];
+    HeaderController.$inject = ['$rootScope', '$location', '$mdSidenav', 'SearchService'];
 
-    function HeaderController($scope, $rootScope, $location, $mdSidenav, SearchService) {
-        $scope.search = search;
-        $scope.logout = logout;
-        $scope.location = $location;
-        $scope.openLeftMenu = function() {
+    function HeaderController($rootScope, $location, $mdSidenav, SearchService) {
+
+        var vm = this;
+
+        //instances for methods
+        vm.search = search;
+        vm.logout = logout;
+        vm.location = $location;
+        vm.openLeftMenu = function() {
             $mdSidenav('left').toggle();
         };
-        $scope.close = function () {
+        vm.close = function () {
             // Component lookup should always be available since we are not using `ng-if`
             $mdSidenav('left').close()
         };

@@ -5,9 +5,11 @@
     var app = angular.module('codingTutorial');
     app.controller('TutorialListController', TutorialListController);
 
-    function TutorialListController($scope, $location, TutorialService, $rootScope){
+    function TutorialListController($location, TutorialService, $rootScope){
+        var vm = this;
 
-        $scope.openTutorial = openTutorial;
+        //instances for methods
+        vm.openTutorial = openTutorial;
         //$scope.openLesson = openLesson;
 
         var tutorials = {};

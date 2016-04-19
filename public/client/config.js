@@ -42,7 +42,7 @@
             })
             .when('/tutorial', {
                 templateUrl: "views/tutorial/tutorial.view.html",
-                //controller: "TutorialController"
+                controller: "TutorialController"
             })
             .when('/tutorial-maker', {
                 templateUrl: "views/tutorial-maker/tutorial-maker.view.html",

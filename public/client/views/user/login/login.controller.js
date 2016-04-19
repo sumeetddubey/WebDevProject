@@ -5,8 +5,12 @@
     var app = angular.module("codingTutorial");
     app.controller("LoginController", LoginController);
 
-    function LoginController($scope, $location, $rootScope, UserService) {
-        $scope.login = login;
+    function LoginController($location, $rootScope, UserService) {
+        
+        var vm = this;
+
+        //instances for methods
+            vm.login = login;
 
         function login(user) {
             if (!user) {
@@ -24,36 +28,3 @@
         }
     }
 })();
-
-//(function(){
-//    var app = angular.module("codingTutorial");
-//    app.controller("LoginController", LoginController);
-//
-
-
-    //function LoginController($scope, $rootScope, $location, $window, UserService){
-    //    $scope.login = login;
-    //
-    //
-    //    function callback(response){
-    //        if(response) {
-    //            $rootScope.currentUser = response;
-    //            console.log(response);
-    //            $location.url("/profile")
-    //        }
-    //        else{
-    //            $window.alert("Invalid credentials");
-    //        }
-    //    }
-    //    function login(user){
-    //        if(!user.email || !user.password){
-    //            $window.alert("Invalid credentials");
-    //        }
-    //        else {
-    //            UserService.findUserByCredentials(user.email, user.password, callback)
-    //        }
-    //    }
-    //
-    //}
-
-//})();

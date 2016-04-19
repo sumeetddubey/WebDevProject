@@ -5,23 +5,26 @@
     var app = angular.module("codingTutorial");
     app.controller("TutorialMakerController", TutorialMakerController);
 
-    TutorialMakerController.$inject = ['$scope', '$rootScope', 'TutorialService', '$location', 'LessonService'];
+    TutorialMakerController.$inject = ['$rootScope', 'TutorialService', '$location', 'LessonService'];
 
-    function TutorialMakerController($scope, $rootScope, TutorialService, $location){
+    function TutorialMakerController($rootScope, TutorialService, $location){
 
-        $scope.createTutorial = createTutorial;
-        $scope.openTutorial = openTutorial;
-        $scope.findAllLessonsForTutorial = findAllLessonsForTutorial;
-        //$scope.openLesson = openLesson;
+        var vm = this;
+
+        //instances for methods
+        vm.createTutorial = createTutorial;
+        vm.openTutorial = openTutorial;
+        vm.findAllLessonsForTutorial = findAllLessonsForTutorial;
+        //vm.openLesson = openLesson;
+
         var tutorials = {};
 
-
-        TutorialService.findAllTutorials()
+        TutorialService.findTutorialsByUserId()
             .then(
                 function(response){
                     if(response){
                         console.log(response.data);
-                        $scope.tutorials = response.data;
+                        vm.tutorials = response.data;
                     }
                 }
             );
@@ -57,7 +60,7 @@
                 .then(
                     function(response){
                         if(response){
-                            $scope.lessons = response.data;
+                            vm.lessons = response.data;
                         }
                     },
                     function(err){
@@ -68,7 +71,7 @@
 
         var currentUser = $rootScope.currentUser;
 
-        $scope.languages = [
+        vm.languages = [
             "Python",
             "JavaScript",
             "Ruby",
@@ -82,7 +85,7 @@
                 .then(
                     function(response){
                         if(response){
-                            $scope.tutorials = response.data;
+                            vm.tutorials = response.data;
                         }
                     }
                 )
@@ -95,7 +98,7 @@
                     function(response){
                         if(response){
                             $rootScope.tutorial = response.data;
-                            $scope.userTutorials = response.data;
+                            vm.userTutorials = response.data;
                         }
                     }
                 )
@@ -112,7 +115,7 @@
                         function(response){
                             if(response){
                                 $rootScope.tutorial = response.data;
-                                $scope.userTutorials = response.data;
+                                vm.userTutorials = response.data;
                                 console.log(response.data);
                                 $location.url('/lesson-maker');
                             }
@@ -127,7 +130,7 @@
                     .then(
                         function(response){
                             if(response){
-                                $scope.userTutorials = response.data;
+                                vm.userTutorials = response.data;
                             }
                         }
                     )

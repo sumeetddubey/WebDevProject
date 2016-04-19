@@ -5,15 +5,19 @@
     var app = angular.module("codingTutorial");
     app.controller("DmTutorialController", DmTutorialController);
 
-    function DmTutorialController($scope, TutorialService, $location){
-        $scope.addTutorial = addTutorial;
-        $scope.selectTutorial = selectTutorial;
-        $scope.updateTutorial = updateTutorial;
-        $scope.deleteTutorial = deleteTutorial;
+    function DmTutorialController(TutorialService, $location){
+
+        var vm = this;
+
+        //instances for methods
+        vm.addTutorial = addTutorial;
+        vm.selectTutorial = selectTutorial;
+        vm.updateTutorial = updateTutorial;
+        vm.deleteTutorial = deleteTutorial;
 
         function findTutorials(){
             //function render(response){
-            //    $scope.tutorials = response;
+            //    vm.tutorials = response;
             //}
 
             TutorialService.findAllTutorials()
@@ -21,7 +25,7 @@
                     function(response){
                         if(response.data){
                             console.log(response.data);
-                            $scope.tutorials = response.data;
+                            vm.tutorials = response.data;
                         }
                     }
                 )
@@ -42,7 +46,7 @@
                         function(response){
                             if(response.data){
                                 console.log(response.data);
-                                $scope.tutorials = response.data;
+                                vm.tutorials = response.data;
                             }
                         }
                     )
@@ -54,12 +58,12 @@
 
         function updateTutorial(tutorial){
             if(tutorial) {
-                TutorialService.updateTutorial($scope.selectedTutorialId, $scope.tutorial)
+                TutorialService.updateTutorial(vm.selectedTutorialId, vm.tutorial)
                     .then(
                         function(response){
                             if(response){
                                 console.log(response.data);
-                                $scope.tutorials = response.data;
+                                vm.tutorials = response.data;
                             }
                         }
                     );
@@ -79,7 +83,7 @@
                     function(response){
                         if(response.data){
                             console.log(response.data);
-                            $scope.tutorials = response.data;
+                            vm.tutorials = response.data;
                         }
                     }
                 );
@@ -93,8 +97,8 @@
 
         function selectTutorial(tutorial){
             console.log(tutorial);
-            $scope.selectedTutorialId = tutorial._id;
-            $scope.tutorial = {
+            vm.selectedTutorialId = tutorial._id;
+            vm.tutorial = {
                 "name": tutorial.name,
                 "language": tutorial.language,
                 "lessons": tutorial.lessons,

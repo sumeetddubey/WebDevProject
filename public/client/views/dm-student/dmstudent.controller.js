@@ -8,22 +8,26 @@
     var app = angular.module("codingTutorial");
     app.controller("StudentController", StudentController);
 
-    function StudentController($scope, UserService, $route, $location){
-        $scope.addUser = addUser;
-        $scope.selectUser = selectUser;
-        $scope.updateUser = updateUser;
-        $scope.deleteUser = deleteUser;
+    function StudentController(UserService, $route, $location){
+
+        var vm = this;
+
+        //instances for methods
+        vm.addUser = addUser;
+        vm.selectUser = selectUser;
+        vm.updateUser = updateUser;
+        vm.deleteUser = deleteUser;
 
         function findStudents(){
             function render(response){
-                $scope.studentUsers = response;
+                vm.studentUsers = response;
             }
 
             UserService.findUserByRole("dm-student")
                 .then(
                     function(response){
                         if(response.data){
-                            $scope.studentUsers = response.data;
+                            vm.studentUsers = response.data;
                         }
                     }
                 )
@@ -56,7 +60,7 @@
 
         function updateUser(user){
             if(user) {
-                UserService.updateUserById($scope.selectedUserId, $scope.user)
+                UserService.updateUserById(vm.selectedUserId, vm.user)
                     .then(
                         function(response){
                             if(response.data){
@@ -95,8 +99,8 @@
 
         function selectUser(user){
             console.log(user);
-            $scope.selectedUserId = user._id;
-            $scope.user = {
+            vm.selectedUserId = user._id;
+            vm.user = {
                 "firstName": user.firstName,
                 "lastName": user.lastName,
                 "username": user.username,

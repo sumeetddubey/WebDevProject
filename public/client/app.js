@@ -9,8 +9,8 @@
             'md.data.table',
             'flow',
             'ngYoutubeEmbed',
-            //'angular-sanitize',
-            'textAngular'])
+            'textAngular',
+            'ui.ace'])
         .config(function($mdThemingProvider) {
             $mdThemingProvider.theme('default')
                 .primaryPalette('blue-grey')

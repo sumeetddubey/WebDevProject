@@ -5,8 +5,12 @@
     var app = angular.module("codingTutorial");
     app.controller("HomeController", HomeController);
 
-    function HomeController($scope, $window, $location, UserService, $rootScope) {
-        $scope.register = register;
+    function HomeController($window, $location, UserService, $rootScope) {
+
+        var vm = this;
+
+        //instances for methods
+        vm.register = register;
 
         function register(user){
             function render(response){
@@ -36,7 +40,7 @@
                 return;
             }
 
-            UserService.createUser($scope.user)
+            UserService.createUser(vm.user)
                 .then(
                     function(response){
                         if(response.data){

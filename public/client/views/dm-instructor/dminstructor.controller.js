@@ -5,22 +5,26 @@
     var app = angular.module("codingTutorial");
     app.controller("InstructorController", InstructorController);
 
-    function InstructorController($scope, UserService, $location){
-        $scope.addUser = addUser;
-        $scope.selectUser = selectUser;
-        $scope.updateUser = updateUser;
-        $scope.deleteUser = deleteUser;
+    function InstructorController(UserService, $location){
+
+        var vm = this;
+
+        //instances for methods
+        vm.addUser = addUser;
+        vm.selectUser = selectUser;
+        vm.updateUser = updateUser;
+        vm.deleteUser = deleteUser;
 
         function findInstructors(){
             //function callback(response){
-            //    $scope.instructorUsers = response;
+            //    vm.instructorUsers = response;
             //}
 
             UserService.findUserByRole("dm-instructor")
                 .then(
                     function(response){
                         if(response.data){
-                            $scope.instructorUsers = response.data;
+                            vm.instructorUsers = response.data;
                         }
                     }
                 )
@@ -53,13 +57,13 @@
 
         function updateUser(user){
             if(user) {
-                UserService.updateUserById($scope.selectedUserId, $scope.user)
+                UserService.updateUserById(vm.selectedUserId, vm.user)
                     .then(
                         function(response){
                             if(response.data){
                                 console.log(response.data);
                                 findInstructors();
-                                //$scope.instructorUsers = response.data;
+                                //vm.instructorUsers = response.data;
                             }
                         }
                     )
@@ -93,8 +97,8 @@
 
         function selectUser(user){
             console.log(user);
-            $scope.selectedUserId = user._id;
-            $scope.user = {
+            vm.selectedUserId = user._id;
+            vm.user = {
                 "firstName": user.firstName,
                 "lastName": user.lastName,
                 "username": user.username,
