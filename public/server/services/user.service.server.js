@@ -1,21 +1,128 @@
 /**
  * Created by sumeetdubey on 3/17/16.
  */
+module.exports = function(app, userModel, passport) {
+    var LocalStrategy = require('passport-local').Strategy;
+    var bcrypt = require('bcrypt-nodejs');
+    var auth = authorized;
 
-module.exports = function(app, userModel) {
+    passport.use(new LocalStrategy(localStrategy));
 
-    app.get('/api/project/user', findUser);
-    app.post('/api/project/user', createUser);
+    app.post('/api/project/login', passport.authenticate('local'), login);
+    app.post('/api/project/logout', logout);
+    app.post('/api/project/register', register);
+    app.post('/api/project/loggedIn', loggedIn);
+    app.get('/api/project/user', auth, findUser);
+    app.post('/api/project/user', auth, createUser);
     app.get('/api/project/user/:id', findUserById);
-    app.put('/api/project/user/:id', updateUser);
-    app.delete('/api/project/user/:id', deleteUser);
+    app.put('/api/project/user/:id', auth, updateUser);
+    app.delete('/api/project/user/:id',auth, deleteUser);
 
     app.getUserByCredentials = getUserByCredentials;
+
+    function localStrategy(username, password, done){
+        userModel.findUserByCredentials({username: username, password: password})
+            .then(function(user){
+                    if(user){
+                        return done(null, user);
+                    }
+                    else{
+                        return done(null, false);
+                    }
+                },
+                function(err){
+                    if(err){
+                        return done(err);
+                    }
+                })
+    }
+
+    passport.serializeUser(serializeUser);
+    passport.deserializeUser(deserializeUser);
+
+    function serializeUser(user, done){
+        done(null, user);
+    }
+
+    function deserializeUser(user, done){
+        userModel
+            .findUserById(user._id)
+            .then(
+                function(user){
+                    done(null, user);
+                },
+                function(err){
+                    done(err, null);
+                }
+            )
+    }
+
+    function login(req, res){
+        console.log(req.body);
+        var user = req.user;
+        res.json(user);
+    }
+
+    function logout(req, res){
+        req.logout();
+        res.send(200);
+    }
+
+    function loggedIn(req, res){
+        res.send(req.isAuthenticated()? req.user: '0');
+    }
+
+    function register(req, res){
+        console.log('in register');
+        var user = req.body;
+
+        userModel
+            .findUserByUsername(user.username)
+            .then(
+                function(response){
+                    if(response){
+                        res.json(null);
+                    }
+                    else{
+                        return userModel.createUser(user);
+                    }
+                },
+                function(err){
+                    res.status(400).send(err);
+                }
+            )
+            .then(
+                function(response){
+                    if(response){
+                        req.login(user, function(err) {
+                            if(err){
+                                res.status(400).send(err);
+                            }
+                            else{
+                                res.json(user);
+                            }
+                        });
+                    }
+                },
+                function(err){
+                    res.status(400).send(err);
+                }
+            );
+
+    }
+
+    function authorized (req, res, next) {
+        if (!req.isAuthenticated()) {
+            res.send(401);
+        } else {
+            next();
+        }
+    }
 
     function getUserByCredentials(req, res){
         console.log("in finduserbycredentials");
         var credentials = {
-            "email": req.query.email,
+            "username": req.query.username,
             "password": req.query.password
         };
 
@@ -34,12 +141,12 @@ module.exports = function(app, userModel) {
 
     function findUser(req, res){
         console.log("in finduser now");
-        console.log(req.query.email);
+        console.log(req.query.username);
         console.log(req.query.password);
-        if(req.query.email && req.query.password){
+        if(req.query.username && req.query.password){
             getUserByCredentials(req, res);
         }
-        else if(req.query.email){
+        else if(req.query.username){
             findUserByUsername(req, res);
         }
         else if(req.query.role){

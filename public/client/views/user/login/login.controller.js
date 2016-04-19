@@ -13,13 +13,12 @@
                 console.log(user.email);
                 return;
             }
-            UserService.findUserByCredentials(user.email, user.password)
+            UserService.login(user)
                 .then(function (response) {
                     if (response.data) {
                         $rootScope.currentUser = response.data;
                         console.log(response.data);
                         $location.url("/profile");
-
                     }
                 })
         }

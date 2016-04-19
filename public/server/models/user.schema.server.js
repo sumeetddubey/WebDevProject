@@ -16,7 +16,7 @@ module.exports = function(mongoose){
         lastTutorial: String
     },
         {
-            collection: 'user'
+            collection: 'user_project'
         });
 
     return UserSchema;

@@ -59,6 +59,8 @@
                                 lessonCounter($scope.tutorial);
                                 console.log(count);
                                 console.log($scope.currentLesson);
+                                $scope.userCode.data = '';
+                                $scope.output = '';
                             }
                             else{
                                 console.log('wrong output');
@@ -73,8 +75,7 @@
                 $mdDialog.alert()
                     .clickOutsideToClose(true)
                     .title('Hint')
-                    .textContent('You hung up your cape and your cowl but you did not move on. ' +
-                        'You never went to find a life.')
+                    .textContent($scope.currentLesson.hints)
                     .ariaLabel('Offscreen Demo')
                     .ok('Close')
                     // Or you can specify the rect to do the transition from

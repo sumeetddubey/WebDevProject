@@ -8,6 +8,7 @@
     function ProfileController($scope, $rootScope, $location, TutorialService) {
 
         var tutorials = {};
+<<<<<<< Updated upstream
         //var image = $flow.files[0];
         //console.log(image);
         //$scope.codeLevel = 70;
@@ -23,9 +24,11 @@
         else {
             $location.url("/home");
         }
+=======
+>>>>>>> Stashed changes
 
         $scope.openTutorial = openTutorial;
-        //$scope.openLesson = openLesson;
+        $scope.edit = edit;
 
         TutorialService.findAllTutorials()
             .then(
@@ -50,13 +53,9 @@
                 )
         }
 
-        //$scope.labels =["Variables", "Loops", "Methods", "Classes", "File Operations", "Inheritance", "Objects"];
-        //
-        //$scope.data = [
-        //    [65, 59, 90, 81, 56, 55, 40],
-        //    [28, 48, 40, 19, 96, 27, 100]
-        //];
-
+        function edit(user){
+            console.log(user.pic);
+        }
     }
 
 

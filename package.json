@@ -29,19 +29,32 @@
     "angular-material": "^1.0.7",
     "angular-material-data-table": "^0.10.1",
     "angular-messages": "^1.5.3",
+<<<<<<< Updated upstream
     "angular-trix": "^1.0.2",
     "angular-youtube-embed": "^1.2.0",
+=======
+    "aws-sdk": "^2.3.3",
+    "bcrypt-nodejs": "0.0.3",
+>>>>>>> Stashed changes
     "body-parser": "^1.15.0",
+    "cookie-parser": "^1.4.1",
     "express": "^3.21.2",
+    "express-session": "^1.13.0",
     "fs": "0.0.2",
     "gridfs-stream": "^1.1.1",
     "machinepack-hackerrank": "^0.1.2",
     "mongoose": "^4.4.12",
     "mongoose-crate": "^1.0.10",
     "multer": "^1.1.0",
+<<<<<<< Updated upstream
     "ng-youtube-embed": "^0.2.2",
     "q": "^1.4.1",
     "textangular": "^1.5.0"
+=======
+    "passport": "^0.3.2",
+    "passport-local": "^1.0.0",
+    "q": "^1.4.1"
+>>>>>>> Stashed changes
   },
   "devDependencies": {},
   "bundleDependencies": [],

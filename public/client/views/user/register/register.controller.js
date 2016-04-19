@@ -11,7 +11,7 @@
         function register(user){
             console.log(user.username);
 
-            UserService.createUser(user)
+            UserService.register(user)
                 .then(
                     function(response){
                         if(response.data){

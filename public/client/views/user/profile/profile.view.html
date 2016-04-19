@@ -49,10 +49,6 @@
                                     <label>Password</label>
                                     <input type="password" ng-model="currentUser.password" />
                                 </md-input-container>
-                                <md-input-container>
-                                    <label>Verify Password</label>
-                                    <input type="password" ng-model="currentUser.verifyPassword" />
-                                </md-input-container>
                                 <div flow-init>
                                     <div class="alert" style="width: 110px;
                                                               height: 110px;
@@ -64,13 +60,12 @@
                                             DROP IMAGE HERE
                                         </div>
                                     </div>
-                                    <input type="file" flow-btn/>
+                                    <input type="file" ng-model="currentUser.pic" flow-btn/>
                                     <img flow-img="$flow.files[0]"
                                          class="md-avatar"
                                          flex="30"
                                          ng-model="currentUser.photo"
                                          style="margin-top: 2%;">
-
                                 </div>
 
                                 <!--<lf-ng-md-file-input lf-files="files05"-->

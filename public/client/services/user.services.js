@@ -8,6 +8,9 @@
     function UserService($http){
         var api = {
             //method declarations
+            login: login,
+            logout: logout,
+            register: register,
             findUserByUsername: findUserByUsername,
             findUserByRole: findUserByRole,
             findUserByCredentials: findUserByCredentials,
@@ -18,6 +21,19 @@
         };
         return api;
 
+        function login(user){
+            console.log(user);
+            return $http.post('/api/project/login', user);
+        }
+
+        function logout(){
+            return $http.post('/api/project/logout');
+        }
+
+        function register(user){
+            return $http.post('/api/project/register', user);
+        }
+
         function findUserByUsername(username){
             return $http.get("/api/project/user?username="+username);
         }
@@ -26,8 +42,8 @@
             return $http.get("/api/project/user?role=" +role);
         }
 
-        function findUserByCredentials(email, password){
-            return $http.get('/api/project/user?email='+email +'&password=' +password);
+        function findUserByCredentials(username, password){
+            return $http.get('/api/project/user?username='+username +'&password=' +password);
         }
 
         function findAllUsers(){

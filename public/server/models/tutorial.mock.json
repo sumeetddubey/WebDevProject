@@ -5,19 +5,23 @@
     "lessons": [
       {
         "title": "Introduction to Python",
-        "description": ["A simple introduction to python"],
+        "tagline": "Python as an OOP language",
+        "description": ["Python is an Object oriented, interpreted dynamic programming language. It allows users to write fewer lines of code compared to other programming languages like C++ and Java.", "Lets interact with the python compiler by using the ‘print’ command. The print command will output any given value to the user."],
         "multimedia": "",
-        "hints": "No hints",
+        "question": "Using the print function, print out 'hello world' on the console",
+        "hints": "print 'hello' will print hello string on the console",
         "keywords": ["intro", "python"],
-        "testcases": [""]
+        "testcases": ["hello world"]
       },
       {
-        "title": "Python Datatypes",
-        "description": ["Different datatypes in python"],
+        "title": "Python Variables",
+        "tagline": "Intro to python variables",
+        "description": ["Variables are entities that store data. We use variables to store all kinds of data and perform operations on them. Python variables do not require any type declaration."],
+        "question": "Create a variable named test. Give it a value 10 and then print it",
         "multimedia": "",
-        "hints": "No hints",
-        "keywords": ["datatypes", "python"],
-        "testcases": [""]
+        "hints": "Declare a by giving it a name and a value",
+        "keywords": ["variables", "python"],
+        "testcases": ["10"]
       }
     ],
     "tags":["python", "oop", "objects"],
