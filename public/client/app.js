@@ -10,7 +10,8 @@
             'flow',
             'ngYoutubeEmbed',
             //'angular-sanitize',
-            'textAngular'])
+            'textAngular',
+            'ng-mfb'])
         .config(function($mdThemingProvider) {
             $mdThemingProvider.theme('default')
                 .primaryPalette('blue-grey')

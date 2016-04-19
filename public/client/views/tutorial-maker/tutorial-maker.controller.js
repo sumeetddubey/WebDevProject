@@ -12,8 +12,19 @@
         $scope.createTutorial = createTutorial;
         $scope.openTutorial = openTutorial;
         $scope.findAllLessonsForTutorial = findAllLessonsForTutorial;
+        $scope.languages = [
+            "Python",
+            "JavaScript",
+            "Ruby",
+            "Java",
+            "C++"
+        ];
         //$scope.openLesson = openLesson;
         var tutorials = {};
+        $scope.selectedDirection = 'up';
+        $scope.selectedMode = 'md-fling';
+        $scope.isOpen = 'false';
+
 
 
         TutorialService.findAllTutorials()
@@ -67,14 +78,6 @@
         }
 
         var currentUser = $rootScope.currentUser;
-
-        $scope.languages = [
-            "Python",
-            "JavaScript",
-            "Ruby",
-            "Java",
-            "C++"
-        ];
 
          //transfer to display view
         function findAllTutorials(){
