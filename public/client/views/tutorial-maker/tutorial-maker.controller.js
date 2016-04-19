@@ -43,10 +43,10 @@
             var lessonId = lesson._id;
             LessonService.findLessonById(lessonId)
                 .then(
-                    function(reponse){
+                    function(response){
                         if(response){
-                            $rootScope.tutorial = response.data;
-                            $location.url('/tutorial')
+                            $rootScope.currentLesson = response.data;
+                            $location.url('/lesson-maker')
                         }
                     }
                 )

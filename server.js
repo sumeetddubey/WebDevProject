@@ -1,10 +1,7 @@
 var express = require('express');
 var mongoose = require('mongoose');
-<<<<<<< Updated upstream
 //var mongo = require('mongodb');
-var Grid = require('gridfs-stream');
-=======
->>>>>>> Stashed changes
+
 
 var passport = require('passport');
 var cookieParser = require('cookie-parser');

@@ -19,6 +19,10 @@
             return $http.get('/api/project/tutorial/' +tutorialId +'/lessons');
         }
 
+        function findLessonById(tutorialId, lessonId){
+            return $http.get('/api/project/tutorial/' +tutorialId +'/lesson/' +lessonId);
+        }
+
         function createLesson(tutorialId, lesson){
             return $http.post('/api/project/tutorial/' +tutorialId +'/lessons', lesson)
         }

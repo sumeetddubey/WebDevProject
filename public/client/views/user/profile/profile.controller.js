@@ -8,7 +8,6 @@
     function ProfileController($scope, $rootScope, $location, TutorialService) {
 
         var tutorials = {};
-<<<<<<< Updated upstream
         //var image = $flow.files[0];
         //console.log(image);
         //$scope.codeLevel = 70;
@@ -24,8 +23,6 @@
         else {
             $location.url("/home");
         }
-=======
->>>>>>> Stashed changes
 
         $scope.openTutorial = openTutorial;
         $scope.edit = edit;

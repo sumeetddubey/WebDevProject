@@ -22,6 +22,8 @@
         var currentUser = $rootScope.currentUser;
         var tutorialId = $rootScope.tutorial._id;
 
+
+
         function findAllLessonsForTutorial(){
             LessonService.findAllLessonsForTutorial(tutorialId)
                 .then(
@@ -55,8 +57,9 @@
         }
 
         function updateLesson(lesson){
+            var id = $scope.currentLesson._id
             if(lesson){
-                LessonService.updateLesson(tutorialId, lesson)
+                LessonService.updateLesson(tutorialId, id, lesson)
                     .then(
                         function(response){
                             if(response){
@@ -68,6 +71,7 @@
         }
 
         function deleteLesson(lesson){
+            var lessonId = $scope.currentLesson._id;
             if(lesson){
                 LessonService.deleteLesson(tutorialId, lesson)
                     .then(

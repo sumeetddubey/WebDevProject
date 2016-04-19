@@ -11,6 +11,7 @@ module.exports = function(){
 
     var api = {
         findAllLessonsForTutorial: findAllLessonsForTutorial,
+        findLessonById: findLessonById,
         createLesson: createLesson,
         updateLesson: updateLesson,
         deleteLesson: deleteLesson
@@ -27,6 +28,20 @@ module.exports = function(){
             }
             else{
                 deferred.resolve(doc.lessons);
+            }
+        });
+
+        return deferred.promise;
+    }
+
+    function findLessonById(tutorialId, lessonId){
+        var deferred = q.defer();
+        TutorialModel.findById(tutorialId, function(err, doc){
+            if(err){
+                deferred.reject(err);
+            }
+            else{
+                deferred.resolve(doc);
             }
         });
 
@@ -71,19 +86,25 @@ module.exports = function(){
                         if(lesson.title){
                             doc.lesson[index].title = lesson.title;
                         }
+                        if(lesson.tagline){
+                            doc.lesson[index].tagline = lesson.tagline;
+                        }
                         if(lesson.description){
                             doc.lesson[index].description = lesson.description;
                         }
-                        if(lesson.title){
+                        if(lesson.question){
+                            doc.lesson[index].question = lesson.question;
+                        }
+                        if(lesson.multimedia){
                             doc.lesson[index].multimedia = lesson.multimedia;
                         }
                         if(lesson.title){
                             doc.lesson[index].hints = lesson.hints;
                         }
-                        if(lesson.title){
+                        if(lesson.keywords){
                             doc.lesson[index].keywords = lesson.keywords;
                         }
-                        if(lesson.title){
+                        if(lesson.testcases){
                             doc.lesson[index].testcases = lesson.testcases;
                         }
                     }
