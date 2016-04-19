@@ -1,5 +1,5 @@
 <div ng-controller="TutorialMakerController" layout="column" ng-cloak class="md-inline-form">
-    <!--TODO:Add a dropdown menu with list of tutorials -->
+
     <div layout="row" style="margin-top: 10%">
 
         <div flex="10">
@@ -9,15 +9,62 @@
         <div flex="80">
             <md-content layout-gt-sm="row" layout-align="center center" layout-padding>
                 <md-card flex class="better-header">
-                    <md-toolbar class="md-toolbar-tools">
-                        <h2><span>Tutorial Maker</span></h2>
-                    </md-toolbar>
+                    <!--<md-toolbar class="md-toolbar-tools">-->
+                        <!--<h2><span>Tutorial Maker</span></h2>-->
+                    <!--</md-toolbar>-->
                     <!--<md-card-header>-->
                         <!--<md-card-title>-->
                             <!--<span class="md-title">Tutorial Maker</span>-->
                         <!--</md-card-title>-->
                     <!--</md-card-header>-->
-                    <div>
+                    <md-toolbar class="md-menu-toolbar">
+                        <div layout="row">
+                            <md-toolbar-filler layout layout-align="center center">
+                                <md-icon class="material-icons">assignment</md-icon>
+                            </md-toolbar-filler>
+                            <div>
+                                <h2 class="md-toolbar-tools">Create and Edit Tutorials and Lessons</h2>
+                                <md-menu-bar>
+                                    <md-menu>
+                                        <button ng-click="$mdOpenMenu()">
+                                            Tutorials
+                                        </button>
+                                        <md-menu-content>
+                                            <md-menu-item layout="column">
+                                                <!--<md-button ng-click="ctrl.sampleAction('share', $event)">-->
+                                                <!--Share...-->
+                                                <!--</md-button>-->
+                                                <md-list-item md-ink-ripple class="md-3-line" ng-repeat="tutorial in tutorials" ng-click="openTutorial(tutorial)">
+                                                    <div class="md-list-item-text" >
+                                                        <h3 layout="column">{{tutorial.title}}</h3>
+                                                        <md-menu-divider ng-if="!$last"></md-menu-divider>
+                                                    </div>
+                                                </md-list-item>
+
+                                            </md-menu-item>
+                                        </md-menu-content>
+                                    </md-menu>
+                                    <md-menu>
+                                        <button ng-click="$mdOpenMenu()">
+                                            Lessons
+                                        </button>
+                                        <md-menu-content>
+                                            <md-menu-item layout="column">
+                                                <md-list-item mg-ink-ripple class="md-3-line" ng-repeat="lesson in tutorial.lessons" ng-click="openLesson(lesson)">
+                                                    <div class="md-list-item-text" layout="column">
+                                                        <p>{{lesson.title}}</p>
+                                                        <md-menu-divider ng-if="!$last"></md-menu-divider>
+                                                    </div>
+                                                </md-list-item>
+                                            </md-menu-item>
+                                        </md-menu-content>
+                                    </md-menu>
+                                </md-menu-bar>
+                            </div>
+                        </div>
+                    </md-toolbar>
+
+                    <div class="page-container">
                         <form style="margin-top: 5%;">
                             <div layout-gt-xs="column">
                                 <div layout="row">
