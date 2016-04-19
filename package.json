@@ -32,8 +32,11 @@
     "angular-youtube-embed": "^1.2.0",
     "body-parser": "^1.15.0",
     "express": "^3.21.2",
+    "fs": "0.0.2",
+    "gridfs-stream": "^1.1.1",
     "machinepack-hackerrank": "^0.1.2",
     "mongoose": "^4.4.12",
+    "mongoose-crate": "^1.0.10",
     "multer": "^1.1.0",
     "ng-youtube-embed": "^0.2.2",
     "q": "^1.4.1"

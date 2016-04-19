@@ -2,13 +2,14 @@
  * Created by sumeetdubey on 3/26/16.
  */
 
-module.exports = function(app, mongoose){
+module.exports = function(app, mongoose, gfs){
 
     var q = require('q');
 
     //load user schema
     var UserSchema = require("./user.schema.server.js")(mongoose);
     var UserModel = mongoose.model("User", UserSchema);
+    var fs = require('fs');
 
 
     var api = {
@@ -19,7 +20,8 @@ module.exports = function(app, mongoose){
         findUserByCredentials: findUserByCredentials,
         findUserByRole: findUserByRole,
         deleteUserById: deleteUserById,
-        updateUserById: updateUserById
+        updateUserById: updateUserById,
+        createProfilePic: createProfilePic
     };
 
     return api;
@@ -155,5 +157,16 @@ module.exports = function(app, mongoose){
             }
         });
         return deferred.promise;
+    }
+
+    function createProfilePic(image){
+        var writeStream = gfs.createWriteStream({
+            filename: 'pic'
+        });
+        fs.createReadStream(image).pipe(writeStream);
+
+        writeStream.on('close', function(file){
+            console.log(file.filename);
+        })
     }
 };
