@@ -21,7 +21,7 @@
         vm.onEditorLoad = onEditorLoad;
         vm.onEditorChange = onEditorChange;
         vm.langMode = langMode;
-        vm.link = 'https://www.youtube.com/watch?v=7SWvDHvWXok';
+        //vm.link = currentLesson.multimedia;
 
         var count = 0;
 
@@ -33,6 +33,7 @@
                         if(response){
                             vm.tutorial = response.data;
                             vm.currentLesson = response.data.lessons[count];
+                            vm.link = vm.currentLesson.multimedia;
                             console.log(vm.currentLesson);
                         }
                     }
