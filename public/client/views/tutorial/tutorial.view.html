@@ -1,4 +1,4 @@
-<div>
+<div layout-padding>
     <div layout="row">
         <md-card flex="'40">
                 <md-card-title>
@@ -65,27 +65,25 @@
             <!--</md-card>-->
 
             <div layout="row">
-                <div flex="30"></div>
-                <div flex="70">
-                    <md-input-container class="md-block">
+                    <md-input-container flex>
                         <label>Code</label>
-                        <textarea ng-model="userCode.data" md-maxlength="150" rows="5" md-select-on-focus></textarea>
+                        <div class='ace-editor' ng-model="userCode.data" ui-ace="{
+                             theme:'monokai',
+                                mode: '{{tutorialLang}}',
+                            }" layout-align="stretch">
+                        </div>
+                        <!--<textarea ng-model="userCode.data" md-maxlength="250" rows="5" md-select-on-focus></textarea>-->
                         <md-progress-linear md-mode="indeterminate" ng-if="isLoading" ng-hide></md-progress-linear>
-                        <md-button class="md-raised md-primary" ng-click="model.run(userCode); showloader()" >Run Code</md-button>
-                        <md-button class="md-raised md-primary" ng-click="model.nextLesson(userCode); showloader()" >Submit Code</md-button>
+                        <md-button class="md-raised md-primary" ng-click="model.run(userCode); model.showloader()" >Run Code</md-button>
+                        <md-button class="md-raised md-primary" ng-click="model.nextLesson(userCode); model.showloader()" >Submit Code</md-button>
                     </md-input-container>
-                    <md-input-container>
-                        <label>Result</label>
-                        <textarea md-maxlength="150" rows="5" ng-model="model.output"></textarea>
-                    </md-input-container>
-                    <div class='ace-editor' ng-model="userCode.data" ui-ace="{
-                      theme:'monokai',
-                      mode: 'ruby',
-                     }">
-                    </div>
-                </div>
-            </div>
-        </div>
 
+            </div>
+            <md-input-container>
+                <label>Result</label>
+                <textarea md-maxlength="300" rows="10" ng-model="model.output" disabled></textarea>
+                <div ui-ace readonly ng-model="model.output"></div>
+            </md-input-container>
         </div>
     </div>
+</div>
