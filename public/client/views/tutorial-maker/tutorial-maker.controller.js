@@ -7,33 +7,28 @@
 
     TutorialMakerController.$inject = ['$rootScope', 'TutorialService', '$location', 'LessonService'];
 
-    function TutorialMakerController($rootScope, TutorialService, $location){
+    function TutorialMakerController($rootScope, TutorialService, $location, LessonService){
 
-        $scope.createTutorial = createTutorial;
-        $scope.openTutorial = openTutorial;
-        $scope.findAllLessonsForTutorial = findAllLessonsForTutorial;
-        $scope.languages = [
+        var vm = this;
+        
+        vm.createTutorial = createTutorial;
+        vm.updateTutorial = updateTutorial;
+        vm.deleteTutorial = deleteTutorial;
+        vm.openTutorial = openTutorial;
+        vm.findAllLessonsForTutorial = findAllLessonsForTutorial;
+
+        vm.languages = [
             "Python",
             "JavaScript",
             "Ruby",
             "Java",
             "C++"
         ];
-        //$scope.openLesson = openLesson;
-        var tutorials = {};
-        $scope.selectedDirection = 'up';
-        $scope.selectedMode = 'md-fling';
-        $scope.isOpen = 'false';
-
-        var vm = this;
-
-        //instances for methods
-        vm.createTutorial = createTutorial;
-        vm.openTutorial = openTutorial;
-        vm.findAllLessonsForTutorial = findAllLessonsForTutorial;
-        //vm.openLesson = openLesson;
 
         var tutorials = {};
+        vm.selectedDirection = 'up';
+        vm.selectedMode = 'md-fling';
+        vm.isOpen = 'false';
 
         TutorialService.findTutorialsByUserId()
             .then(
@@ -88,11 +83,11 @@
         var currentUser = $rootScope.currentUser;
 
         vm.languages = [
-            "Python",
-            "JavaScript",
-            "Ruby",
+            "C++",
             "Java",
-            "C++"
+            "Python",
+            "Javascript",
+            "Ruby"
         ];
 
          //transfer to display view
@@ -121,9 +116,6 @@
         }
 
         function createTutorial(tutorial){
-            console.log("in client create");
-            console.log(currentUser);
-            console.log(tutorial);
             if(currentUser && tutorial){
                 console.log('here');
                 TutorialService.createTutorial(tutorial)

@@ -1,4 +1,4 @@
-<div layout="row" ng-controller="HeaderController">
+<div ng-controller="HeaderController as model" layout="row">
 
     <md-sidenav
             md-component-id="left"
@@ -15,7 +15,7 @@
                         ng-disabled="false"
                         aria-label="Profile"
                         md-no-ink
-                        ng-click="close()"
+                        ng-click="model.close()"
                         class="md-primary">
                     Profile
                 </md-button>
@@ -28,7 +28,7 @@
                         ng-disable="false"
                         aria-label="Tutorial"
                         md-no-ink
-                        ng-click="close()"
+                        ng-click="model.close()"
                         class="md-primary">
                     Tutorial
                 </md-button>
@@ -83,9 +83,9 @@
             <md-content ng-show="currentUser">
                 <md-button
                         href="#/home"
-                        ng-click="logout()"
+                        ng-click="model.logout()"
                         md-no-ink
-                        ng-click="close()"
+                        ng-click="model.close()"
                         class="md-primary">
                     Logout
                 </md-button>
@@ -95,7 +95,7 @@
 
     <md-content>
         <md-button
-                ng-click="openLeftMenu()" >
+                ng-click="model.openLeftMenu()" >
             <md-font-icon
                     class="material-icons md-48"
                           aria-label="menu">

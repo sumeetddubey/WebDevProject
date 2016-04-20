@@ -9,9 +9,8 @@
             'md.data.table',
             'flow',
             'ngYoutubeEmbed',
-            //'angular-sanitize',
             'textAngular',
-            'ng-mfb'])
+            'ng-mfb',
             'textAngular',
             'ui.ace'])
         .config(function($mdThemingProvider) {

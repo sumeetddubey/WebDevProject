@@ -125,15 +125,10 @@ module.exports = function(app, tutorialModel){
     }
 
     function sendCode(req, res){
-        var language = req.query.lang;
-        var testcases= req.query.testcases;
-        console.log(language);
-        console.log(testcases);
-        console.log(req.body);
-        //var code = Object.keys(req.body)[0];
+        var language = req.query.language;
         var code = req.body[0];
         console.log(code);
-        tutorialModel.sendCodeToApi(code)
+        tutorialModel.sendCodeToApi(code, language)
             .then(
                 function(doc) {
                     var response = JSON.parse(doc);

@@ -18,7 +18,7 @@
                 function(response){
                     if(response){
                         console.log(response.data);
-                        $scope.tutorials = response.data;
+                        vm.tutorials = response.data;
                     }
                 }
             );
@@ -30,6 +30,8 @@
                     function(response){
                         if(response){
                             $rootScope.tutorial = response.data;
+                            var lang = $rootScope.tutorial.language;
+                            $rootScope.tutorialLang = lang.toLowerCase();
                             $location.url('/tutorial');
                         }
                     }
