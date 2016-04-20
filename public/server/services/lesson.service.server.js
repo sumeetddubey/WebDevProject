@@ -25,7 +25,7 @@ module.exports  = function(app, lessonModel){
         var tutorialId = req.params.tutorialId;
         var lessonId = req.params.lessonId;
         lessonModel.findLessonById(tutorialId, lessonId)
-            .them(
+            .then(
                 function(doc){
                     res.json(doc);
                 },

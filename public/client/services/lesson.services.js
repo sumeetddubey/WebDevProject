@@ -8,6 +8,7 @@
     function LessonService($http){
         var api = {
             findAllLessonsForTutorial: findAllLessonsForTutorial,
+            findLessonById: findLessonById,
             createLesson: createLesson,
             updateLesson: updateLesson,
             deleteLesson: deleteLesson

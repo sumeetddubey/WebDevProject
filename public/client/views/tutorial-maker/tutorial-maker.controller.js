@@ -5,16 +5,17 @@
     var app = angular.module("codingTutorial");
     app.controller("TutorialMakerController", TutorialMakerController);
 
-    TutorialMakerController.$inject = ['$rootScope', 'TutorialService', '$location', 'LessonService'];
+    TutorialMakerController.$inject = ['$rootScope', 'TutorialService', '$location', 'LessonService', '$route'];
 
-    function TutorialMakerController($rootScope, TutorialService, $location, LessonService){
+    function TutorialMakerController($rootScope, TutorialService, $location, LessonService, $route){
 
         var vm = this;
         
         vm.createTutorial = createTutorial;
         vm.updateTutorial = updateTutorial;
         vm.deleteTutorial = deleteTutorial;
-        vm.openTutorial = openTutorial;
+        vm.openTutorialEditor = openTutorialEditor;
+        vm.openLessonEditor = openLessonEditor;
         vm.findAllLessonsForTutorial = findAllLessonsForTutorial;
 
         vm.languages = [
@@ -25,12 +26,13 @@
             "C++"
         ];
 
-        var tutorials = {};
         vm.selectedDirection = 'up';
         vm.selectedMode = 'md-fling';
         vm.isOpen = 'false';
 
-        TutorialService.findTutorialsByUserId()
+        console.log($rootScope.currentUser);
+        console.log($rootScope.currentUser._id);
+        TutorialService.findTutorialsByUserId($rootScope.currentUser._id)
             .then(
                 function(response){
                     if(response){
@@ -40,22 +42,25 @@
                 }
             );
 
-        function openTutorial(tutorial){
+        function openTutorialEditor(tutorial){
             var tutorialId = tutorial._id;
             TutorialService.findTutorialById(tutorialId)
                 .then(
                     function(response){
                         if(response){
                             $rootScope.tutorial = response.data;
-                            $location.url('/tutorial');
+                            vm.tutorial = response.data;
+
                         }
                     }
                 )
         }
 
-        function openLesson(lesson){
+        function openLessonEditor(lesson){
+            var tutorialId = vm.tutorial._id;
             var lessonId = lesson._id;
-            LessonService.findLessonById(lessonId)
+            console.log(lesson);
+            LessonService.findLessonById(tutorialId, lessonId)
                 .then(
                     function(response){
                         if(response){
@@ -118,6 +123,7 @@
         function createTutorial(tutorial){
             if(currentUser && tutorial){
                 console.log('here');
+                tutorial.uploaderId = $rootScope.currentUser._id;
                 TutorialService.createTutorial(tutorial)
                     .then(
                         function(response){
@@ -133,25 +139,38 @@
         }
 
         function updateTutorial(tutorial){
+            var tutorialId = vm.tutorial._id;
             if(tutorial){
-                TutorialService.updateTutorial(tutorial)
+                TutorialService.updateTutorial(tutorialId, tutorial)
                     .then(
                         function(response){
                             if(response){
-                                vm.userTutorials = response.data;
+                                console.log(response.data);
+                                TutorialService.findTutorialById(tutorialId)
+                                    .then(
+                                        function(response){
+                                            if(response){
+                                                vm.tutorial = response.data;
+                                            }
+                                        }
+                                    )
                             }
                         }
                     )
             }
+            else{
+                window.alert('SELECT A TUTORIAL');
+            }
         }
 
-        function deleteTutorial(tutorial){
-            if(tutorial){
-                TutorialService.deleteTutorial(tutorial)
+        function deleteTutorial(){
+            var tutorialId = vm.tutorial._id;
+            if(vm.tutorial){
+                TutorialService.deleteTutorial(tutorialId)
                     .then(
                         function(response){
                             if(response){
-                                findAllTutorials();
+                                $route.reload();
                             }
                         }
                     )

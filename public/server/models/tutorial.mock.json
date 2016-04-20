@@ -1,9 +1,10 @@
 [
   {
     "title": "Python Programming",
-    "uploaderId": "1",
+    "uploaderId": "5716d47cd640505b16072d6e",
     "lessons": [
       {
+        "_id": "570c8d341661c30211b3wqef",
         "title": "Introduction to Python",
         "tagline": "Python as an OOP language",
         "description": ["Python is an Object oriented, interpreted dynamic programming language. It allows users to write fewer lines of code compared to other programming languages like C++ and Java.", "Lets interact with the python compiler by using the ‘print’ command. The print command will output any given value to the user."],
@@ -14,6 +15,7 @@
         "testcases": ["hello world"]
       },
       {
+        "_id": "570c8d341661c30211b3weqf",
         "title": "Python Variables",
         "tagline": "Intro to python variables",
         "description": ["Variables are entities that store data. We use variables to store all kinds of data and perform operations on them. Python variables do not require any type declaration."],
@@ -29,9 +31,10 @@
   },
   {
     "title": "OOP",
-    "uploaderId": "1",
+    "uploaderId": "5716d47cd640505b16072d6e",
     "lessons": [
       {
+        "_id": "570c8d34166fh40211b3a888",
         "title": "Introduction to Java",
         "description": ["A simple introduction to Java"],
         "multimedia": "",
@@ -40,6 +43,7 @@
         "testcases": [""]
       },
       {
+        "_id": "57qw1d341661c30211b3a888",
         "title": "Java Datatypes",
         "description": ["Different datatypes in Java"],
         "multimedia": "",
@@ -48,6 +52,7 @@
         "testcases": [""]
       },
       {
+        "_id": "570c8d3wrv61c30211b3a888",
         "title": "Java Methods",
         "description": ["Implementation of functions in Java"],
         "multimedia": "",
@@ -60,10 +65,12 @@
     "language": "Java"
   },
   {
+    "_id": "570c8d341661c30211b3a888",
     "title": "JavaScript",
-    "uploaderId": "1",
+    "uploaderId": "5716d47cd640505b16072d6e",
     "lessons": [
       {
+        "_id": "570c8d341661c30211b35827",
         "title": "Introduction to Javascript",
         "description": ["An introduction to web programming and JavaScript"],
         "multimedia": "",
@@ -72,6 +79,7 @@
         "testcases": [""]
       },
       {
+        "_id": "570c8d341661c30211b4rnhf",
         "title": "Javascript Variables",
         "description": ["Usage of variables in JavaScript"],
         "multimedia": "",

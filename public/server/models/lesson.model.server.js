@@ -41,7 +41,13 @@ module.exports = function(){
                 deferred.reject(err);
             }
             else{
-                deferred.resolve(doc);
+                console.log(doc);
+                for(var index in doc.lessons){
+                    if(doc.lessons[index]._id === lessonId){
+                        console.log(doc.lessons[index]);
+                        deferred.resolve(doc.lessons[index]);
+                    }
+                }
             }
         });
 
