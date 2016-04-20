@@ -15,9 +15,10 @@
             'ui.ace'])
         .config(function($mdThemingProvider) {
             $mdThemingProvider.theme('default')
-                .primaryPalette('blue-grey')
+                .primaryPalette('indigo')
                 .accentPalette('pink')
-                .warnPalette('red');
+                .warnPalette('red')
+                .backgroundPalette('grey');
         });
     //angular.module('firstModule',['moduleA','moduleB']);
     //.module("codingTutorial", ["ngMaterial"]);

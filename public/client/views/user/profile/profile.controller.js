@@ -5,10 +5,35 @@
     var app = angular.module("codingTutorial");
     app.controller("ProfileController", ProfileController);
 
-    function ProfileController($rootScope, $location, TutorialService) {
+    function ProfileController($rootScope, $location, $mdToast, TutorialService) {
 
         var vm = this;
         var tutorials = {};
+
+        vm.showSimpleToast = showSimpleToast;
+
+        function showSimpleToast(message, parentId) {
+
+            var el = angular.element(document.getElementById(parentId));
+
+            var toast = $mdToast.simple()
+                .content(message)
+                .action('OK')
+                .highlightAction(true)
+                .hideDelay(0)
+                .position('bottom right')
+                .parent(el);
+            $mdToast.show(toast);
+            // Could also do $mdToast.showSimple('Hello');
+        }
+
+        //function showSimpleToast() {
+        //    $mdToast.show({
+        //        hideDelay   : 3000,
+        //        position    : 'top right',
+        //        controller  : 'ToastCtrl'
+        //    });
+        //}
 
         if ($rootScope.currentUser) {
             vm.currentUser = $rootScope.currentUser;

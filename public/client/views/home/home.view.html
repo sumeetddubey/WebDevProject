@@ -5,7 +5,7 @@
 
         <div class="row header-info">
             <div class="col-sm-10 col-sm-offset-1 text-center">
-                <h1 class="wow fadeIn">Tutorial App</h1>
+                <h1 class="wow fadeIn">CodeStory</h1>
                 <br />
                 <p class="lead wow fadeIn" data-wow-delay="0.5s">Where coding is an adventure</p>
                 <br />
@@ -62,67 +62,34 @@
             </div>
             <div class="col-sm-4 wow fadeIn" data-wow-delay="1.2s">
                 <hr  class="line yellow">
-                <h3>Try for free</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam viverra orci ut est facilisis, eu elementum mi volutpat. Pellentesque ac tristique nisi.</p>
+                <h3>Create your own tutorial and lessons</h3>
+                <p>Are you an instructor? Create your own tutorials and lessons now.</p>
             </div>
         </div>
     </div>
 </section>
-
 
 <!--Pricing-->
 <section id="pricing" class="pad-lg">
     <div class="container">
         <div class="row margin-40">
             <div class="col-sm-8 col-sm-offset-2 text-center">
-                <h2 class="white">Pricing</h2>
-                <p class="white">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam viverra orci ut.</p>
+                <h2 class="white" style="margin-bottom: 5%">Too busy to learn? We got you covered</h2>
+            </div>
+            <div class="col-md-6">
+                <p class="white">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+            </div><!--/col-md-6-->
+            <div class="col-md-6">
+                <p class="white">It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software.</p>
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-10 col-md-offset-1">
+                        <img src="images/items.png" class="img-responsive" alt="items" style="margin-top: 10%">
+                    </div>
+                </div><!--/row-->
             </div>
         </div>
-
-        <div class="row margin-50">
-
-            <div class="col-sm-4 pricing-container wow fadeInUp" data-wow-delay="1s">
-                <br />
-                <ul class="list-unstyled pricing-table text-center">
-                    <li class="headline"><h5 class="white">Free</h5></li>
-                    <li class="price"><div class="amount">$0<small>/m</small></div></li>
-                    <li class="info">Get a month of free access to all videos on registering for the first time.</li>
-                    <li class="features first">100+ Lessons</li>
-                    <li class="features">10+ languages</li>
-                    <li class="features">Interactive storyline</li>
-                    <li class="features last btn btn-secondary btn-wide"><a href="#">Get Started</a></li>
-                </ul>
-            </div>
-
-            <div class="col-sm-4 pricing-container wow fadeInUp" data-wow-delay="0.4s">
-                <ul class="list-unstyled pricing-table active text-center">
-                    <li class="headline"><h5 class="white">Professional</h5></li>
-                    <li class="price"><div class="amount">$12<small>/m</small></div></li>
-                    <li class="info">Single access accoun</li>
-                    <li class="features first">Up To 25 Projects</li>
-                    <li class="features">10GB Storage</li>
-                    <li class="features">Other info</li>
-                    <li class="features">Other info</li>
-                    <li class="features last btn btn-secondary btn-wide"><a href="#">Get Started</a></li>
-                </ul>
-            </div>
-
-            <div class="col-sm-4 pricing-container wow fadeInUp" data-wow-delay="1.3s">
-                <br />
-                <ul class="list-unstyled pricing-table text-center">
-                    <li class="headline"><h5 class="white">Business</h5></li>
-                    <li class="price"><div class="amount">$24<small>/m</small></div></li>
-                    <li class="info">2 row section for you package information. You can include all details or icons</li>
-                    <li class="features first">Up To 25 Projects</li>
-                    <li class="features">10GB Storage</li>
-                    <li class="features">Other info</li>
-                    <li class="features last btn btn-secondary btn-wide"><a href="#">Get Started</a></li>
-                </ul>
-            </div>
-
-        </div>
-
     </div>
 </section>
 
@@ -132,21 +99,21 @@
         <div class="row">
             <div class="col-sm-8 col-sm-offset-2 text-center">
                 <i class="fa fa-envelope-o margin-40"></i>
-                <h2 class="black">Register Now</h2>
+                <h2 class="black">Login</h2>
                 <br />
-                <p class="black">Register now to learn coding</p>
+                <p class="black">Login now to continue coding</p>
                 <br />
 
                 <div class="row">
                     <div class="col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
                         <form role="form">
                             <div class="form-group">
-                                <input type="username" class="form-control" ng-model="user.username" id="exampleInputEmail1" placeholder="Email">
+                                <input type="username" class="form-control" ng-model="user.username" id="exampleInputEmail1" placeholder="Username">
                             </div>
                             <div class="form-group">
                                 <input type="password" class="form-control" ng-model="user.password" id="exampleInputPassword1" placeholder="Password">
                             </div>
-                            <button type="submit" class="btn btn-primary btn-lg" ng-click="register(user)">Register</button>
+                            <button type="submit" class="btn btn-primary btn-lg" ng-click="model.login(user)">Login</button>
                         </form>
                     </div>
                 </div><!--End Form row-->

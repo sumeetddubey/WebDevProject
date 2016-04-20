@@ -1,4 +1,4 @@
-<div layout="column" ng-controller="RegisterController" ng-cloak class="md-form">
+<div layout="column" ng-controller="ProfileController as controller" ng-cloak class="md-form" id="toast-position">
     <div layout="row" style="margin-top: 5%">
 
         <div flex="25">
@@ -49,24 +49,24 @@
                                     <label>Password</label>
                                     <input type="password" ng-model="currentUser.password" />
                                 </md-input-container>
-                                <div flow-init>
-                                    <div class="alert" style="width: 110px;
-                                                              height: 110px;
-                                                              border: dashed 5px #777;
-                                                              border-radius: 20px;
-                                                              background-color: #ddd;" flow-drop>
-                                        <div style="vertical-align: middle;
-                                                    text-align: center;">
-                                            DROP IMAGE HERE
-                                        </div>
-                                    </div>
-                                    <input type="file" ng-model="currentUser.pic" flow-btn/>
-                                    <img flow-img="$flow.files[0]"
-                                         class="md-avatar"
-                                         flex="30"
-                                         ng-model="currentUser.photo"
-                                         style="margin-top: 2%;">
-                                </div>
+                                <!--<div flow-init>-->
+                                    <!--<div class="alert" style="width: 110px;-->
+                                                              <!--height: 110px;-->
+                                                              <!--border: dashed 5px #777;-->
+                                                              <!--border-radius: 20px;-->
+                                                              <!--background-color: #ddd;" flow-drop>-->
+                                        <!--<div style="vertical-align: middle;-->
+                                                    <!--text-align: center;">-->
+                                            <!--DROP IMAGE HERE-->
+                                        <!--</div>-->
+                                    <!--</div>-->
+                                    <!--<input type="file" ng-model="currentUser.pic" flow-btn/>-->
+                                    <!--<img flow-img="$flow.files[0]"-->
+                                         <!--class="md-avatar"-->
+                                         <!--flex="30"-->
+                                         <!--ng-model="currentUser.photo"-->
+                                         <!--style="margin-top: 2%;">-->
+                                <!--</div>-->
 
                                 <!--<lf-ng-md-file-input lf-files="files05"-->
                                                      <!--lf-browse-label="Search"-->
@@ -74,7 +74,10 @@
                                                      <!--lf-drag-and-drop-label="Drag and Drop here!"-->
                                                      <!--drag preview></lf-ng-md-file-input>-->
 
-                                <md-button ng-click="edit(currentUser)" class="md-raised md-primary" style="margin-top: 5%;">Submit</md-button>
+                                <md-button ng-click="model.edit(user); model.showSimpleToast('Profile Updated', 'toast-position')"
+                                           class="md-raised md-primary"
+                                           style="margin-top: 5%;">Submit</md-button>
+
                             </md-card-content>
                         </md-tab-body>
 
