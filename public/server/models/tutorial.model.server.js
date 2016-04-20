@@ -59,7 +59,7 @@ module.exports = function(){
 
     function findTutorialsByUserId(userId){
         var deferred = q.defer();
-        TutorialModel.find({'userId': userId}, function(err, doc){
+        TutorialModel.find({'uploaderId': userId}, function(err, doc){
             if(err){
                 deferred.reject(err);
             }
@@ -133,14 +133,14 @@ module.exports = function(){
         var deferred = q.defer();
         TutorialModel.update({'_id': id},{
             title: tutorial.title,
-            lessons: tutorial.lessons,
-            tags: tutorial.tags,
-            language: tutorial.language
+            language: tutorial.language,
+            tags: tutorial.tags
         }, function(err, doc){
             if(err){
                 deferred.reject(err);
             }
             else{
+                console.log(doc);
                 deferred.resolve(doc);
             }
         });
@@ -156,7 +156,9 @@ module.exports = function(){
             else{
                 deferred.resolve(doc);
             }
-        })
+        });
+
+        return deferred.promise;
     }
 
     function sendCodeToApi(code, language){

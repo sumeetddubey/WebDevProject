@@ -26,7 +26,7 @@
                                                 <!--<md-button ng-click="ctrl.sampleAction('share', $event)">-->
                                                 <!--Share...-->
                                                 <!--</md-button>-->
-                                                <md-list-item md-ink-ripple class="md-3-line" ng-repeat="tutorial in model.tutorials" ng-click="model.openTutorial(tutorial)">
+                                                <md-list-item md-ink-ripple class="md-3-line" ng-repeat="tutorial in model.tutorials" ng-click="model.openTutorialEditor(tutorial)">
                                                     <div class="md-list-item-text" >
                                                         <h3 layout="column">{{tutorial.title}}</h3>
                                                         <md-menu-divider ng-if="!$last"></md-menu-divider>
@@ -42,7 +42,7 @@
                                         </button>
                                         <md-menu-content>
                                             <md-menu-item layout="column">
-                                                <md-list-item mg-ink-ripple class="md-3-line" ng-repeat="lesson in model.tutorial.lessons" ng-click="model.openLesson(lesson)">
+                                                <md-list-item mg-ink-ripple class="md-3-line" ng-repeat="lesson in model.tutorial.lessons" ng-click="model.openLessonEditor(lesson)">
                                                     <div class="md-list-item-text" layout="column">
                                                         <p>{{lesson.title}}</p>
                                                         <md-menu-divider ng-if="!$last"></md-menu-divider>

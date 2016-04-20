@@ -8,6 +8,7 @@
     function LessonService($http){
         var api = {
             findAllLessonsForTutorial: findAllLessonsForTutorial,
+            findLessonById: findLessonById,
             createLesson: createLesson,
             updateLesson: updateLesson,
             deleteLesson: deleteLesson
@@ -28,11 +29,11 @@
         }
 
         function updateLesson(tutorialId, lessonId, lesson){
-            return $http.put('/api/project/tutorial/' +tutorialId +'/lessons' +lessonId, lesson)
+            return $http.put('/api/project/tutorial/' +tutorialId +'/lesson/' +lessonId, lesson)
         }
 
         function deleteLesson(tutorialId, lessonId){
-            return $http.delete('/api/project/tutorial/' +tutorialId +'/lessons' +lessonId)
+            return $http.delete('/api/project/tutorial/' +tutorialId +'/lesson/' +lessonId)
         }
     }
 })();

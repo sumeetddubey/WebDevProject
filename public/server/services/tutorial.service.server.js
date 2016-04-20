@@ -79,8 +79,15 @@ module.exports = function(app, tutorialModel){
 
     function findTutorialsByUserId(req, res){
         var userId = req.params.userId;
-        var response = tutorialModel.findTutorialsByUserId(userId);
-        res.json(response);
+        tutorialModel.findTutorialsByUserId(userId)
+            .then(
+                function(doc){
+                    res.json(doc)
+                },
+                function(err){
+                    res.status(400).send(err);
+                }
+            )
     }
 
     function createTutorial(req, res){
@@ -98,7 +105,7 @@ module.exports = function(app, tutorialModel){
     }
 
     function updateTutorial(req, res){
-        var id = parseInt(req.params.id);
+        var id = req.params.id;
         var tutorial = req.body;
         tutorialModel.updateTutorial(id, tutorial)
             .then(
@@ -112,14 +119,14 @@ module.exports = function(app, tutorialModel){
     }
 
     function deleteTutorial(req, res){
-        var id = parseInt(req.params.id);
+        var id = req.params.id;
         tutorialModel.deleteTutorial(id)
             .then(
                 function(doc){
                     res.json(doc);
                 },
                 function(err){
-                    res.status(400).sned(err);
+                    res.status(400).send(err);
                 }
             )
     }

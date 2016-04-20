@@ -5,9 +5,9 @@
     var app = angular.module("codingTutorial");
     app.controller("LessonMakerController", LessonMakerController);
 
-    LessonMakerController.$inject = ['$mdConstant', '$rootScope', 'LessonService'];
+    LessonMakerController.$inject = ['$mdConstant', '$rootScope', 'LessonService', '$route'];
 
-    function LessonMakerController($mdConstant, $rootScope, LessonService){
+    function LessonMakerController($mdConstant, $rootScope, LessonService, $route){
 
         var vm = this;
 
@@ -20,11 +20,10 @@
         var semicolon = 186;
         vm.keys = [$mdConstant.KEY_CODE.ENTER, $mdConstant.KEY_CODE.COMMA, semicolon];
         vm.tags = [];
+        vm.lesson = $rootScope.currentLesson;
 
         var currentUser = $rootScope.currentUser;
         var tutorialId = $rootScope.tutorial._id;
-
-
 
         function findAllLessonsForTutorial(){
             LessonService.findAllLessonsForTutorial(tutorialId)
@@ -50,7 +49,7 @@
                     .then(
                         function(response){
                             if(response){
-                                vm.lessons = response.data;
+                                vm.lesson = response.data;
                                 console.log(response.data);
                             }
                         }
@@ -59,13 +58,22 @@
         }
 
         function updateLesson(lesson){
-            var id = vm.currentLesson._id
+            var id = vm.lesson._id;
+            console.log(lesson);
             if(lesson){
                 LessonService.updateLesson(tutorialId, id, lesson)
                     .then(
                         function(response){
                             if(response){
-                                vm.lessons = response.data;
+                                console.log(response.data);
+                                LessonService.findLessonById(tutorialId, id)
+                                    .then(
+                                        function(response){
+                                            if(response){
+                                                vm.lesson = response.data;
+                                            }
+                                        }
+                                    )
                             }
                         }
                     )
@@ -73,13 +81,13 @@
         }
 
         function deleteLesson(lesson){
-            var lessonId = vm.currentLesson._id;
+            var lessonId = vm.lesson._id;
             if(lesson){
-                LessonService.deleteLesson(tutorialId, lesson)
+                LessonService.deleteLesson(tutorialId, lessonId)
                     .then(
                         function(response){
                             if(response){
-                                vm.lessons = response.data;
+                                $route.reload();
                             }
                         }
                     )

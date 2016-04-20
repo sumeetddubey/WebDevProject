@@ -58,8 +58,8 @@ module.exports = function(app, userModel, passport) {
     }
 
     function login(req, res){
-        console.log(req.body);
         var user = req.user;
+        console.log(user);
         res.json(user);
     }
 

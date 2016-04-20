@@ -74,7 +74,15 @@
         }
 
         function edit(user){
-            console.log(user.pic);
+            UserService.updateUserById(user._id, user)
+                .then(
+                    function(response){
+                        if(response){
+                            $rootScope.currentUser = response.data;
+                            vm.currentUser = response.data;
+                        }
+                    }
+                )
         }
     }
 
