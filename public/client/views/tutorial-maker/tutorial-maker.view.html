@@ -36,7 +36,7 @@
                                             </md-menu-item>
                                         </md-menu-content>
                                     </md-menu>
-                                    <md-menu>
+                                    <md-menu ng-show="model.tutorial">
                                         <button ng-click="$mdOpenMenu()">
                                             Lessons
                                         </button>
@@ -51,6 +51,7 @@
                                             </md-menu-item>
                                         </md-menu-content>
                                     </md-menu>
+                                    <md-button ng-show="model.tutorial" ng-click="model.openLessonEditor(null)">Create New Lesson</md-button>
                                 </md-menu-bar>
                             </div>
                         </div>

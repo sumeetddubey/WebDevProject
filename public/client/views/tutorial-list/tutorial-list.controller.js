@@ -32,6 +32,7 @@
                             $rootScope.tutorial = response.data;
                             var lang = $rootScope.tutorial.language;
                             $rootScope.tutorialLang = lang.toLowerCase();
+                            console.log($rootScope.tutorialLang);
                             $location.url('/tutorial');
                         }
                     }

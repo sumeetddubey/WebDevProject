@@ -50,26 +50,30 @@
                         if(response){
                             $rootScope.tutorial = response.data;
                             vm.tutorial = response.data;
-
                         }
                     }
                 )
         }
 
         function openLessonEditor(lesson){
-            var tutorialId = vm.tutorial._id;
-            var lessonId = lesson._id;
-            console.log(tutorialId);
-            console.log(lessonId);
-            LessonService.findLessonById(tutorialId, lessonId)
-                .then(
-                    function(response){
-                        if(response){
-                            $rootScope.currentLesson = response.data;
-                            $location.url('/lesson-maker');
+            if(!lesson){
+                $location.url('/lesson-maker');
+            }
+            else {
+                var tutorialId = vm.tutorial._id;
+                var lessonId = lesson._id;
+                console.log(tutorialId);
+                console.log(lessonId);
+                LessonService.findLessonById(tutorialId, lessonId)
+                    .then(
+                        function (response) {
+                            if (response) {
+                                $rootScope.currentLesson = response.data;
+                                $location.url('/lesson-maker');
+                            }
                         }
-                    }
-                )
+                    )
+            }
         }
 
         function findAllLessonsForTutorial(){
