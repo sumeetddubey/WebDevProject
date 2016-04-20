@@ -12,7 +12,6 @@
     function TutorialController($mdDialog, HackerRankService, TutorialService, $rootScope){
 
         var vm = this;
-        console.log('tutorial is' +vm.tutorial);
 
         //instances for methods
         vm.run = run;
@@ -21,6 +20,7 @@
         vm.nextLesson = nextLesson;
         vm.onEditorLoad = onEditorLoad;
         vm.onEditorChange = onEditorChange;
+        vm.langMode = langMode;
         vm.link = 'https://www.youtube.com/watch?v=7SWvDHvWXok';
 
         var count = 0;
@@ -103,10 +103,10 @@
 
         function run(userCode) {
             var language = vm.tutorial.language;
-            var testcases = JSON.stringify(["1\n"]);
+            var testcases = "1";
             console.log(userCode.data);
             var code = [userCode.data];
-            HackerRankService.sendCode(code, language, testcases)
+            HackerRankService.sendCode(code, language)
                 .then(
                     function(response) {
                         if (response.data) {
@@ -122,9 +122,16 @@
                 );
         }
 
+        function langMode(){
+            var lang = vm.tutorial.language;
+            lang = lang.toLowerCase();
+            console.log(lang);
+            return lang;
+        }
+
         function onEditorLoad(_editor){
             _editor.setReadOnly(true);
-            console.log('ace loaded');
+            console.log($rootScope.tutorialLang);
         }
 
         function onEditorChange(e){

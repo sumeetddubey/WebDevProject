@@ -1,4 +1,4 @@
-<div ng-controller="TutorialMakerController" layout="column" ng-cloak class="md-inline-form">
+<div layout="column" ng-cloak class="md-inline-form">
 
     <div layout="row" style="margin-top: 10%;">
 
@@ -9,14 +9,6 @@
         <div flex="80">
             <md-content layout-gt-sm="row" layout-align="center center" layout-padding>
                 <md-card flex class="better-header">
-                    <!--<md-toolbar class="md-toolbar-tools">-->
-                        <!--<h2><span>Tutorial Maker</span></h2>-->
-                    <!--</md-toolbar>-->
-                    <!--<md-card-header>-->
-                        <!--<md-card-title>-->
-                            <!--<span class="md-title">Tutorial Maker</span>-->
-                        <!--</md-card-title>-->
-                    <!--</md-card-header>-->
                     <md-toolbar class="md-menu-toolbar">
                         <div layout="row">
                             <md-toolbar-filler layout layout-align="center center">
@@ -34,7 +26,7 @@
                                                 <!--<md-button ng-click="ctrl.sampleAction('share', $event)">-->
                                                 <!--Share...-->
                                                 <!--</md-button>-->
-                                                <md-list-item md-ink-ripple class="md-3-line" ng-repeat="tutorial in tutorials" ng-click="openTutorial(tutorial)">
+                                                <md-list-item md-ink-ripple class="md-3-line" ng-repeat="tutorial in model.tutorials" ng-click="model.openTutorial(tutorial)">
                                                     <div class="md-list-item-text" >
                                                         <h3 layout="column">{{tutorial.title}}</h3>
                                                         <md-menu-divider ng-if="!$last"></md-menu-divider>
@@ -50,7 +42,7 @@
                                         </button>
                                         <md-menu-content>
                                             <md-menu-item layout="column">
-                                                <md-list-item mg-ink-ripple class="md-3-line" ng-repeat="lesson in tutorial.lessons" ng-click="openLesson(lesson)">
+                                                <md-list-item mg-ink-ripple class="md-3-line" ng-repeat="lesson in model.tutorial.lessons" ng-click="model.openLesson(lesson)">
                                                     <div class="md-list-item-text" layout="column">
                                                         <p>{{lesson.title}}</p>
                                                         <md-menu-divider ng-if="!$last"></md-menu-divider>
@@ -73,32 +65,31 @@
                                     </div>
                                     <md-input-container class="md-block" flex="70">
                                         <label>Title</label>
-                                        <input ng-model="tutorial.title">
+                                        <input ng-model="model.tutorial.title">
                                     </md-input-container>
                                 </div>
                                 <div layout="row" layout-fill>
                                     <div flex="10">
                                         <!--Left Most-->
                                     </div>
-                                    <md-input-container style="margin-right: 10px;" flex="70">
+                                    <md-input-container class="md-block" flex="70">
                                         <label>Language</label>
-                                        <md-select ng-model="tutorial.language">
-                                            <md-option ng-repeat="language in languages" value="{{language}}">{{language}}</md-option>
+                                        <md-select ng-model="model.tutorial.language">
+                                            <md-option ng-repeat="language in model.languages" value="{{language}}">{{language}}</md-option>
                                         </md-select>
                                     </md-input-container>
                                 </div>
-
                                 <div layout="row" layout-fill>
                                     <div flex="10">
                                         <!--Left Most-->
                                     </div>
                                     <md-input-container class="md-block" flex="70">
                                         <label>Tags</label>
-                                        <input ng-model="tutorial.tags">
+                                        <input ng-model="model.tutorial.tags">
                                     </md-input-container>
                                 </div>
                                     <div style="padding-bottom: 10%"></div>
-                                    <md-button ng-click="createTutorial(tutorial)" class="md-raised md-primary" style="margin-top: 5%;">Create Tutorial</md-button>
+                                    <md-button ng-click="model.createTutorial(model.tutorial)" class="md-raised md-primary" style="margin-top: 5%;">Create Tutorial</md-button>
                                 </div>
                         </form>
                         <nav mfb-menu position="br"
@@ -107,10 +98,10 @@
                              active-icon="ion-close"
                              resting-icon="ion-edit"
                              toggling-method="click"
-                             mfb-button-close>
-                            <button mfb-button icon="ion-plus" label="Create Tutorial"></button>
-                            <button mfb-button icon="ion-wrench" label="Update Tutorial"></button>
-                            <button mfb-button icon="ion-trash-b" label="Delete Tutorial"></button>
+                             >
+                            <button mfb-button icon="ion-plus" ng-click="model.createTutorial(model.tutorial)" label="Create Tutorial"></button>
+                            <button mfb-button icon="ion-wrench" ng-click="model.updateTutorial(model.tutorial)" label="Update Tutorial"></button>
+                            <button mfb-button icon="ion-trash-b" ng-click="model.deleteTutorial(model.tutorial)" label="Delete Tutorial"></button>
                         </nav>
                     </div>
                 </md-card>

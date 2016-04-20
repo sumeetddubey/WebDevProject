@@ -159,13 +159,34 @@ module.exports = function(){
         })
     }
 
-    function sendCodeToApi(code){
-        //callbackUrl: '/api/tutorial/callback',
+    function sendCodeToApi(code, language){
         var deferred = q.defer();
+        var lang;
+        console.log(language);
+        if(language === 'C++'){
+            lang = 2;
+        }
+
+        if(language === 'Java'){
+            lang = 3;
+        }
+
+        if(language === 'Python'){
+            lang = 5;
+        }
+
+        if(language === 'JavaScript'){
+            lang = 20;
+        }
+
+        if(language === 'Ruby'){
+            lang = 8;
+        }
+        console.log(lang);
         HackerRank.submit({
             apiKey: "hackerrank|902784-700|93c391311e30d1172470dfc810eeb0ea0b2c70dd",
             source: code,
-            language: 5,
+            language: lang,
             testcases: [""],
             wait: true,
             format: "json"
