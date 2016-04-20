@@ -11,8 +11,7 @@
             'ngYoutubeEmbed',
             //'angular-sanitize',
             'textAngular',
-            'ng-mfb'])
-            'textAngular',
+            'ng-mfb',
             'ui.ace'])
         .config(function($mdThemingProvider) {
             $mdThemingProvider.theme('default')

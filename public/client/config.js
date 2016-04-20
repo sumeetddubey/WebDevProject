@@ -51,7 +51,6 @@
             })
             .when('/tutorial', {
                 templateUrl: "views/tutorial/tutorial.view.html",
-                controller: "TutorialController"
                 controller: "TutorialController",
                 controllerAs: 'model'
             })
