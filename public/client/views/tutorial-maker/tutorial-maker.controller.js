@@ -59,13 +59,14 @@
         function openLessonEditor(lesson){
             var tutorialId = vm.tutorial._id;
             var lessonId = lesson._id;
-            console.log(lesson);
+            console.log(tutorialId);
+            console.log(lessonId);
             LessonService.findLessonById(tutorialId, lessonId)
                 .then(
                     function(response){
                         if(response){
                             $rootScope.currentLesson = response.data;
-                            $location.url('/lesson-maker')
+                            $location.url('/lesson-maker');
                         }
                     }
                 )

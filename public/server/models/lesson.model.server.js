@@ -41,9 +41,9 @@ module.exports = function(){
                 deferred.reject(err);
             }
             else{
-                console.log(doc);
+                console.log(doc.lessons);
                 for(var index in doc.lessons){
-                    if(doc.lessons[index]._id === lessonId){
+                    if(JSON.stringify(doc.lessons[index]._id) === JSON.stringify(lessonId)){
                         console.log(doc.lessons[index]);
                         deferred.resolve(doc.lessons[index]);
                     }
@@ -81,6 +81,7 @@ module.exports = function(){
 
     function updateLesson(tutorialId, lessonId, lesson){
         var deferred = q.defer();
+        console.log(lesson);
 
         TutorialModel.findById(tutorialId, function(err, doc){
             if(err){
@@ -88,30 +89,31 @@ module.exports = function(){
             }
             else{
                 for(var index in doc.lessons){
-                    if(doc.lesson[index]._id === lessonId){
+                    if(JSON.stringify(doc.lessons[index]._id) === JSON.stringify(lessonId)){
+                        console.log('match');
                         if(lesson.title){
-                            doc.lesson[index].title = lesson.title;
+                            doc.lessons[index].title = lesson.title;
                         }
                         if(lesson.tagline){
-                            doc.lesson[index].tagline = lesson.tagline;
+                            doc.lessons[index].tagline = lesson.tagline;
                         }
                         if(lesson.description){
-                            doc.lesson[index].description = lesson.description;
+                            doc.lessons[index].description = lesson.description;
                         }
                         if(lesson.question){
-                            doc.lesson[index].question = lesson.question;
+                            doc.lessons[index].question = lesson.question;
                         }
                         if(lesson.multimedia){
-                            doc.lesson[index].multimedia = lesson.multimedia;
+                            doc.lessons[index].multimedia = lesson.multimedia;
                         }
-                        if(lesson.title){
-                            doc.lesson[index].hints = lesson.hints;
+                        if(lesson.hints){
+                            doc.lessons[index].hints = lesson.hints;
                         }
                         if(lesson.keywords){
-                            doc.lesson[index].keywords = lesson.keywords;
+                            doc.lessons[index].keywords = lesson.keywords;
                         }
                         if(lesson.testcases){
-                            doc.lesson[index].testcases = lesson.testcases;
+                            doc.lessons[index].testcases = lesson.testcases;
                         }
                     }
                     doc.save(function(err, doc){
@@ -119,6 +121,8 @@ module.exports = function(){
                             deferred.reject(err);
                         }
                         else{
+                            console.log('updated lesson');
+                            console.log(doc);
                             deferred.resolve(doc);
                         }
                     })
@@ -138,7 +142,7 @@ module.exports = function(){
             }
             else{
                 for(var index in doc.lessons){
-                    if(doc.lessons[index]._id === lessonId){
+                    if(JSON.stringify(doc.lessons[index]._id) === JSON.stringify(lessonId)){
                         doc.lessons.splice(lessonId, 1);
                     }
                 }

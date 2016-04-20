@@ -5,8 +5,8 @@ module.exports  = function(app, lessonModel){
     app.get('/api/project/tutorial/:tutorialId/lessons', findAllLessonsForTutorial);
     app.get('/api/project/tutorial/:tutorialId/lesson/:lessonId', findLessonById);
     app.post('/api/project/tutorial/:tutorialId/lessons', createLesson);
-    app.put('/api/project/tutorial/:tutorialId/lessons/:lessonId', updateLesson);
-    app.delete('/api/project/tutorial/:tutorialId/lessons', deleteLesson);
+    app.put('/api/project/tutorial/:tutorialId/lesson/:lessonId', updateLesson);
+    app.delete('/api/project/tutorial/:tutorialId/lesson/:lessonId', deleteLesson);
 
     function findAllLessonsForTutorial(req, res){
         var tutorialId = req.params.tutorialId;
@@ -54,6 +54,8 @@ module.exports  = function(app, lessonModel){
         var tutorialId = req.params.tutorialId;
         var lessonId = req.params.lessonId;
         var lesson = req.body;
+        console.log('lesson is ');
+        console.log(lesson);
         lessonModel.updateLesson(tutorialId, lessonId, lesson)
             .then(
                 function(doc){

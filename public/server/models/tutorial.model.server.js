@@ -156,7 +156,7 @@ module.exports = function(){
             else{
                 deferred.resolve(doc);
             }
-        })
+        });
 
         return deferred.promise;
     }
