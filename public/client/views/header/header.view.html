@@ -1,12 +1,22 @@
-<div ng-controller="HeaderController as model" layout="row">
+<div layout="row" ng-controller="HeaderController as model">
 
     <md-sidenav
             md-component-id="left"
             class="md-sidenav-left">
-        <h1 class="md-toolbar-tools">
+        <h3 class="md-toolbar-tools">
             <a ng-class="{'active': location.url()=== '/'}" href="#/home">Tutorial App</a>
-        </h1>
-        <md-content layout="column" layout-padding>
+        </h3>
+        <md-content layout="column" layout-padding layout-align="start start">
+
+
+            <md-content ng-show="currentUser">
+                <form ng-submit="model.search(data)">
+                    <md-input-container>
+                        <label for="testInput">Search</label>
+                        <input id="testInput" type="text" ng-model="data">
+                    </md-input-container>
+                </form>
+            </md-content>
 
             <md-content ng-show="currentUser">
                 <md-button
@@ -14,6 +24,7 @@
                         title="Profile Page"
                         ng-disabled="false"
                         aria-label="Profile"
+                        md-ink-ripple
                         md-no-ink
                         ng-click="model.close()"
                         class="md-primary">
@@ -23,10 +34,11 @@
 
             <md-content>
                 <md-button
-                        ng-href="#/tutorial"
+                        ng-href="#/tutorial-list"
                         title="Tutorial Page"
                         ng-disable="false"
                         aria-label="Tutorial"
+                        md-ink-ripple
                         md-no-ink
                         ng-click="model.close()"
                         class="md-primary">
@@ -34,16 +46,19 @@
                 </md-button>
             </md-content>
 
-            <md-content>
-                <form ng-submit="search(data)">
-                    <md-input-container>
-                        <label for="testInput">Search</label>
-                        <input id="testInput" type="text" ng-model="data">
-                    </md-input-container>
-                </form>
+            <md-content ng-show="currentUser">
+                <md-button
+                        ng-href="#/tutorial-maker"
+                        title="Tutorial Editor"
+                        ng-disable="false"
+                        aria-label="Tutorial Editor"
+                        md-ink-ripple
+                        ng-click="model.close()"
+                        class="md-primary">
+                    Tutorial Editor
+                </md-button>
             </md-content>
 
-            <!--TODO: Needs to be implemented -->
             <!--<md-button-->
                     <!--ng-href="#"-->
                     <!--title="About Page"-->
@@ -60,21 +75,21 @@
                         title="Login Page"
                         ng-disable="false"
                         aria-label="Login"
-                        md-no-ink
-                        ng-click="close()"
+                        md-ink-ripple
+                        ng-click="model.close()"
                         class="md-primary">
                     Sign In
                 </md-button>
             </md-content>
 
-            <md-content ng-hide="currenUser">
+            <md-content ng-hide="currentUser">
                 <md-button
                         ng-href="#/register"
                         title="Register Page"
                         ng-disable="false"
                         aria-label="register"
-                        md-no-ink
-                        ng-click="close()"
+                        md-ink-ripple
+                        ng-click="model.close()"
                         class="md-primary">
                     Sign Up
                 </md-button>
@@ -84,24 +99,98 @@
                 <md-button
                         href="#/home"
                         ng-click="model.logout()"
+                        md-ink-ripple
                         md-no-ink
                         ng-click="model.close()"
                         class="md-primary">
                     Logout
                 </md-button>
             </md-content>
+
         </md-content>
     </md-sidenav>
 
-    <md-content>
-        <md-button
-                ng-click="model.openLeftMenu()" >
-            <md-font-icon
-                    class="material-icons md-48"
-                          aria-label="menu">
-                menu
-            </md-font-icon>
-        </md-button>
-    </md-content>
+    <div layout="row" flex layout-align="space-between end">
+        <md-content>
+            <md-button
+                    ng-click="model.openLeftMenu()" >
+                <md-font-icon
+                        class="material-icons md-48"
+                        aria-label="menu">
+                    menu
+                </md-font-icon>
+            </md-button>
+        </md-content>
 
+        <!--<md-menu>-->
+            <!--<button ng-click="$mdOpenMenu()">-->
+                <!--{{currentUser.username}}-->
+            <!--</button>-->
+            <!--<md-menu-content>-->
+                <!--<md-menu-item label="column">-->
+                    <!--<md-list-item md-ink-ripple class="md-3-line" ng-click="model.logout()">-->
+                        <!--<div class="md-list-item-text" >-->
+                            <!--<h3 layout="column">{{tutorial.title}}</h3>-->
+                            <!--<md-menu-divider ng-if="!$last"></md-menu-divider>-->
+                        <!--</div>-->
+                    <!--</md-list-item>-->
+                <!--</md-menu-item>-->
+            <!--</md-menu-content>-->
+        <!--</md-menu>-->
+
+        <!--<md-content layout="row">-->
+            <!--<md-content layout="row">-->
+                <!--<img ng-src="{{currentUser.photo}}"-->
+                     <!--class="md-avatar" alt="{{currentUser.firstName}}"-->
+                     <!--flex="10"-->
+                     <!--style="border-radius: 99%;-->
+                                        <!--border: 1px solid #ddd;-->
+                                        <!--margin: 2%;">-->
+                <!--<md-button-->
+                    <!--href="#/profile"-->
+                    <!--md-ink-ripple-->
+                    <!--class="md-primary">-->
+                    <!--{{currentUser.username}}-->
+                <!--</md-button>-->
+
+            <!--</md-content>-->
+
+            <!--<md-content ng-show="currentUser">-->
+                <!--<md-button-->
+                        <!--href="#/home"-->
+                        <!--ng-click="model.logout()"-->
+                        <!--md-ink-ripple-->
+                        <!--class="md-warn"-->
+                        <!--layout-align="center center">-->
+                    <!--logout-->
+                <!--</md-button>-->
+            <!--</md-content>-->
+        <!--</md-content>-->
+
+        <md-list layout="row">
+            <md-list-item ng-show="currentUser">
+                <img ng-src="{{currentUser.photo}}"
+                     class="md-avatar" alt="{{currentUser.firstName}}"
+                     style="border-radius: 50%;
+                                        border: 1px solid #ddd;
+                                        margin: 2%;">
+                <md-button
+                        href="#/profile"
+                        md-ink-ripple
+                        class="md-primary">
+                    {{currentUser.username}}
+                </md-button>
+            </md-list-item>
+            <md-list-item ng-show="currentUser">
+                <md-button
+                        href="#/home"
+                        ng-click="model.logout()"
+                        md-ink-ripple
+                        class="md-warn"
+                        layout-align="center center">
+                    logout
+                </md-button>
+            </md-list-item>
+        </md-list>
+    </div>
 </div>
