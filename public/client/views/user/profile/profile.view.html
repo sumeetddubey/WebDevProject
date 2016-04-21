@@ -1,13 +1,14 @@
-<div id="toast-position" layout="column" ng-controller="ProfileController as controller" ng-cloak class="md-form">
-    <div layout="row" style="margin-top: 5%">
+<div flex style="height: 100%" id="be-the-second">
+<div id="toast-position" layout="column" ng-cloak class="md-form">
+    <div layout="row" style="margin-top: 5%;">
 
         <div flex="25">
             <!--First-->
         </div>
 
         <div flex="50">
-            <md-content layout-gt-sm="row" layout-align="center center" layout-padding>
-                <md-card flex class="better-header">
+            <md-content layout-gt-sm="row" layout-align="center center">
+                <md-card flex class="better-header" style="margin: 0">
 
                     <md-toolbar class="md-tall md-toolbar-tools" style="background-image:url(images/profile-bg.png); background-size: cover">
                         <!--<h2><span>Profile Form</span></h2>-->
@@ -76,7 +77,7 @@
 
                                 <md-button ng-click="model.edit(currentUser); model.showSimpleToast('Profile Updated', 'toast-position')"
                                            class="md-raised md-primary"
-                                           style="margin-top: 5%;">Submit</md-button>
+                                           style="margin-top: 5%; color: white;">Submit</md-button>
 
                             </md-card-content>
                         </md-tab-body>
@@ -118,9 +119,9 @@
         <div flex="25">
             <!--Second-->
         </div>
-
     </div>
 </div>
+    </div>
 <!--<div ng-controller="ProfileController">-->
     <!--<div layout="column">-->
         <!--<div layout="row">-->

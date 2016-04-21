@@ -1,4 +1,4 @@
-<div layout="column" ng-cloak class="md-inline-form">
+<div layout="column" ng-cloak class="md-inline-form" id="be-the-second">
 
     <div layout="row" style="margin-top: 10%;">
 
@@ -7,12 +7,12 @@
         </div>
 
         <div id="toast-position" flex="80">
-            <md-content layout-gt-sm="row" layout-align="center center" layout-padding>
-                <md-card flex class="better-header">
+            <md-content layout-gt-sm="row" layout-align="center center" class="better-header">
+                <md-card flex style="margin: 0">
                     <md-toolbar class="md-menu-toolbar">
                         <div layout="row">
                             <md-toolbar-filler layout layout-align="center center">
-                                <md-icon class="material-icons">chrome_reader_mode</md-icon>
+                                <md-icon class="material-icons" style="color: white">chrome_reader_mode</md-icon>
                             </md-toolbar-filler>
                             <div>
                                 <h2 class="md-toolbar-tools">View and Edit your tutorials</h2>
@@ -90,7 +90,7 @@
                                     </md-input-container>
                                 </div>
                                     <div style="padding-bottom: 10%"></div>
-                                    <md-button ng-click="model.createTutorial(model.tutorial)" class="md-raised md-primary" style="margin-top: 5%;">Create Tutorial</md-button>
+                                    <md-button ng-click="model.createTutorial(model.tutorial)" class="md-raised md-primary" style="margin-top: 5%; color: white;">Create Tutorial</md-button>
                                 </div>
                         </form>
                         <nav mfb-menu position="br"
