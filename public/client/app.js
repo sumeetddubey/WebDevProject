@@ -15,7 +15,9 @@
             'ui.ace'])
         .config(function($mdThemingProvider) {
             $mdThemingProvider.theme('default')
-                .primaryPalette('indigo')
+                .primaryPalette('yellow', {
+                   'default': '900'
+                })
                 .accentPalette('pink')
                 .warnPalette('red')
                 .backgroundPalette('grey');

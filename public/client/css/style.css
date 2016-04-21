@@ -1,7 +1,6 @@
 h1, h2, h3, h4, h5, h6, p, .btn, .navbar-nav a, .form-control, .list-inline, small, #pricing {
     font-family: 'Roboto', sans-serif;
 }
-
 .section-title{
     vertical-align: middle;
 }
@@ -319,12 +318,31 @@ header {
 
 
 #be-the-first {
-    background: url(../images/be-the-first-bg.jpg) #231f20 no-repeat center center fixed;
+    /*background: url(../images/be-the-first-bg.jpg) #231f20 no-repeat center center fixed;*/
     min-height: 300px;
+    background: orange; /* For browsers that do not support gradients */
+    background: -webkit-linear-gradient(#FFCB00, #FF8C00); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(#FFCB00, #FF8C00); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(#FFCB00, #FF8C00); /* For Firefox 3.6 to 15 */
+    background: linear-gradient(#FFCB00, #FF8C00); /* Standard syntax */
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
+}
+
+#be-the-second {
+    background: url(../images/b.png) #231f20 no-repeat center center fixed;
+    /*min-height: 300px;*/
+    /*background: #3F28B4; !* For browsers that do not support gradients *!*/
+    /*background: -webkit-linear-gradient(#3F28B4, #D05057); !* For Safari 5.1 to 6.0 *!*/
+    /*background: -o-linear-gradient(#3F28B4, #D05057); !* For Opera 11.1 to 12.0 *!*/
+    /*background: -moz-linear-gradient(#3F28B4, #D05057); !* For Firefox 3.6 to 15 *!*/
+    /*background: linear-gradient(#3F28B4, #D05057); !* Standard syntax *!*/
+    /*-webkit-background-size: cover;*/
+    /*-moz-background-size: cover;*/
+    /*-o-background-size: cover;*/
+    /*background-size: cover;*/
 }
 
 hr.line {
@@ -407,7 +425,11 @@ footer {
 
 
 #pricing {
-    background: #F25950;
+    background: orange; /* For browsers that do not support gradients */
+    background: -webkit-linear-gradient(#FFCB00, #FF8C00); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(#FFCB00, #FF8C00); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(#FFCB00, #FF8C00); /* For Firefox 3.6 to 15 */
+    background: linear-gradient(#FFCB00, #FF8C00); /* Standard syntax */
 }
 
 .pricing-container {
@@ -755,4 +777,8 @@ footer {
 .ace-editor{
     height: 200px;
     border: 1px solid black;
+}
+
+#secondary-info{
+    background: url(../images/bg-header-two.jpg) no-repeat center center;
 }
