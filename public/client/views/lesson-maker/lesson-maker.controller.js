@@ -5,9 +5,9 @@
     var app = angular.module("codingTutorial");
     app.controller("LessonMakerController", LessonMakerController);
 
-    LessonMakerController.$inject = ['$mdConstant', '$rootScope', 'LessonService', '$route', '$localStorage'];
+    LessonMakerController.$inject = ['$mdConstant', '$rootScope', 'LessonService', '$route', '$localStorage', '$mdToast'];
 
-    function LessonMakerController($mdConstant, $rootScope, LessonService, $route, $localStorage){
+    function LessonMakerController($mdConstant, $rootScope, LessonService, $route, $localStorage, $mdToast){
 
         var vm = this;
 
@@ -16,6 +16,7 @@
         vm.createLesson = createLesson;
         vm.updateLesson = updateLesson;
         vm.deleteLesson = deleteLesson;
+        vm.showSimpleToast = showSimpleToast;
 
         var semicolon = 186;
         vm.keys = [$mdConstant.KEY_CODE.ENTER, $mdConstant.KEY_CODE.COMMA, semicolon];
@@ -92,6 +93,17 @@
                         }
                     )
             }
+        }
+
+        function showSimpleToast(message, parentId) {
+            var el = angular.element(document.getElementById(parentId));
+
+            var toast = $mdToast.simple()
+                .content(message)
+                .hideDelay(3000)
+                .position('bottom right')
+                .parent(el);
+            $mdToast.show(toast);
         }
 
     }

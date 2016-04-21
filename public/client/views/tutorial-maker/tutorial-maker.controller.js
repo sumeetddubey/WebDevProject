@@ -5,9 +5,9 @@
     var app = angular.module("codingTutorial");
     app.controller("TutorialMakerController", TutorialMakerController);
 
-    TutorialMakerController.$inject = ['$rootScope', 'TutorialService', '$location', 'LessonService', '$route', '$localStorage'];
+    TutorialMakerController.$inject = ['$rootScope', 'TutorialService', '$location', 'LessonService', '$route', '$localStorage', '$mdToast'];
 
-    function TutorialMakerController($rootScope, TutorialService, $location, LessonService, $route, $localStorage){
+    function TutorialMakerController($rootScope, TutorialService, $location, LessonService, $route, $localStorage, $mdToast){
 
         var vm = this;
         
@@ -17,6 +17,7 @@
         vm.openTutorialEditor = openTutorialEditor;
         vm.openLessonEditor = openLessonEditor;
         vm.findAllLessonsForTutorial = findAllLessonsForTutorial;
+        vm.showSimpleToast = showSimpleToast;
 
         vm.languages = [
             "Python",
@@ -57,6 +58,7 @@
 
         function openLessonEditor(lesson){
             if(!lesson){
+                $localStorage.currentLesson = null;
                 $location.url('/lesson-maker');
             }
             else {
@@ -180,6 +182,17 @@
                         }
                     )
             }
+        }
+
+        function showSimpleToast(message, parentId) {
+            var el = angular.element(document.getElementById(parentId));
+
+            var toast = $mdToast.simple()
+                .content(message)
+                .hideDelay(3000)
+                .position('bottom right')
+                .parent(el);
+            $mdToast.show(toast);
         }
 
 

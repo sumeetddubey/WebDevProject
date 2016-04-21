@@ -5,23 +5,42 @@
     var app = angular.module("codingTutorial");
     app.controller("ProfileController", ProfileController);
 
-    function ProfileController($rootScope, $location, $mdToast, TutorialService) {
+    function ProfileController($rootScope, $location, $mdToast, UserService, TutorialService, $localStorage) {
 
         var vm = this;
         var tutorials = {};
 
         vm.showSimpleToast = showSimpleToast;
 
+        var last = {
+            bottom: true,
+            top: false,
+            left: false,
+            right: true
+        };
+        vm.toastPosition = angular.extend({},last);
+        vm.getToastPosition = function() {
+            sanitizePosition();
+            return Object.keys(vm.toastPosition)
+                .filter(function(pos) { return vm.toastPosition[pos]; })
+                .join(' ');
+        };
+        function sanitizePosition() {
+            var current = vm.toastPosition;
+            if ( current.bottom && last.top ) current.top = false;
+            if ( current.top && last.bottom ) current.bottom = false;
+            if ( current.right && last.left ) current.left = false;
+            if ( current.left && last.right ) current.right = false;
+            last = angular.extend({},current);
+        }
+
         function showSimpleToast(message, parentId) {
-
+            var pinTo = vm.getToastPosition();
             var el = angular.element(document.getElementById(parentId));
-
             var toast = $mdToast.simple()
                 .content(message)
-                .action('OK')
-                .highlightAction(true)
-                .hideDelay(0)
-                .position('bottom right')
+                .hideDelay(3000)
+                .position(pinTo)
                 .parent(el);
             $mdToast.show(toast);
             // Could also do $mdToast.showSimple('Hello');
@@ -66,7 +85,8 @@
                 .then(
                     function(response){
                         if(response){
-                            $rootScope.tutorial = response.data;
+                            $localStorage.currentTutorial = response.data;
+                            $localStorage.lessonCount = 0;
                             $location.url('/tutorial');
                         }
                     }

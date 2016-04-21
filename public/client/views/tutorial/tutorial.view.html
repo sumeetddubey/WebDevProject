@@ -74,7 +74,8 @@
                         <label>Code</label>
                         <div class='ace-editor' ng-model="userCode.data" ui-ace="{
                              theme:'monokai',
-                                mode: '{{tutorialLang}}',
+                                mode:'{{model.storage.tutorialLang}}',
+                                onLoad: model.onEditorLoad,
                             }" layout-align="stretch">
                         </div>
                         <!--<textarea ng-model="userCode.data" md-maxlength="250" rows="5" md-select-on-focus></textarea>-->

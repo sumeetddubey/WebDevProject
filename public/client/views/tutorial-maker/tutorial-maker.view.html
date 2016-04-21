@@ -6,7 +6,7 @@
             <!--First-->
         </div>
 
-        <div flex="80">
+        <div id="toast-position" flex="80">
             <md-content layout-gt-sm="row" layout-align="center center" layout-padding>
                 <md-card flex class="better-header">
                     <md-toolbar class="md-menu-toolbar">
@@ -101,7 +101,7 @@
                              toggling-method="click"
                              >
                             <button mfb-button icon="ion-plus" ng-click="model.createTutorial(model.tutorial)" label="Create Tutorial"></button>
-                            <button mfb-button icon="ion-wrench" ng-click="model.updateTutorial(model.tutorial)" label="Update Tutorial"></button>
+                            <button mfb-button icon="ion-wrench" ng-click="model.updateTutorial(model.tutorial);  model.showSimpleToast('Tutorial Updated', 'toast-position')" label="Update Tutorial"></button>
                             <button mfb-button icon="ion-trash-b" ng-click="model.deleteTutorial(model.tutorial)" label="Delete Tutorial"></button>
                         </nav>
                     </div>

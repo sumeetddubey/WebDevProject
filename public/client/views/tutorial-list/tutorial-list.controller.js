@@ -36,12 +36,6 @@
                             var lang = $localStorage.currentTutorial.language;
                             $localStorage.tutorialLang = lang.toLowerCase();
                             $location.url('/tutorial');
-                            //
-                            // $window.sessionStorage.currentTutorial = response.data;
-                            //var lang = $rootScope.tutorial.language;
-                            //$rootScope.tutorialLang = lang.toLowerCase();
-                            //console.log($rootScope.tutorialLang);
-                            //$location.url('/tutorial');
                         }
                     }
                 )
