@@ -12,47 +12,16 @@
 
         vm.showSimpleToast = showSimpleToast;
 
-        var last = {
-            bottom: true,
-            top: false,
-            left: false,
-            right: true
-        };
-        vm.toastPosition = angular.extend({},last);
-        vm.getToastPosition = function() {
-            sanitizePosition();
-            return Object.keys(vm.toastPosition)
-                .filter(function(pos) { return vm.toastPosition[pos]; })
-                .join(' ');
-        };
-        function sanitizePosition() {
-            var current = vm.toastPosition;
-            if ( current.bottom && last.top ) current.top = false;
-            if ( current.top && last.bottom ) current.bottom = false;
-            if ( current.right && last.left ) current.left = false;
-            if ( current.left && last.right ) current.right = false;
-            last = angular.extend({},current);
-        }
-
         function showSimpleToast(message, parentId) {
-            var pinTo = vm.getToastPosition();
             var el = angular.element(document.getElementById(parentId));
+
             var toast = $mdToast.simple()
                 .content(message)
                 .hideDelay(3000)
-                .position(pinTo)
+                .position('bottom right')
                 .parent(el);
             $mdToast.show(toast);
-            // Could also do $mdToast.showSimple('Hello');
         }
-
-        //function showSimpleToast() {
-        //    $mdToast.show({
-        //        hideDelay   : 3000,
-        //        position    : 'top right',
-        //        controller  : 'ToastCtrl'
-        //    });
-        //}
 
         if ($rootScope.currentUser) {
             vm.currentUser = $rootScope.currentUser;

@@ -12,16 +12,15 @@
             'textAngular',
             'ng-mfb',
             'textAngular',
-            'ui.ace'])
+            'ui.ace',
+            'ngStorage'])
         .config(function($mdThemingProvider) {
             $mdThemingProvider.theme('default')
                 .primaryPalette('yellow', {
-                   'default': '900'
+                    'default': '900'
                 })
                 .accentPalette('pink')
                 .warnPalette('red')
                 .backgroundPalette('grey');
         });
-    //angular.module('firstModule',['moduleA','moduleB']);
-    //.module("codingTutorial", ["ngMaterial"]);
 })();

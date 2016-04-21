@@ -16,6 +16,7 @@
         //instances for methods
         vm.search = search;
         vm.logout = logout;
+        vm.activeUser = activeUser;
 
         vm.location = $location;
         vm.openLeftMenu = function() {
@@ -56,6 +57,10 @@
                         $location.url('/home');
                     }
                 )
+        }
+
+        function activeUser(){
+            return $rootScope.currentUser
         }
     }
 })();

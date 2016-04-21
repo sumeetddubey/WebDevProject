@@ -5,7 +5,7 @@
     var app = angular.module("codingTutorial");
     app.controller("HomeController", HomeController);
 
-    function HomeController($window, $location, UserService, $rootScope) {
+    function HomeController($location, UserService, $rootScope) {
 
         var vm = this;
 
