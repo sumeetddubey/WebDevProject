@@ -128,13 +128,12 @@
         UserService
             .getCurrentUser()
             .then(function(response) {
-                var currentUser = response.data;
-                if(currentUser) {
-                    UserService.setCurrentUser(currentUser);
-                    deferred.resolve();
-                } else {
+                if(response.data == '0') {
                     deferred.reject();
-                    $location.url("/home");
+                    $location.url("/login");
+                } else {
+                    UserService.setCurrentUser(response.data);
+                    deferred.resolve();
                 }
             });
 

@@ -6,7 +6,6 @@
     app.controller("HomeController", HomeController);
 
     function HomeController($location, UserService, $rootScope) {
-
         var vm = this;
 
         //instances for methods

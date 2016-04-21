@@ -70,6 +70,7 @@
             <!--</md-button>-->
 
             <md-content ng-if="currentUser">
+            <md-content ng-hide="model.activeUser()">
                 <md-button
                         ng-href="#/login"
                         title="Login Page"
@@ -81,6 +82,7 @@
                     Sign In
                 </md-button>
             </md-content>
+
 
             <md-content ng-if="currentUser">
                 <md-button
@@ -180,6 +182,7 @@
                     {{currentUser.username}}
                 </md-button>
             </md-list-item>
+
             <md-list-item ng-if="!currentUser">
                 <md-button
                         href="#/home"
