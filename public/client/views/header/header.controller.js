@@ -17,6 +17,7 @@
         vm.search = search;
         vm.logout = logout;
         vm.activeUser = activeUser;
+        vm.isAdminUser = isAdminUser;
 
         vm.location = $location;
         vm.openLeftMenu = function() {
@@ -53,7 +54,7 @@
                 .then(
                     function(response){
                         console.log(response.data);
-                        delete $rootScope.currentUser;
+                        $rootScope.currentUser = null;
                         console.log($rootScope.currentUser);
                         $location.url('/home');
                     }
@@ -61,7 +62,24 @@
         }
 
         function activeUser(){
-            return $rootScope.currentUser;
+            if($rootScope.currentUser != null){
+                console.log('user logged');
+                return $rootScope.currentUser;
+            }
+            else{
+                console.log('no user logged');
+                return null;
+            }
+        }
+
+        function isAdminUser(){
+            if($rootScope.currentUser) {
+                var user = $rootScope.currentUser;
+                return (user.roles.indexOf('dm-instructor') != -1);
+            }
+            else{
+                return false;
+            }
         }
     }
 })();

@@ -11,6 +11,7 @@
         //instances for methods
         vm.login = login;
 
+        console.log('in home');
         function login(user) {
             console.log(user);
             if (!user) {

@@ -8,10 +8,7 @@
             .when('/home', {
                 templateUrl: "views/home/home.view.html",
                 controller: "HomeController",
-                controllerAs: 'model',
-                resolve: {
-                    getLoggedIn: getLoggedIn
-                }
+                controllerAs: 'model'
             })
             .when('/login', {
                 templateUrl: "views/user/login/login.view.html",
@@ -111,8 +108,14 @@
             .getCurrentUser()
             .then(function(response){
                 var currentUser = response.data;
-                UserService.setCurrentUser(currentUser);
-                deferred.resolve();
+                console.log(response.data);
+                if(response.data != '0'){
+                    UserService.setCurrentUser(currentUser);
+                    deferred.resolve();
+                }
+                else{
+                    deferred.resolve();
+                }
             });
 
         return deferred.promise;
