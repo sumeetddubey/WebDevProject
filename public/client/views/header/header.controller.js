@@ -17,6 +17,7 @@
         vm.search = search;
         vm.logout = logout;
         vm.activeUser = activeUser;
+        vm.currentUser = $rootScope.currentUser;
 
         vm.location = $location;
         vm.openLeftMenu = function() {
@@ -63,5 +64,12 @@
         function activeUser(){
             return $rootScope.currentUser;
         }
+
+        function init() {
+            console.log(vm.currentUser);
+        }
+
+        init();
     }
+
 })();

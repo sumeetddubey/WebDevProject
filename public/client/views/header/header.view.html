@@ -9,7 +9,7 @@
         <md-content layout="column" layout-padding layout-align="start start">
 
 
-            <md-content ng-if="!currentUser">
+            <md-content ng-if="model.currentUser">
                 <form ng-submit="model.search(data)">
                     <md-input-container>
                         <label for="testInput">Search</label>
@@ -18,7 +18,7 @@
                 </form>
             </md-content>
 
-            <md-content ng-if="!currentUser">
+            <md-content ng-if="model.currentUser">
                 <md-button
                         ng-href="#/profile"
                         title="Profile Page"
@@ -46,7 +46,7 @@
                 </md-button>
             </md-content>
 
-            <md-content ng-if="!currentUser">
+            <md-content ng-if="model.currentUser">
                 <md-button
                         ng-href="#/tutorial-maker"
                         title="Tutorial Editor"
@@ -69,7 +69,7 @@
                 <!--About-->
             <!--</md-button>-->
 
-            <md-content ng-if="currentUser">
+            <md-content ng-if="!model.currentUser">
                 <md-button
                         ng-href="#/login"
                         title="Login Page"
@@ -83,7 +83,7 @@
             </md-content>
 
 
-            <md-content ng-if="currentUser">
+            <md-content ng-if="!model.currentUser">
                 <md-button
                         ng-href="#/register"
                         title="Register Page"
@@ -96,7 +96,7 @@
                 </md-button>
             </md-content>
 
-            <md-content ng-if="!currentUser">
+            <md-content ng-if="model.currentUser">
                 <md-button
                         ng-click="model.logout()"
                         md-ink-ripple
@@ -168,7 +168,7 @@
         <!--</md-content>-->
 
         <md-list layout="row">
-            <md-list-item ng-if="!currentUser">
+            <md-list-item ng-if="model.currentUser">
                 <img ng-src="{{currentUser.photo}}"
                      class="md-avatar" alt="{{currentUser.firstName}}"
                      style="border-radius: 50%;
@@ -182,7 +182,7 @@
                 </md-button>
             </md-list-item>
 
-            <md-list-item ng-if="!currentUser">
+            <md-list-item ng-if="model.currentUser">
                 <md-button
                         href="#/home"
                         ng-click="model.logout()"

@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html lang="en" ng-app="codingTutorial">
+<html lang="en" ng-app="codingTutorial" style="position:relative; min-height: 100%">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1", maximum-scale="1">
     <title>Coding Tutorial</title>
 </head>
 <body>
@@ -15,9 +15,9 @@
     <!--</div>-->
 <!--</div>-->
     <div ng-include="'views/header/header.view.html'"></div>
-    <div ng-view style="height: 100%"></div>
-    <!--<div ng-include="'views/footer/footer.view.html'"-->
-         <!--style="position: fixed; bottom: 0; left: 0; right: 0; height: 100px"></div>-->
+    <div ng-view style="min-height: 100%; margin: 0 0; overflow: visible;" id="be-the-second"></div>
+    <div ng-include="'views/footer/footer.view.html'"
+         style="position: relative; width: 100%;"></div>
 
 
 
