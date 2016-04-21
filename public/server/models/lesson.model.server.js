@@ -113,6 +113,7 @@ module.exports = function(){
                             doc.lessons[index].keywords = lesson.keywords;
                         }
                         if(lesson.testcases){
+                            lesson.testcases = lesson.testcases +'\n';
                             doc.lessons[index].testcases = lesson.testcases;
                         }
                     }

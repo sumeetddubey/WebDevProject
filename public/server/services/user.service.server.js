@@ -11,7 +11,7 @@ module.exports = function(app, userModel, passport) {
     app.post('/api/project/login', passport.authenticate('local'), login);
     app.post('/api/project/logout', logout);
     app.post('/api/project/register', register);
-    app.post('/api/project/loggedIn', loggedIn);
+    app.get('/api/project/loggedIn', loggedIn);
     app.get('/api/project/user', auth, findUser);
     app.post('/api/project/user', auth, createUser);
     app.get('/api/project/user/:id', findUserById);
