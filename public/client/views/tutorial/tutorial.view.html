@@ -1,4 +1,4 @@
-<div layout-padding>
+<div layout-padding ng-cloak>
     <div layout="row">
         <md-card flex="'40">
                 <md-card-title>
@@ -8,9 +8,13 @@
                 </md-card-title>
 
                 <md-card-content>
-                    <p ng-repeat="description in model.currentLesson.description track by $index">
-                        {{description}}
-                    </p>
+                    <div ng-repeat="description in model.currentLesson.description track by $index">
+                        <div ng-bind-html="description"></div>
+                    </div>
+                    <!--<div ng-repeat="question in model.currentLesson.question track by $index">-->
+                        <!--<div ng-bind-html="question"></div>-->
+                    <!--</div>-->
+                    <p ng-bind-html="model.currentLesson.question"></p>
                 </md-card-content>
 
                 <md-card-actions layout="column" layout-align="center center">
@@ -42,6 +46,7 @@
 
         </md-card>
         <div layout="column" flex="60">
+            <!--ng-init="linkIt = model.currentLesson.multimedia"-->
 
             <md-card>
                 <ng-youtube-embed

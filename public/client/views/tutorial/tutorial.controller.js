@@ -21,9 +21,14 @@
         vm.onEditorLoad = onEditorLoad;
         vm.onEditorChange = onEditorChange;
         vm.langMode = langMode;
+        vm.link = 'https://www.youtube.com/watch?v=UHwVyplU3Pg';
         //vm.link = currentLesson.multimedia;
 
         var count = 0;
+
+        function init(){
+
+        }
 
         function initTutorial(){
             var tutorialId = $rootScope.tutorial._id;
@@ -33,8 +38,9 @@
                         if(response){
                             vm.tutorial = response.data;
                             vm.currentLesson = response.data.lessons[count];
-                            vm.link = vm.currentLesson.multimedia;
+                            //vm.link = vm.currentLesson.multimedia;
                             console.log(vm.currentLesson);
+                            console.log($rootScope.link);
                         }
                     }
                 )
@@ -140,5 +146,6 @@
         }
 
         initTutorial();
+        init();
     }
 })();
