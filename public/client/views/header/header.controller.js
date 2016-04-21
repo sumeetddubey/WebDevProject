@@ -7,15 +7,16 @@
         .module("codingTutorial")
         .controller("HeaderController", HeaderController);
 
-    HeaderController.$inject = ['$rootScope', '$location', '$mdSidenav', 'SearchService'];
+    HeaderController.$inject = ['$rootScope', '$location', '$mdSidenav', 'SearchService', 'UserService'];
 
-    function HeaderController($rootScope, $location, $mdSidenav, SearchService) {
+    function HeaderController($rootScope, $location, $mdSidenav, SearchService, UserService) {
 
         var vm = this;
 
         //instances for methods
         vm.search = search;
         vm.logout = logout;
+
         vm.location = $location;
         vm.openLeftMenu = function() {
             $mdSidenav('left').toggle();
@@ -24,11 +25,6 @@
             // Component lookup should always be available since we are not using `ng-if`
             $mdSidenav('left').close()
         };
-
-        function logout() {
-            $rootScope.currentUser = null;
-            $location.url("/home");
-        }
 
         function search(data){
             console.log(data);
@@ -46,6 +42,18 @@
                     },
                     function(err){
                         console.log(err);
+                    }
+                )
+        }
+
+        function logout(){
+            console.log('in logout');
+            UserService.logout()
+                .then(
+                    function(response){
+                        console.log(response.data);
+                        $rootScope.currentUser = null;
+                        $location.url('/home');
                     }
                 )
         }

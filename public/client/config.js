@@ -8,17 +8,26 @@
             .when('/home', {
                 templateUrl: "views/home/home.view.html",
                 controller: "HomeController",
-                controllerAs: 'model'
+                controllerAs: 'model',
+                resolve: {
+                    getLoggedIn: getLoggedIn
+                }
             })
             .when('/login', {
                 templateUrl: "views/user/login/login.view.html",
                 controller: "LoginController",
-                controllerAs: 'model'
+                controllerAs: 'model',
+                resolve: {
+                    getLoggedIn: getLoggedIn
+                }
             })
             .when('/register', {
                 templateUrl: "views/user/register/register.view.html",
                 controller: "RegisterController",
-                controllerAs: 'model'
+                controllerAs: 'model',
+                resolve: {
+                    getLoggedIn: getLoggedIn
+                }
             })
             .when('/profile', {
                 templateUrl: "views/user/profile/profile.view.html",
@@ -30,15 +39,15 @@
             })
             .when('/admin', {
                 templateUrl: "views/admin/admin.view.html",
-                controllerAs: 'model'
-            })
-            .when('/search', {
-                templateUrl: "views/search/search.view.html",
-                controller: "SearchController",
                 controllerAs: 'model',
                 resolve: {
                     getLoggedIn: getLoggedIn
                 }
+            })
+            .when('/search', {
+                templateUrl: "views/search/search.view.html",
+                controller: "SearchController",
+                controllerAs: 'model'
             })
             .when('/dm-instructor', {
                 templateUrl: "views/dm-instructor/dminstructor.view.html",
@@ -91,10 +100,7 @@
             .when('/tutorial-list', {
                 templateUrl: 'views/tutorial-list/tutorial-list.view.html',
                 controller: "TutorialListController",
-                controllerAs: 'model',
-                resolve: {
-                    getLoggedIn: getLoggedIn
-                }
+                controllerAs: 'model'
             })
             .otherwise({
                 redirectTo: "/home"
