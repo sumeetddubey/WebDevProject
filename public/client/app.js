@@ -2,20 +2,21 @@
  * Created by sumeetdubey on 3/10/16.
  */
 (function(){
-    var app = angular.module('codingTutorial',
-        ['ngRoute',
-            'ngMaterial',
-            'chart.js',
-            'md.data.table',
-            'flow',
-            'ngYoutubeEmbed',
-            'textAngular',
-            'ng-mfb',
-            'textAngular',
-            'ui.ace'])
-        .config(function($mdThemingProvider) {
-            $mdThemingProvider.theme('default')
-                .primaryPalette('indigo')
+        var app = angular.module('codingTutorial',
+            ['ngRoute',
+                    'ngMaterial',
+                    'chart.js',
+                    'md.data.table',
+                    'flow',
+                    'ngYoutubeEmbed',
+                    'textAngular',
+                    'ng-mfb',
+                    'textAngular',
+                    'ui.ace',
+                    'ngStorage'])
+            .config(function($mdThemingProvider) {
+                    $mdThemingProvider.theme('default')
+                        .primaryPalette('indigo')
                 .accentPalette('pink')
                 .warnPalette('red')
                 .backgroundPalette('grey');

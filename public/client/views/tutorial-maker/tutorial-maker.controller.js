@@ -5,9 +5,9 @@
     var app = angular.module("codingTutorial");
     app.controller("TutorialMakerController", TutorialMakerController);
 
-    TutorialMakerController.$inject = ['$rootScope', 'TutorialService', '$location', 'LessonService', '$route'];
+    TutorialMakerController.$inject = ['$rootScope', 'TutorialService', '$location', 'LessonService', '$route', '$localStorage'];
 
-    function TutorialMakerController($rootScope, TutorialService, $location, LessonService, $route){
+    function TutorialMakerController($rootScope, TutorialService, $location, LessonService, $route, $localStorage){
 
         var vm = this;
         
@@ -48,7 +48,7 @@
                 .then(
                     function(response){
                         if(response){
-                            $rootScope.tutorial = response.data;
+                            $localStorage.tutorial = response.data;
                             vm.tutorial = response.data;
                         }
                     }
@@ -68,7 +68,7 @@
                     .then(
                         function (response) {
                             if (response) {
-                                $rootScope.currentLesson = response.data;
+                                $localStorage.currentLesson = response.data;
                                 $location.url('/lesson-maker');
                             }
                         }
@@ -118,7 +118,7 @@
                 .then(
                     function(response){
                         if(response){
-                            $rootScope.tutorial = response.data;
+                            $localStorage.tutorial = response.data;
                             vm.userTutorials = response.data;
                         }
                     }
@@ -133,7 +133,7 @@
                     .then(
                         function(response){
                             if(response){
-                                $rootScope.tutorial = response.data;
+                                $localStorage.tutorial = response.data;
                                 vm.userTutorials = response.data;
                                 console.log(response.data);
                                 $location.url('/lesson-maker');

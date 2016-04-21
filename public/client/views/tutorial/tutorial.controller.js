@@ -7,9 +7,9 @@
         .module("codingTutorial")
         .controller("TutorialController", TutorialController);
 
-    TutorialController.$inject = ['$mdDialog', 'HackerRankService', 'TutorialService', '$rootScope'];
+    TutorialController.$inject = ['$mdDialog', 'HackerRankService', 'TutorialService', '$localStorage'];
 
-    function TutorialController($mdDialog, HackerRankService, TutorialService, $rootScope){
+    function TutorialController($mdDialog, HackerRankService, TutorialService, $localStorage){
 
         var vm = this;
 
@@ -24,21 +24,16 @@
         vm.link = 'https://www.youtube.com/watch?v=UHwVyplU3Pg';
         //vm.link = currentLesson.multimedia;
 
-        var count = 0;
-
-        function init(){
-
-        }
-
         function initTutorial(){
-            var tutorialId = $rootScope.tutorial._id;
+            var tutorialId = $localStorage.currentTutorial._id;
             TutorialService.findTutorialById(tutorialId)
                 .then(
                     function(response){
                         if(response){
                             vm.tutorial = response.data;
-                            vm.currentLesson = response.data.lessons[count];
-                            //vm.link = vm.currentLesson.multimedia;
+                            $localStorage.currentLesson = response.data.lessons[$localStorage.lessonCount];
+                            vm.currentLesson = $localStorage.currentLesson;
+
                             console.log(vm.currentLesson);
                             console.log($rootScope.link);
                         }
@@ -49,16 +44,18 @@
         function lessonCounter(tutorial){
             var lessons = tutorial.lessons;
             var len = lessons.length;
-            if(count<len){
-                count++;
-                vm.currentLesson = tutorial.lessons[count];
+            if($localStorage.lessonCount<len){
+                $localStorage.lessonCount++;
+                $localStorage.currentLesson = tutorial.lessons[$localStorage.lessonCount];
+                vm.currentLesson = $localStorage.currentLesson;
             }
         }
 
         function nextLesson(userCode){
+            vm.isLoading = true;
             var code = [userCode.data];
             var language = vm.tutorial.language;
-            var testcases = ["1\n"];
+            var testcases = ["hello world\n"];
             HackerRankService.sendCode(code, language, testcases)
                 .then(
                     function(response){
@@ -109,8 +106,8 @@
         }
 
         function run(userCode) {
+            vm.isLoading = true;
             var language = vm.tutorial.language;
-            var testcases = "1";
             console.log(userCode.data);
             var code = [userCode.data];
             HackerRankService.sendCode(code, language)
@@ -138,7 +135,7 @@
 
         function onEditorLoad(_editor){
             _editor.setReadOnly(true);
-            console.log($rootScope.tutorialLang);
+            console.log($localStorage.tutorialLang);
         }
 
         function onEditorChange(e){

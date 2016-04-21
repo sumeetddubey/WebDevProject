@@ -5,7 +5,7 @@
     var app = angular.module('codingTutorial');
     app.controller('TutorialListController', TutorialListController);
 
-    function TutorialListController($location, TutorialService, $rootScope){
+    function TutorialListController($location, TutorialService, $localStorage){
         var vm = this;
 
         //instances for methods
@@ -29,11 +29,19 @@
                 .then(
                     function(response){
                         if(response){
-                            $rootScope.tutorial = response.data;
-                            var lang = $rootScope.tutorial.language;
-                            $rootScope.tutorialLang = lang.toLowerCase();
-                            console.log($rootScope.tutorialLang);
+                            console.log(response.data);
+                            $localStorage.currentTutorial = response.data;
+                            $localStorage.lessonCount = 0;
+
+                            var lang = $localStorage.currentTutorial.language;
+                            $localStorage.tutorialLang = lang.toLowerCase();
                             $location.url('/tutorial');
+                            //
+                            // $window.sessionStorage.currentTutorial = response.data;
+                            //var lang = $rootScope.tutorial.language;
+                            //$rootScope.tutorialLang = lang.toLowerCase();
+                            //console.log($rootScope.tutorialLang);
+                            //$location.url('/tutorial');
                         }
                     }
                 )

@@ -5,9 +5,9 @@
     var app = angular.module("codingTutorial");
     app.controller("LessonMakerController", LessonMakerController);
 
-    LessonMakerController.$inject = ['$mdConstant', '$rootScope', 'LessonService', '$route'];
+    LessonMakerController.$inject = ['$mdConstant', '$rootScope', 'LessonService', '$route', '$localStorage'];
 
-    function LessonMakerController($mdConstant, $rootScope, LessonService, $route){
+    function LessonMakerController($mdConstant, $rootScope, LessonService, $route, $localStorage){
 
         var vm = this;
 
@@ -20,10 +20,10 @@
         var semicolon = 186;
         vm.keys = [$mdConstant.KEY_CODE.ENTER, $mdConstant.KEY_CODE.COMMA, semicolon];
         vm.tags = [];
-        vm.lesson = $rootScope.currentLesson;
+        vm.lesson = $localStorage.currentLesson;
 
         var currentUser = $rootScope.currentUser;
-        var tutorialId = $rootScope.tutorial._id;
+        var tutorialId = $localStorage.tutorial._id;
 
         function findAllLessonsForTutorial(){
             LessonService.findAllLessonsForTutorial(tutorialId)

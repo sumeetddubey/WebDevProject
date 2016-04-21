@@ -5,7 +5,7 @@
     var app = angular.module("codingTutorial");
     app.factory("UserService", UserService);
 
-    function UserService($http){
+    function UserService($http, $rootScope){
         var api = {
             //method declarations
             login: login,
@@ -17,7 +17,9 @@
             findAllUsers: findAllUsers,
             createUser: createUser,
             deleteUserById: deleteUserById,
-            updateUserById: updateUserById
+            updateUserById: updateUserById,
+            getCurrentUser: getCurrentUser,
+            setCurrentUser: setCurrentUser
         };
         return api;
 
@@ -60,6 +62,14 @@
 
         function updateUserById(userId, user){
             return $http.put('/api/project/user/'+userId, user);
+        }
+
+        function getCurrentUser() {
+            return $http.get("/api/project/loggedIn");
+        }
+
+        function setCurrentUser(user) {
+            $rootScope.currentUser = user;
         }
     }
 })();
