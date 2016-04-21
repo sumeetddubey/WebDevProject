@@ -19,7 +19,8 @@
             deleteUserById: deleteUserById,
             updateUserById: updateUserById,
             getCurrentUser: getCurrentUser,
-            setCurrentUser: setCurrentUser
+            setCurrentUser: setCurrentUser,
+            checkInstructor: checkInstructor
         };
         return api;
 
@@ -70,6 +71,10 @@
 
         function setCurrentUser(user) {
             $rootScope.currentUser = user;
+        }
+
+        function checkInstructor(){
+            return $http.get('/api/project/checkInstructor');
         }
     }
 })();

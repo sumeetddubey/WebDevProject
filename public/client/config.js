@@ -24,10 +24,7 @@
             .when('/register', {
                 templateUrl: "views/user/register/register.view.html",
                 controller: "RegisterController",
-                controllerAs: 'model',
-                resolve: {
-                    getLoggedIn: getLoggedIn
-                }
+                controllerAs: 'model'
             })
             .when('/profile', {
                 templateUrl: "views/user/profile/profile.view.html",
@@ -86,7 +83,7 @@
                 controller: "TutorialMakerController",
                 controllerAs: 'model',
                 resolve: {
-                    checkLoggedIn: checkLoggedIn
+                    checkInstructor: checkInstructor
                 }
             })
             .when('/lesson-maker', {
@@ -94,7 +91,7 @@
                 controller: "LessonMakerController",
                 controllerAs: 'model',
                 resolve: {
-                    checkLoggedIn: checkLoggedIn
+                    checkInstructor: checkInstructor
                 }
             })
             .when('/tutorial-list', {
@@ -140,8 +137,25 @@
         return deferred.promise;
     }
 
-    function setTutorial($window){
-        console.log($window.sessionStorage.currentTutorial);
+    function checkInstructor(UserService, $q, $window, $location){
+        var deferred = $q.defer();
 
+        UserService.checkInstructor()
+            .then(
+                function(response){
+                    if(response.data){
+                        console.log(response.data);
+                        UserService.setCurrentUser(response.data);
+                        deferred.resolve();
+                    }
+                    else{
+                        deferred.reject();
+                        $window.alert('Need to be logged as instructor');
+                        $location.url('/login');
+                    }
+                }
+            );
+
+        return deferred.promise;
     }
 })();

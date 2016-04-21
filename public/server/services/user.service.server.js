@@ -12,6 +12,7 @@ module.exports = function(app, userModel, passport) {
     app.post('/api/project/logout', logout);
     app.post('/api/project/register', register);
     app.get('/api/project/loggedIn', loggedIn);
+    app.get('/api/project/checkInstructor', checkInstructor);
     app.get('/api/project/user', auth, findUser);
     app.post('/api/project/user', auth, createUser);
     app.get('/api/project/user/:id', findUserById);
@@ -70,6 +71,22 @@ module.exports = function(app, userModel, passport) {
 
     function loggedIn(req, res){
         res.send(req.isAuthenticated()? req.user: '0');
+    }
+
+    function checkInstructor(req, res){
+        console.log('in check instructor');
+        var user = (req.isAuthenticated() ? req.user : '0');
+        console.log(user);
+        if(user =='0'){
+            res.json(null);
+        }
+        else if(user.roles.indexOf('dm-instructor') != -1){
+            console.log('found admin '+user);
+            res.json(user);
+        }
+        else{
+            res.json(null);
+        }
     }
 
     function register(req, res){
