@@ -46,7 +46,7 @@
                 </md-button>
             </md-content>
 
-            <md-content ng-show="currentUser">
+            <md-content ng-show="model.activeUser()">
                 <md-button
                         ng-href="#/tutorial-maker"
                         title="Tutorial Editor"
@@ -69,7 +69,7 @@
                 <!--About-->
             <!--</md-button>-->
 
-            <md-content ng-hide="currentUser">
+            <md-content ng-hide="model.activeUser()">
                 <md-button
                         ng-href="#/login"
                         title="Login Page"
@@ -82,7 +82,7 @@
                 </md-button>
             </md-content>
 
-            <md-content ng-hide="currentUser">
+            <md-content ng-hide="model.activeUser()">
                 <md-button
                         ng-href="#/register"
                         title="Register Page"
@@ -95,7 +95,7 @@
                 </md-button>
             </md-content>
 
-            <md-content ng-show="currentUser">
+            <md-content ng-show="model.activeUser()">
                 <md-button
                         ng-click="model.logout()"
                         md-ink-ripple
@@ -180,7 +180,7 @@
                     {{currentUser.username}}
                 </md-button>
             </md-list-item>
-            <md-list-item ng-show="currentUser">
+            <md-list-item ng-show="if(currentUser)">
                 <md-button
                         href="#/home"
                         ng-click="model.logout()"

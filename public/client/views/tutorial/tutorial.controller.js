@@ -24,6 +24,7 @@
 
         vm.storage = $localStorage;
         vm.link = 'https://www.youtube.com/watch?v=UHwVyplU3Pg';
+        vm.loadPlayer = false;
         //vm.link = currentLesson.multimedia;
 
         function initTutorial(){
@@ -36,6 +37,7 @@
                             vm.tutorial = response.data;
                             $localStorage.currentLesson = response.data.lessons[$localStorage.lessonCount];
                             vm.currentLesson = $localStorage.currentLesson;
+                            vm.loadPlayer = true;
                         }
                     }
                 )

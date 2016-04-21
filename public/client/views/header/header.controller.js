@@ -53,14 +53,15 @@
                 .then(
                     function(response){
                         console.log(response.data);
-                        $rootScope.currentUser = null;
+                        delete $rootScope.currentUser;
+                        console.log($rootScope.currentUser);
                         $location.url('/home');
                     }
                 )
         }
 
         function activeUser(){
-            return $rootScope.currentUser
+            return $rootScope.currentUser;
         }
     }
 })();
