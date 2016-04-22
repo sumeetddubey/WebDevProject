@@ -786,3 +786,8 @@ footer {
 .lesson-icon:hover{
     color: #00897B;
 }
+
+.ta-bind p, h1, h2, h3, h4, h5, h6, a{
+    color: #C0C6CC;
+    font-family: 'Roboto', sans-serif;
+}

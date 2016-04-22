@@ -1,6 +1,6 @@
 <div layout-padding ng-cloak>
-    <div layout="row">
-        <md-card flex="'40">
+    <div layout-gt-md="row" layout-md="column" style="margin-bottom: 10%;">
+        <md-card flex-gt-md="'40" flex-md="100" style="color: #C0C6CC; background-color: #272822;">
                 <md-card-title>
                     <md-card-title-text>
                         <span class="md-headline">Question</span>
@@ -9,34 +9,16 @@
 
                 <md-card-content>
                     <div ng-repeat="description in model.currentLesson.description track by $index">
-                        <div ng-bind-html="description"></div>
+                        <div ta-bind="text" ng-model="description"></div>
                     </div>
                     <!--<div ng-repeat="question in model.currentLesson.question track by $index">-->
                         <!--<div ng-bind-html="question"></div>-->
                     <!--</div>-->
-                    <p ng-bind-html="model.currentLesson.question"></p>
+                    <p ta-bind="text" ng-model="model.currentLesson.question"></p>
                 </md-card-content>
 
-                <md-card-actions layout="column" layout-align="center center">
-                    <md-card-icon-actions>
-                        <md-button class="md-icon-button" aria-label="Favorite">
-                            <md-icon
-                                    class="material-icons md-48"
-                                    aria-label="favorite">
-                                favorite
-                            </md-icon>
-                        </md-button>
-                        <md-button class="md-icon-button" aria-label="Share">
-                            <md-icon
-                                    class="material-icons md-48"
-                                    aria-label="share">
-                                share
-                            </md-icon>
-                        </md-button>
-                    </md-card-icon-actions>
-
                     <div class="dialog-demo-content" layout="column" layout-align="center center" style="width:100%">
-                        <md-button class="md-primary md-raised edgePadding" ng-click="model.openOffscreen()" >
+                        <md-button class="md-primary md-raised edgePadding" ng-click="model.openOffscreen()" style="color: white;">
                             Hints
                         </md-button>
                     </div>
@@ -45,7 +27,7 @@
 
 
         </md-card>
-        <div layout="column" flex="60">
+        <div layout="column" flex-gt-md="60" flex-md>
             <!--ng-init="linkIt = model.currentLesson.multimedia"-->
 
             <md-card ng-if="model.loadPlayer">
@@ -56,7 +38,7 @@
                         color="white"
                         controls="true"
                         width="100%"
-                        height="100%"
+                        height="300px"
                         disablekb="false"
                         ivloadpolicy="false"
                         rel="false"
@@ -80,14 +62,14 @@
                         </div>
                         <!--<textarea ng-model="userCode.data" md-maxlength="250" rows="5" md-select-on-focus></textarea>-->
                         <md-progress-linear md-mode="indeterminate" ng-if="isLoading" ng-hide></md-progress-linear>
-                        <md-button class="md-raised md-primary" ng-click="model.run(userCode); model.showloader()" >Run Code</md-button>
-                        <md-button class="md-raised md-primary" ng-click="model.nextLesson(userCode); model.showloader()" >Submit Code</md-button>
+                        <md-button class="md-raised md-primary" ng-click="model.run(userCode); model.showloader()" style="color: white;">Run Code</md-button>
+                        <md-button class="md-raised md-primary" ng-click="model.nextLesson(userCode); model.showloader()" style="color: white;">Submit Code</md-button>
                     </md-input-container>
 
             </div>
             <md-input-container>
-                <label>Result</label>
-                <textarea md-maxlength="300" rows="10" ng-model="model.output" disabled></textarea>
+                <!--<label style="color: white;">Result</label>-->
+                <textarea md-maxlength="300" rows="10" ng-model="model.output" disabled style="color: white;"></textarea>
                 <!--<div ui-ace readonly ng-model="model.output"></div>  -->
             </md-input-container>
         </div>

@@ -16,8 +16,8 @@
             'ngStorage'])
         .config(function($mdThemingProvider) {
             $mdThemingProvider.theme('default')
-                .primaryPalette('yellow', {
-                    'default': '900'
+                .primaryPalette('red', {
+                    'default': '800'
                 })
                 .accentPalette('pink')
                 .warnPalette('red')

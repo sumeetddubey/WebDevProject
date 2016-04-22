@@ -1,18 +1,17 @@
-<div ng-controller="LessonMakerController" layout="column" ng-cloak class="md-inline-form">
-    <!--TODO:Add a dropdown menu with list of lessons -->
-    <div layout="row" style="margin-top: 10%">
+<div layout="column" ng-cloak class="md-inline-form">
+    <div layout="row" style="margin-top: 10%; margin-bottom: 10%">
 
         <div flex="10">
             <!--First-->
         </div>
 
         <div flex="80" id="toast-position">
-            <md-content layout-gt-sm="row" layout-align="center center" layout-padding>
-                <md-card flex class="better-header">
+            <md-content layout-gt-sm="row" layout-align="center center" class="better-header">
+                <md-card flex style="margin: 0">
                     <md-toolbar class="md-menu-toolbar">
                         <div layout="row">
                             <md-toolbar-filler layout layout-align="center center">
-                                <md-icon class="material-icons">chrome_reader_mode</md-icon>
+                                <md-icon class="material-icons" style="color: white;">chrome_reader_mode</md-icon>
                             </md-toolbar-filler>
                             <div>
                                 <h2 class="md-toolbar-tools">View and Edit your lesssons</h2>
@@ -135,9 +134,9 @@
                                     <div flex="10">
                                         <!--Left Most-->
                                     </div>
-                                    <div class="container app" flex="90">
+                                    <div flex="70">
                                         <!--<button ng-click="disabled = !disabled" unselectable>Disable text-angular Toggle</button>-->
-                                        <md-input-container ng-model="model.lesson.question" text-angular="text-angular" name="htmlcontent" ng-model="htmlcontent" ta-disabled='disabled'></md-input-container>
+                                        <md-input-containertext ng-model="model.lesson.question" text-angular="text-angular" name="htmlcontent" ng-model="htmlcontent" ta-disabled='disabled'></md-input-containertext>
                                         <!--<h1>Raw HTML in a text area</h1>-->
                                         <!--<textarea ng-model="htmlcontent" style="width: 100%"></textarea>-->
                                     </div>
@@ -147,7 +146,7 @@
                                     <!--<md-button ng-click="deleteTutorial(lesson)" class="md-raised md-warn material-icons" flex="10">delete</md-button>-->
                                 <!--</div>-->
 
-                                <md-button ng-click="model.createLesson(model.lesson)" class="md-raised md-primary" style="margin-top: 5%;">Create Lesson</md-button>
+                                <md-button ng-click="model.createLesson(model.lesson)" class="md-raised md-primary" style="margin-top: 5%; color: white;">Create Lesson</md-button>
                             </div>
                         </form>
                     </div>
@@ -157,7 +156,7 @@
     </div>
     <nav mfb-menu position="br"
          effect="slidein-spring"
-         label="Click here"
+         label="Close"
          active-icon="ion-close"
          resting-icon="ion-edit"
          toggling-method="click"

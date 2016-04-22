@@ -9,27 +9,13 @@
         <md-content layout="column" layout-padding layout-align="start start">
 
 
-            <md-content ng-if="model.currentUser">
+            <md-content>
                 <form ng-submit="model.search(data)">
                     <md-input-container>
                         <label for="testInput">Search</label>
                         <input id="testInput" type="text" ng-model="data">
                     </md-input-container>
                 </form>
-            </md-content>
-
-            <md-content ng-if="model.currentUser">
-                <md-button
-                        ng-href="#/profile"
-                        title="Profile Page"
-                        ng-disabled="false"
-                        aria-label="Profile"
-                        md-ink-ripple
-                        md-no-ink
-                        ng-click="model.close()"
-                        class="md-primary">
-                    Profile
-                </md-button>
             </md-content>
 
             <md-content>
@@ -46,30 +32,7 @@
                 </md-button>
             </md-content>
 
-            <md-content ng-if="model.currentUser">
-                <md-button
-                        ng-href="#/tutorial-maker"
-                        title="Tutorial Editor"
-                        ng-disable="false"
-                        aria-label="Tutorial Editor"
-                        md-ink-ripple
-                        ng-click="model.close()"
-                        class="md-primary">
-                    Tutorial Editor
-                </md-button>
-            </md-content>
-
-            <!--<md-button-->
-                    <!--ng-href="#"-->
-                    <!--title="About Page"-->
-                    <!--ng-disable="false"-->
-                    <!--aria-label="About Us"-->
-                    <!--md-no-ink-->
-                    <!--class="md-primary">-->
-                <!--About-->
-            <!--</md-button>-->
-
-            <md-content ng-if="!model.currentUser">
+            <md-content ng-if="model.activeUser() == null">
                 <md-button
                         ng-href="#/login"
                         title="Login Page"
@@ -83,7 +46,7 @@
             </md-content>
 
 
-            <md-content ng-if="!model.currentUser">
+            <md-content ng-if="model.activeUser() == null">
                 <md-button
                         ng-href="#/register"
                         title="Register Page"
@@ -96,7 +59,44 @@
                 </md-button>
             </md-content>
 
-            <md-content ng-if="model.currentUser">
+            <md-content ng-if="model.activeUser() != null">
+                <md-button
+                        ng-href="#/profile"
+                        title="Profile Page"
+                        ng-disabled="false"
+                        aria-label="Profile"
+                        md-ink-ripple
+                        md-no-ink
+                        ng-click="model.close()"
+                        class="md-primary">
+                    Profile
+                </md-button>
+            </md-content>
+
+            <md-content>
+                <md-button ng-if="model.isAdminUser()"
+                           ng-href="#/tutorial-maker"
+                           title="Tutorial Editor"
+                           ng-disable="false"
+                           aria-label="Tutorial Editor"
+                           md-ink-ripple
+                           ng-click="model.close()"
+                           class="md-primary">
+                    Tutorial Editor
+                </md-button>
+            </md-content>
+
+            <!--<md-button-->
+            <!--ng-href="#"-->
+            <!--title="About Page"-->
+            <!--ng-disable="false"-->
+            <!--aria-label="About Us"-->
+            <!--md-no-ink-->
+            <!--class="md-primary">-->
+            <!--About-->
+            <!--</md-button>-->
+
+            <md-content ng-if="model.activeUser() != null">
                 <md-button
                         ng-click="model.logout()"
                         md-ink-ripple
@@ -123,52 +123,52 @@
         </md-content>
 
         <!--<md-menu>-->
-            <!--<button ng-click="$mdOpenMenu()">-->
-                <!--{{currentUser.username}}-->
-            <!--</button>-->
-            <!--<md-menu-content>-->
-                <!--<md-menu-item label="column">-->
-                    <!--<md-list-item md-ink-ripple class="md-3-line" ng-click="model.logout()">-->
-                        <!--<div class="md-list-item-text" >-->
-                            <!--<h3 layout="column">{{tutorial.title}}</h3>-->
-                            <!--<md-menu-divider ng-if="!$last"></md-menu-divider>-->
-                        <!--</div>-->
-                    <!--</md-list-item>-->
-                <!--</md-menu-item>-->
-            <!--</md-menu-content>-->
+        <!--<button ng-click="$mdOpenMenu()">-->
+        <!--{{currentUser.username}}-->
+        <!--</button>-->
+        <!--<md-menu-content>-->
+        <!--<md-menu-item label="column">-->
+        <!--<md-list-item md-ink-ripple class="md-3-line" ng-click="model.logout()">-->
+        <!--<div class="md-list-item-text" >-->
+        <!--<h3 layout="column">{{tutorial.title}}</h3>-->
+        <!--<md-menu-divider ng-if="!$last"></md-menu-divider>-->
+        <!--</div>-->
+        <!--</md-list-item>-->
+        <!--</md-menu-item>-->
+        <!--</md-menu-content>-->
         <!--</md-menu>-->
 
         <!--<md-content layout="row">-->
-            <!--<md-content layout="row">-->
-                <!--<img ng-src="{{currentUser.photo}}"-->
-                     <!--class="md-avatar" alt="{{currentUser.firstName}}"-->
-                     <!--flex="10"-->
-                     <!--style="border-radius: 99%;-->
-                                        <!--border: 1px solid #ddd;-->
-                                        <!--margin: 2%;">-->
-                <!--<md-button-->
-                    <!--href="#/profile"-->
-                    <!--md-ink-ripple-->
-                    <!--class="md-primary">-->
-                    <!--{{currentUser.username}}-->
-                <!--</md-button>-->
+        <!--<md-content layout="row">-->
+        <!--<img ng-src="{{currentUser.photo}}"-->
+        <!--class="md-avatar" alt="{{currentUser.firstName}}"-->
+        <!--flex="10"-->
+        <!--style="border-radius: 99%;-->
+        <!--border: 1px solid #ddd;-->
+        <!--margin: 2%;">-->
+        <!--<md-button-->
+        <!--href="#/profile"-->
+        <!--md-ink-ripple-->
+        <!--class="md-primary">-->
+        <!--{{currentUser.username}}-->
+        <!--</md-button>-->
 
-            <!--</md-content>-->
+        <!--</md-content>-->
 
-            <!--<md-content ng-show="currentUser">-->
-                <!--<md-button-->
-                        <!--href="#/home"-->
-                        <!--ng-click="model.logout()"-->
-                        <!--md-ink-ripple-->
-                        <!--class="md-warn"-->
-                        <!--layout-align="center center">-->
-                    <!--logout-->
-                <!--</md-button>-->
-            <!--</md-content>-->
+        <!--<md-content ng-show="currentUser">-->
+        <!--<md-button-->
+        <!--href="#/home"-->
+        <!--ng-click="model.logout()"-->
+        <!--md-ink-ripple-->
+        <!--class="md-warn"-->
+        <!--layout-align="center center">-->
+        <!--logout-->
+        <!--</md-button>-->
+        <!--</md-content>-->
         <!--</md-content>-->
 
         <md-list layout="row">
-            <md-list-item ng-if="model.currentUser">
+            <md-list-item ng-if="model.activeUser() != null">
                 <img ng-src="{{currentUser.photo}}"
                      class="md-avatar" alt="{{currentUser.firstName}}"
                      style="border-radius: 50%;
@@ -182,7 +182,7 @@
                 </md-button>
             </md-list-item>
 
-            <md-list-item ng-if="model.currentUser">
+            <md-list-item ng-if="model.activeUser() != null">
                 <md-button
                         href="#/home"
                         ng-click="model.logout()"
