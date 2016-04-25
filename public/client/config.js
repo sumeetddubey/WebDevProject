@@ -13,10 +13,7 @@
             .when('/login', {
                 templateUrl: "views/user/login/login.view.html",
                 controller: "LoginController",
-                controllerAs: 'model',
-                resolve: {
-                    getLoggedIn: getLoggedIn
-                }
+                controllerAs: 'model'
             })
             .when('/register', {
                 templateUrl: "views/user/register/register.view.html",
@@ -114,14 +111,14 @@
                     deferred.resolve();
                 }
                 else{
-                    deferred.resolve();
+                    deferred.reject();
                 }
             });
 
         return deferred.promise;
     }
 
-    function checkLoggedIn(UserService, $q, $location) {
+    function checkLoggedIn(UserService, $q, $location, $window) {
 
         var deferred = $q.defer();
 
@@ -130,8 +127,12 @@
             .then(function(response) {
                 if(response.data == '0') {
                     deferred.reject();
+                    //$window.alert("Invalid Credentials");
+                    console.log(response.data);
                     $location.url("/login");
-                } else {
+                }
+                else {
+                    console.log(response.data);
                     UserService.setCurrentUser(response.data);
                     deferred.resolve();
                 }

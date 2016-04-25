@@ -60,7 +60,7 @@ module.exports = function(app, userModel, passport) {
 
     function login(req, res){
         var user = req.user;
-        console.log(user);
+        console.log(req.user);
         res.json(user);
     }
 
@@ -98,6 +98,7 @@ module.exports = function(app, userModel, passport) {
             .then(
                 function(response){
                     if(response){
+                        console.log('username already exists');
                         res.json(null);
                     }
                     else{

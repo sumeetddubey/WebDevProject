@@ -34,6 +34,7 @@ module.exports = function(app, mongoose, gfs){
             "email": ipUser.email,
             "photo": ""
         };
+        console.log(user);
         if(ipUser.firstName){
             user.firstName = ipUser.firstName;
         }

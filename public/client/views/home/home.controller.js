@@ -5,27 +5,40 @@
     var app = angular.module("codingTutorial");
     app.controller("HomeController", HomeController);
 
-    function HomeController($location, UserService, $rootScope) {
+    function HomeController($location, UserService, $window) {
         var vm = this;
 
         //instances for methods
-        vm.login = login;
+        vm.register = register;
 
         console.log('in home');
-        function login(user) {
-            console.log(user);
-            if (!user) {
-                console.log(user.email);
-                return;
-            }
-            UserService.login(user)
-                .then(function (response) {
-                    if (response.data) {
-                        $rootScope.currentUser = response.data;
-                        console.log(response.data);
-                        $location.url("/profile");
+
+        function register(user){
+            console.log(user.username);
+
+            UserService.register(user)
+                .then(
+                    function(response){
+                        if(response.data == null){
+                            $window.alert("Username already exists");
+                        }
+                        else if(response.data){
+                            UserService.setCurrentUser(response.data);
+                            UserService.login(response.data)
+                                .then(
+                                    function(response){
+                                        if(response.data){
+                                            $location.url('/profile');
+                                            console.log(response.data);
+                                        }
+                                    },
+                                    function(err){
+                                        console.log(err);
+                                    }
+                                )
+                        }
                     }
-                })
-        }
+                );
+            }
     }
 })();

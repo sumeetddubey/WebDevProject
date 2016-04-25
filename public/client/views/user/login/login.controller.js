@@ -5,8 +5,8 @@
     var app = angular.module("codingTutorial");
     app.controller("LoginController", LoginController);
 
-    function LoginController($location, $rootScope, UserService) {
-        
+    function LoginController($location, $rootScope, UserService, $window) {
+
         var vm = this;
 
         //instances for methods
@@ -20,12 +20,15 @@
             }
             UserService.login(user)
                 .then(function (response) {
-                    if (response.data) {
-                        $rootScope.currentUser = response.data;
-                        console.log(response.data);
-                        $location.url("/profile");
+                        if (response.data) {
+                            $rootScope.currentUser = response.data;
+                            console.log(response.data);
+                            $location.url("/profile");
+                        }
+                    },
+                    function(err){
+                        $window.alert("Invalid Credentials");
                     }
-                })
-        }
+                )}
     }
 })();

@@ -63,11 +63,9 @@
 
         function activeUser(){
             if($rootScope.currentUser != null){
-                console.log('user logged');
                 return $rootScope.currentUser;
             }
             else{
-                console.log('no user logged');
                 return null;
             }
         }
