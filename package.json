@@ -28,7 +28,7 @@
     "angular-chart.js": "^0.9.0",
     "angular-material": "^1.0.7",
     "angular-material-data-table": "^0.10.1",
-    "angular-messages": "^1.5.3",
+    "angular-messages": "^1.5.5",
     "angular-trix": "^1.0.2",
     "angular-youtube-embed": "^1.2.0",
     "aws-sdk": "^2.3.3",

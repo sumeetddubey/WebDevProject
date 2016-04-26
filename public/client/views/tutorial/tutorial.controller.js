@@ -114,6 +114,7 @@
 
         function showloader() {
             vm.isLoading = true;
+            console.log('Loader Called');
         }
 
         function run(userCode) {
