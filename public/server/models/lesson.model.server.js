@@ -3,11 +3,11 @@
  */
 var q = require('q');
 var mongoose = require('mongoose');
+var TutorialModel = mongoose.model('Tutorial');
+var LessonSchema = require('./lesson.schema.server.js')(mongoose);
+var LessonModel = mongoose.model('Lesson', LessonSchema);
 
 module.exports = function(){
-    var TutorialModel = mongoose.model('Tutorial');
-    var LessonSchema = require('./lesson.schema.server.js')(mongoose);
-    var LessonModel = mongoose.model('Lesson', LessonSchema);
 
     var api = {
         findAllLessonsForTutorial: findAllLessonsForTutorial,
@@ -41,10 +41,8 @@ module.exports = function(){
                 deferred.reject(err);
             }
             else{
-                console.log(doc.lessons);
                 for(var index in doc.lessons){
                     if(JSON.stringify(doc.lessons[index]._id) === JSON.stringify(lessonId)){
-                        console.log(doc.lessons[index]);
                         deferred.resolve(doc.lessons[index]);
                     }
                 }
@@ -63,7 +61,6 @@ module.exports = function(){
             }
             else{
                 var newLesson = new LessonModel(lesson);
-                console.log(newLesson);
                 doc.lessons.push(newLesson);
                 doc.save(function(err, data){
                     if(err){
@@ -81,7 +78,6 @@ module.exports = function(){
 
     function updateLesson(tutorialId, lessonId, lesson){
         var deferred = q.defer();
-        console.log(lesson);
 
         TutorialModel.findById(tutorialId, function(err, doc){
             if(err){
@@ -90,7 +86,6 @@ module.exports = function(){
             else{
                 for(var index in doc.lessons){
                     if(JSON.stringify(doc.lessons[index]._id) === JSON.stringify(lessonId)){
-                        console.log('match');
                         if(lesson.title){
                             doc.lessons[index].title = lesson.title;
                         }
@@ -122,8 +117,6 @@ module.exports = function(){
                             deferred.reject(err);
                         }
                         else{
-                            console.log('updated lesson');
-                            console.log(doc);
                             deferred.resolve(doc);
                         }
                     })
