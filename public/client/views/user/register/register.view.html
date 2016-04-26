@@ -14,30 +14,46 @@
                         <h2 style="color: white;"><span>Register Form</span></h2>
                     </md-toolbar>
 
-                    <md-card-content layout="column" style="margin-top: 5%">
+                    <md-card-content style="margin-top: 5%">
+                        <form name="registerForm" layout="column">
                         <md-input-container>
                             <label>Username</label>
-                            <input type="text" ng-model="user.username" />
+                            <input required type="text" name="username" ng-model="user.username" />
+                            <div ng-messages="registerForm.username.$error" ng-show="registerForm.username.$dirty">
+                                <div ng-message="required">This is required.</div>
+                            </div>
                         </md-input-container>
                         <md-input-container>
                             <label>Email Address</label>
-                            <input type="email" ng-model="user.email" />
+                            <input required type="email" name="email" ng-model="user.email" ng-pattern="/^.+@.+\..+$/"/>
+                            <div ng-messages="registerForm.email.$error" role="alert"  ng-show="registerForm.username.$dirty">
+                                <div ng-message-exp="['required', 'pattern']">
+                                    Your email must look like an e-mail address.
+                                </div>
+                            </div>
                         </md-input-container>
                         <md-input-container>
                             <label>Password</label>
-                            <input type="password" ng-model="user.password" />
+                            <input required name="password" type="password" ng-model="user.password" />
+                            <div ng-messages="registerForm.password.$error" ng-show="registerForm.password.$dirty">
+                                <div ng-message="required">This is required.</div>
+                            </div>
                         </md-input-container>
                         <md-input-container>
                             <label>Verify Password</label>
-                            <input type="password" ng-model="user.verifyPassword" />
+                            <input required type="password" ng-model="user.verifyPassword" />
+                            <div ng-messages="registerForm.username.$error" ng-show="registerForm.username.$dirty">
+                                <div ng-message="required">This is required.</div>
+                            </div>
                         </md-input-container>
                         <md-input-container>
-                            <md-radio-group ng-model="user.roles" layout="row">
+                            <md-radio-group required ng-model="user.roles" layout="row">
                                 <md-radio-button value="dm-instructor" class="md-primary"> Sign Up as Instructor </md-radio-button>
                                 <md-radio-button value="dm-student"> Sign up as Student </md-radio-button>
                             </md-radio-group>
                         </md-input-container>
-                        <md-button ng-click="model.register(user)" class="md-raised md-primary" style="margin-top: 5%; color: white;">Submit</md-button>
+                        <md-button ng-click="model.register(user)" class="md-raised md-primary" aria-label="register" style="margin-top: 5%; color: white;">Submit</md-button>
+                        </form>
                     </md-card-content>
                 </md-card>
             </md-content>

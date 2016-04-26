@@ -13,30 +13,30 @@
         vm.register = register;
 
         function register(user){
-            if (user == null) {
-                $window.alert("Please fill in the required fields");
-                return;
-            }
-            if (!user.username) {
-                $window.alert("Please provide a username");
-                return;
-            }
-            if (!user.password || !user.verifyPassword) {
-                $window.alert("Please provide a password");
-                return;
-            }
-            if (user.password != user.verifyPassword) {
-                $window.alert("Passwords must match");
-                return;
-            }
-            if (!user.email) {
-                $window.alert("Please provide a valid email");
-                return;
-            }
-            if (!user.roles){
-                $window.alert('Please select an account type');
-                return;
-            }
+            //if (user == null) {
+            //    $window.alert("Please fill in the required fields");
+            //    return;
+            //}
+            //if (!user.username) {
+            //    $window.alert("Please provide a username");
+            //    return;
+            //}
+            //if (!user.password || !user.verifyPassword) {
+            //    $window.alert("Please provide a password");
+            //    return;
+            //}
+            //if (user.password != user.verifyPassword) {
+            //    $window.alert("Passwords must match");
+            //    return;
+            //}
+            //if (!user.email) {
+            //    $window.alert("Please provide a valid email");
+            //    return;
+            //}
+            //if (!user.roles){
+            //    $window.alert('Please select an account type');
+            //    return;
+            //}
 
             UserService.register(user)
                 .then(

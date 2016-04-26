@@ -13,7 +13,8 @@
             'ng-mfb',
             'textAngular',
             'ui.ace',
-            'ngStorage'])
+            'ngStorage',
+            'ngMessages'])
         .config(function($mdThemingProvider) {
             $mdThemingProvider.theme('default')
                 .primaryPalette('red', {
