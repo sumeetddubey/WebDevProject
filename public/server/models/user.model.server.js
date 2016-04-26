@@ -21,7 +21,9 @@ module.exports = function(app, mongoose, gfs){
         findUserByRole: findUserByRole,
         deleteUserById: deleteUserById,
         updateUserById: updateUserById,
-        createProfilePic: createProfilePic
+        createProfilePic: createProfilePic,
+        findUserByGoogleId: findUserByGoogleId,
+        findUserByFacebookId: findUserByFacebookId,
     };
 
     return api;
@@ -169,5 +171,13 @@ module.exports = function(app, mongoose, gfs){
         writeStream.on('close', function(file){
             console.log(file.filename);
         })
+    }
+
+    function findUserByFacebookId(facebookId) {
+        return UserModel.findOne({'facebook.id': facebookId});
+    }
+
+    function findUserByGoogleId(googleId) {
+        return UserModel.findOne({'google.id': googleId});
     }
 };

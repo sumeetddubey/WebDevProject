@@ -5,7 +5,7 @@
     var app = angular.module("codingTutorial");
     app.controller("LoginController", LoginController);
 
-    function LoginController($location, $rootScope, UserService, $window) {
+    function LoginController($location, $rootScope, UserService, $window, $http) {
 
         var vm = this;
 
