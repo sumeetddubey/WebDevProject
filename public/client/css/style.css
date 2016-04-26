@@ -791,3 +791,9 @@ footer {
     color: #C0C6CC;
     font-family: 'Roboto', sans-serif;
 }
+
+.langIcon{
+    font-size: 3em;
+    display: block;
+    text-align: left;
+}

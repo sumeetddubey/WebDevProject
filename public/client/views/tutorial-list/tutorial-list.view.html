@@ -19,6 +19,9 @@
                             <div class="md-list-item-text" layout-gt-md="row" layout-md="column" style="margin-top: 2%" layout-align="start center" flex>
                                 <div flex-gt-md="40" flex-md="100">
                                     <h3>{{tutorial.title}}</h3>
+                                    <div>
+                                        <i class="langIcon" ng-class="model.tutorialLang(tutorial)"></i>
+                                    </div>
                                     <!--<p>{{tutorial.tags}}</p>-->
                                 </div>
                                 <div layout="column" flex-gt-md="60" flex-md="100">
