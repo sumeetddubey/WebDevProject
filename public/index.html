@@ -2,7 +2,7 @@
 <html lang="en" ng-app="codingTutorial" style="position:relative; min-height: 100%" ng-cloak>
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1", maximum-scale="1">
+    <meta name="viewport" content="width=device-width, initial-scale=1 maximum-scale=1">
     <title>Coding Tutorial</title>
 </head>
 <body>
@@ -14,10 +14,12 @@
         <!--<div ng-include="'views/footer/footer.view.html'"></div>-->
     <!--</div>-->
 <!--</div>-->
-    <div ng-include="'views/header/header.view.html'"></div>
+    <div ng-include="'client/views/header/header.view.html'"></div>
     <div ng-view style="min-height: 100%; margin: 0 0; overflow: visible;" id="be-the-second"></div>
-    <div ng-include="'views/footer/footer.view.html'"
-         style="position: relative; width: 100%;"></div>
+    <div ng-include="'client/views/footer/footer.view.html'"
+         style="position: relative; width: 100%;">
+
+    </div>
 
 
 
@@ -53,9 +55,9 @@
 <script src="https://cdn.jsdelivr.net/angular.chartjs/latest/angular-chart.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-material-data-table/0.10.1/md-data-table.min.js"></script>
 
+<link href="client/css/sticky-footer-navbar.css" rel="stylesheet">
+<link href="client/css/style.css" rel="stylesheet">
 
-<link href="css/sticky-footer-navbar.css" rel="stylesheet">
-<link href="css/style.css" rel="stylesheet">
 <link href="https://cdnjs.cloudflare.com/ajax/libs/angular-material/1.0.6/angular-material.css" rel="stylesheet">
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 <link href="https://cdn.jsdelivr.net/angular.chartjs/latest/angular-chart.css" rel="stylesheet">
@@ -67,51 +69,51 @@
 <link href="https://cdn.rawgit.com/konpa/devicon/master/devicon.min.css" rel="stylesheet">
 
 <!-- Buttons -->
-<link href="css/mfb.min.css" rel="stylesheet">
+<link href="client/css/mfb.min.css" rel="stylesheet">
 
 <!-- YouTube -->
 <script src="https://www.youtube.com/iframe_api"></script>
 <script src="https://cdn.jsdelivr.net/angular.youtube-embed/0.2.3/ng-youtube-embed.min.js"></script>
 <!-- concatenated flow.js + ng-flow libraries -->
-<script src="../../bower_components/ng-flow/dist/ng-flow-standalone.min.js"></script>
+<script src="../bower_components/ng-flow/dist/ng-flow-standalone.min.js"></script>
 <!-- TextAngular -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/textAngular/1.5.0/textAngular-rangy.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/textAngular/1.5.0/textAngular-sanitize.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/textAngular/1.5.0/textAngular.min.js"></script>
 
 <!-- Buttons -->
-<script src="js/mfb-directive.js"></script>
+<script src="client/js/mfb-directive.js"></script>
 
 
 <!--self defined scripts-->
-<script src="app.js"></script>
-<script src="config.js"></script>
+<script src="client/app.js"></script>
+<script src="client/config.js"></script>
 
 <!--view scripts-->
-<script src="views/main/main.controller.js"></script>
-<script src="views/home/home.controller.js"></script>
-<script src="views/header/header.controller.js"></script>
-<script src="views/footer/footer.controller.js"></script>
-<script src="views/tutorial/tutorial.controller.js"></script>
-<script src="views/user/register/register.controller.js"></script>
-<script src="views/user/profile/profile.controller.js"></script>
-<script src="views/user/login/login.controller.js"></script>
-<script src="views/dm-instructor/dminstructor.controller.js"></script>
-<script src="views/dm-student/dmstudent.controller.js"></script>
-<script src="views/dm-tutorial/dmtutorial.controller.js"></script>
-<script src="views/search/search.controller.js"></script>
-<script src="views/tutorial-maker/tutorial-maker.controller.js"></script>
-<script src="views/lesson-maker/lesson-maker.controller.js"></script>
-<script src="views/tutorial-list/tutorial-list.controller.js"></script>
+<script src="client/views/main/main.controller.js"></script>
+<script src="client/views/home/home.controller.js"></script>
+<script src="client/views/header/header.controller.js"></script>
+<script src="client/views/footer/footer.controller.js"></script>
+<script src="client/views/tutorial/tutorial.controller.js"></script>
+<script src="client/views/user/register/register.controller.js"></script>
+<script src="client/views/user/profile/profile.controller.js"></script>
+<script src="client/views/user/login/login.controller.js"></script>
+<script src="client/views/dm-instructor/dminstructor.controller.js"></script>
+<script src="client/views/dm-student/dmstudent.controller.js"></script>
+<script src="client/views/dm-tutorial/dmtutorial.controller.js"></script>
+<script src="client/views/search/search.controller.js"></script>
+<script src="client/views/tutorial-maker/tutorial-maker.controller.js"></script>
+<script src="client/views/lesson-maker/lesson-maker.controller.js"></script>
+<script src="client/views/tutorial-list/tutorial-list.controller.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/ngStorage/0.3.6/ngStorage.min.js"></script>
 
 <!--services-->
-<script src="services/user.services.js"></script>
-<script src="services/tutorial.services.js"></script>
-<script src="services/hackerrank.services.js"></script>
-<script src="services/search.services.js"></script>
-<script src="services/lesson.services.js"></script>
+<script src="client/services/user.services.js"></script>
+<script src="client/services/tutorial.services.js"></script>
+<script src="client/services/hackerrank.services.js"></script>
+<script src="client/services/search.services.js"></script>
+<script src="client/services/lesson.services.js"></script>
 
 <!--code editor scripts-->
 <script type="text/javascript" src="/bower_components/ace-builds/src-min-noconflict/ace.js"></script>

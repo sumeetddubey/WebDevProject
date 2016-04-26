@@ -15,6 +15,7 @@
             'ui.ace',
             'ngStorage',
             'ngMessages'])
+
         .config(function($mdThemingProvider) {
             $mdThemingProvider.theme('default')
                 .primaryPalette('red', {

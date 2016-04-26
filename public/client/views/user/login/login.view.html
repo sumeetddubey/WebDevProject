@@ -14,31 +14,6 @@
                         <h2><span style="color: white;">Login Form</span></h2>
                     </md-toolbar>
 
-                    <md-card-content layout="column" style="margin-top: 5%;">
-                        <md-input-container>
-                            <label>Username</label>
-                            <input type="text" ng-model="user.username" />
-                        </md-input-container>
-                        <md-input-container>
-                            <label>Password</label>
-                            <input type="password" ng-model="user.password" />
-                        </md-input-container>
-                        <md-button
-                                ng-click="model.login(user)"
-                                class="md-raised md-primary"
-                                style="margin-top: 5%; color: white;">Submit
-                        </md-button>
-                        <a href="/api/project/auth/google"
-                           class="btn btn-danger btn-block">
-                            <span class="fa fa-google-plus"></span>
-                            Google
-                        </a>
-
-                        <a href="/api/project/auth/facebook"
-                           class="btn btn-primary btn-block">
-                            <span class="fa fa-facebook"></span>
-                            Facebook
-                        </a>
                     <md-card-content style="margin-top: 5%;">
                         <form layout="column" name="loginForm">
                             <md-input-container>
@@ -55,6 +30,17 @@
                                     <div ng-message="required">This is required.</div>
                                 </div>
                             </md-input-container>
+                            <a href="/api/project/auth/google"
+                               class="btn btn-danger btn-block">
+                                <span class="fa fa-google-plus"></span>
+                                Google
+                            </a>
+
+                            <a href="/api/project/auth/facebook"
+                               class="btn btn-primary btn-block">
+                                <span class="fa fa-facebook"></span>
+                                Facebook
+                            </a>
                             <md-button
                                     ng-click="model.login(user)"
                                     class="md-raised md-primary"

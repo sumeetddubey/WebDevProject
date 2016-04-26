@@ -6,22 +6,22 @@
     app.config(function($routeProvider){
         $routeProvider
             .when('/home', {
-                templateUrl: "views/home/home.view.html",
+                templateUrl: "client/views/home/home.view.html",
                 controller: "HomeController",
                 controllerAs: 'model'
             })
             .when('/login', {
-                templateUrl: "views/user/login/login.view.html",
+                templateUrl: "client/views/user/login/login.view.html",
                 controller: "LoginController",
                 controllerAs: 'model'
             })
             .when('/register', {
-                templateUrl: "views/user/register/register.view.html",
+                templateUrl: "client/views/user/register/register.view.html",
                 controller: "RegisterController",
                 controllerAs: 'model'
             })
             .when('/profile', {
-                templateUrl: "views/user/profile/profile.view.html",
+                templateUrl: "client/views/user/profile/profile.view.html",
                 controller: "ProfileController",
                 controllerAs: 'model',
                 resolve: {
@@ -29,19 +29,19 @@
                 }
             })
             .when('/admin', {
-                templateUrl: "views/admin/admin.view.html",
+                templateUrl: "client/views/admin/admin.view.html",
                 controllerAs: 'model',
                 resolve: {
                     getLoggedIn: getLoggedIn
                 }
             })
             .when('/search', {
-                templateUrl: "views/search/search.view.html",
+                templateUrl: "client/views/search/search.view.html",
                 controller: "SearchController",
                 controllerAs: 'model'
             })
             .when('/dm-instructor', {
-                templateUrl: "views/dm-instructor/dminstructor.view.html",
+                templateUrl: "client/views/dm-instructor/dminstructor.view.html",
                 controller: "InstructorController",
                 controllerAs: 'model',
                 resolve: {
@@ -49,7 +49,7 @@
                 }
             })
             .when('/dm-student', {
-                templateUrl: "views/dm-student/dmstudent.view.html",
+                templateUrl: "client/views/dm-student/dmstudent.view.html",
                 controller: "StudentController",
                 controllerAs: 'model',
                 resolve: {
@@ -57,7 +57,7 @@
                 }
             })
             .when('/dm-tutorial', {
-                templateUrl: "views/dm-tutorial/dmtutorial.view.html",
+                templateUrl: "client/views/dm-tutorial/dmtutorial.view.html",
                 controller: "DmTutorialController",
                 controllerAs: 'model',
                 resolve: {
@@ -65,7 +65,7 @@
                 }
             })
             .when('/tutorial', {
-                templateUrl: "views/tutorial/tutorial.view.html",
+                templateUrl: "client/views/tutorial/tutorial.view.html",
                 controller: "TutorialController",
                 controllerAs: 'model',
                 resolve: {
@@ -73,7 +73,7 @@
                 }
             })
             .when('/tutorial-maker', {
-                templateUrl: "views/tutorial-maker/tutorial-maker.view.html",
+                templateUrl: "client/views/tutorial-maker/tutorial-maker.view.html",
                 controller: "TutorialMakerController",
                 controllerAs: 'model',
                 resolve: {
@@ -81,7 +81,7 @@
                 }
             })
             .when('/lesson-maker', {
-                templateUrl: "views/lesson-maker/lesson-maker.view.html",
+                templateUrl: "client/views/lesson-maker/lesson-maker.view.html",
                 controller: "LessonMakerController",
                 controllerAs: 'model',
                 resolve: {
@@ -89,7 +89,7 @@
                 }
             })
             .when('/tutorial-list', {
-                templateUrl: 'views/tutorial-list/tutorial-list.view.html',
+                templateUrl: 'client/views/tutorial-list/tutorial-list.view.html',
                 controller: "TutorialListController",
                 controllerAs: 'model'
             })
