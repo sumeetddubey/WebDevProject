@@ -5,7 +5,7 @@
             <!--left-->
         </div>
         <div flex-xl="60" flex-lg="60" flex-md="60" flex-sm="80" flex-xs="80">
-            <md-content>
+            <md-content class="wow fadeIn" data-wow-delay="0.5s">
                 <md-card flex style="margin: 0">
                 <md-toolbar layout="row">
                     <div class="md-toolbar-tools">
@@ -20,11 +20,11 @@
                                 <div flex-gt-md="40" flex-md="100">
                                     <div ng-repeat="description in model.currentLesson. track by $index">
                                         <!--<div ta-bind="text" ng-model="description"></div>-->
-                                        <i ta-bind="text" ng-model=""></i>
+
                                     </div>
-                                    <h3>{{tutorial.title}}</h3>
-                                    <div>
-                                        <i class="langIcon" ng-class="model.tutorialLang(tutorial)"></i>
+                                    <div layout="row" layout-align="start center">
+                                        <md-icon class="langIcon" ng-class="model.tutorialLang(tutorial)" style="margin: 2%;"></md-icon>
+                                        <h3>{{tutorial.title}}</h3>
                                     </div>
                                     <!--<p>{{tutorial.tags}}</p>-->
                                 </div>

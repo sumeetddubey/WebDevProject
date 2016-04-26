@@ -1,21 +1,23 @@
-<h2>Search Results:</h2>
-<div ng-show="results" class="table-responsive">
-    <table class="table table-striped">
-        <tr>
-            <td>
-                Name
-            </td>
-            <td>
-                Language
-            </td>
-        </tr>
-        <tr class="table table-striped" ng-repeat="item in results">
-            <td>
-                {{item.title}}
-            </td>
-            <td>
-                {{item.language}}
-            </td>
-        </tr>
-    </table>
+<div layout-padding>
+    <h3 class="wow fadeIn" data-wow-delay="0.3s">Search Results:</h3>
+    <div ng-show="results" class="table-responsive" class="wow fadeIn" data-wow-delay="0.5s">
+        <table class="table table-striped">
+            <tr>
+                <td>
+                    Name
+                </td>
+                <td>
+                    Language
+                </td>
+            </tr>
+            <tr class="table table-striped" ng-repeat="item in results">
+                <td>
+                    {{item.title}}
+                </td>
+                <td>
+                    {{item.language}}
+                </td>
+            </tr>
+        </table>
+    </div>
 </div>

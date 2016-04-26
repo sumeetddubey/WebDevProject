@@ -1,6 +1,6 @@
 <div layout-padding ng-cloak>
     <div layout-gt-md="row" layout-md="column" style="margin-bottom: 10%;">
-        <md-card flex-gt-md="'40" flex-md="100" style="color: #C0C6CC; background-color: #272822;">
+        <md-card flex-gt-md="'40" flex-md="100" style="color: #C0C6CC; background-color: #272822;" class="wow fadeIn" data-wow-delay="0.5s">
                 <md-card-title>
                     <md-card-title-text>
                         <span class="md-headline">Question</span>
@@ -30,7 +30,7 @@
         <div layout="column" flex-gt-md="60" flex-md>
             <!--ng-init="linkIt = model.currentLesson.multimedia"-->
 
-            <md-card ng-if="model.loadPlayer">
+            <md-card ng-if="model.loadPlayer" class="wow fadeIn" data-wow-delay="0.5s">
                 <ng-youtube-embed
                         url= "model.currentLesson.multimedia"
                         autoplay="true"
@@ -51,7 +51,7 @@
             <!--<img ng-src="images/placeholder.jpg" alt="Placeholder">-->
             <!--</md-card>-->
 
-            <div layout="row">
+            <div layout="row" class="wow fadeIn" data-wow-delay="0.5s">
                     <md-input-container flex>
                         <label>Code</label>
                         <div class='ace-editor' ng-model="userCode.data" ui-ace="{
@@ -61,7 +61,7 @@
                             }" layout-align="stretch">
                         </div>
                         <!--<textarea ng-model="userCode.data" md-maxlength="250" rows="5" md-select-on-focus></textarea>-->
-                        <md-progress-linear md-mode="indeterminate" ng-if="isLoading" ng-hide></md-progress-linear>
+                        <md-progress-linear md-mode="indeterminate" ng-if="isLoading" ng-hide>Thid</md-progress-linear>
                         <md-button class="md-raised md-primary" ng-click="model.run(userCode); model.showloader()" style="color: white;">Run Code</md-button>
                         <md-button class="md-raised md-primary" ng-click="model.nextLesson(userCode); model.showloader()" style="color: white;">Submit Code</md-button>
                     </md-input-container>

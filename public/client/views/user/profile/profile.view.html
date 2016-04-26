@@ -7,7 +7,7 @@
         </div>
 
         <div flex-xl="50" flex-lg="50" flex-md="50" flex-sm="80" flex-xs="80">
-            <md-content layout-gt-sm="row" layout-align="center center">
+            <md-content layout-gt-sm="row" layout-align="center center" class="wow fadeIn" data-wow-delay="0.5s">
                 <md-card flex class="better-header" style="margin: 0">
 
                     <md-toolbar class="md-tall md-toolbar-tools" style="background-image:url(images/profile-bg.png); background-size: cover">
@@ -70,7 +70,10 @@
                                     <md-list-item class="md-3-line" ng-repeat="tutorial in model.tutorials" ng-click="model.openTutorial(tutorial)" flex>
                                         <div class="md-list-item-text" layout-gt-md="row" layout-md="column" style="margin-top: 2%" layout-align="start center" flex>
                                             <div flex-gt-md="40" flex-md="100">
-                                                <h3>{{tutorial.title}}</h3>
+                                                <div layout="row" layout-align="start center">
+                                                    <md-icon class="langIcon" ng-class="model.tutorialLang(tutorial)" style="margin: 2%;"></md-icon>
+                                                    <h3>{{tutorial.title}}</h3>
+                                                </div>
                                                 <!--<p>{{tutorial.tags}}</p>-->
                                             </div>
                                             <div layout="column" flex-gt-md="60" flex-md="100">

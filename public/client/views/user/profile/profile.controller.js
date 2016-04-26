@@ -11,6 +11,7 @@
         var tutorials = {};
 
         vm.showSimpleToast = showSimpleToast;
+        vm.tutorialLang = displayLangIcon;
 
         function showSimpleToast(message, parentId) {
             var el = angular.element(document.getElementById(parentId));
@@ -72,6 +73,30 @@
                         }
                     }
                 )
+        }
+
+        function displayLangIcon(tutorial){
+            var lang = tutorial.language;
+            if(lang === "C++"){
+                console.log("in display lang icon");
+                return "devicon-cplusplus-plain";
+            }
+            else if(lang === "Java"){
+                console.log("in display lang icon");
+                return "devicon-java-plain";
+            }
+            else if(lang === "Python"){
+                console.log("in display lang icon");
+                return "devicon-python-plain";
+            }
+            else if(lang === "JavaScript"){
+                console.log("in display lang icon");
+                return "devicon-javascript-plain";
+            }
+            else if(lang === "Ruby"){
+                console.log("in display lang icon");
+                return "devicon-ruby-plain";
+            }
         }
     }
 
