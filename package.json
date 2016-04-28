@@ -38,6 +38,7 @@
     "mongoose-crate": "^1.0.10",
     "multer": "^1.1.0",
     "ng-material-floating-button": "^0.6.2",
+    "npm": "^3.8.7",
     "passport": "^0.3.2",
     "passport-facebook": "^2.1.0",
     "passport-google-oauth": "^1.0.0",
