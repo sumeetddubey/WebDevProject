@@ -4,17 +4,14 @@
 
 var q = require('q');
 var mongoose = require('mongoose');
+var mock = require('./tutorial.mock.json');
+var HackerRank = require('machinepack-hackerrank');
+
+//load tutorial schema
+var TutorialSchema = require("./tutorial.schema.server.js")(mongoose);
+var TutorialModel = mongoose.model("Tutorial", TutorialSchema);
 
 module.exports = function(){
-
-    var q = require('q');
-    var mock = require('./tutorial.mock.json');
-    var HackerRank = require('machinepack-hackerrank');
-
-    //load form schema
-    var TutorialSchema = require("./tutorial.schema.server.js")(mongoose);
-    var TutorialModel = mongoose.model("Tutorial", TutorialSchema);
-
     var api = {
         findAllTutorials: findAllTutorials,
         findTutorialById: findTutorialById,
@@ -116,8 +113,6 @@ module.exports = function(){
         if(ipTutorial.language){
             tutorial.language = ipTutorial.language;
         }
-        console.log("the tutorial is");
-        console.log(tutorial);
         TutorialModel.create(tutorial, function(err, doc){
             if(err){
                 deferred.reject(err);
@@ -140,7 +135,6 @@ module.exports = function(){
                 deferred.reject(err);
             }
             else{
-                console.log(doc);
                 deferred.resolve(doc);
             }
         });
@@ -164,7 +158,6 @@ module.exports = function(){
     function sendCodeToApi(code, language){
         var deferred = q.defer();
         var lang;
-        console.log(language);
         if(language === 'C++'){
             lang = 2;
         }
@@ -184,7 +177,8 @@ module.exports = function(){
         if(language === 'Ruby'){
             lang = 8;
         }
-        console.log(lang);
+
+        //call to hackerrank api
         HackerRank.submit({
             apiKey: "hackerrank|902784-700|93c391311e30d1172470dfc810eeb0ea0b2c70dd",
             source: code,
@@ -195,7 +189,6 @@ module.exports = function(){
         }).exec({
 
             error: function (err){
-                console.log(err);
                 deferred.reject(err);
             },
 
@@ -210,14 +203,12 @@ module.exports = function(){
     function searchTutorial(data){
         var deferred = q.defer();
         var reg = new RegExp(data);
-        console.log(reg);
 
         TutorialModel.find({tags: {$in: [reg]}}, function(err, doc){
             if(err){
                 deferred.reject(err);
             }
             else{
-                console.log(doc);
                 deferred.resolve(doc);
             }
         });

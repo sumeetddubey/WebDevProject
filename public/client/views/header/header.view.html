@@ -187,11 +187,17 @@
                      style="border-radius: 50%;
                                         border: 1px solid #ddd;
                                         margin: 2%;">
-                <md-button
+                <md-button ng-if="currentUser.username"
                         href="#/profile"
                         md-ink-ripple
                         class="md-primary">
                     {{currentUser.username}}
+                </md-button>
+                <md-button ng-if="!currentUser.username"
+                        href="#/profile"
+                        md-ink-ripple
+                        class="md-primary">
+                    {{currentUser.firstName}}
                 </md-button>
             </md-list-item>
 

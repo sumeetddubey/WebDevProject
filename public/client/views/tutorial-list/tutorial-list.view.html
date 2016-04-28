@@ -18,10 +18,10 @@
                         <md-list-item class="md-3-line" ng-repeat="tutorial in model.tutorials" ng-click="model.openTutorial(tutorial)" flex>
                             <div class="md-list-item-text" layout-gt-md="row" layout-md="column" style="margin-top: 2%" layout-align="start center" flex>
                                 <div flex-gt-md="40" flex-md="100">
-                                    <div ng-repeat="description in model.currentLesson. track by $index">
-                                        <!--<div ta-bind="text" ng-model="description"></div>-->
+                                    <!--<div ng-repeat="description in model.currentLesson. track by $index">-->
+                                        <!--&lt;!&ndash;<div ta-bind="text" ng-model="description"></div>&ndash;&gt;-->
 
-                                    </div>
+                                    <!--</div>-->
                                     <div layout="row" layout-align="start center">
                                         <md-icon class="langIcon" ng-class="model.tutorialLang(tutorial)" style="margin: 2%;"></md-icon>
                                         <h3>{{tutorial.title}}</h3>

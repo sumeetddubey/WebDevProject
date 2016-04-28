@@ -70,11 +70,6 @@
                         }
                     );
 
-                //function render(response) {
-                //    console.log(response);
-                //    $location.url("/dm-student");
-                //    $route.reload();
-                //}
             }
 
         }
@@ -90,11 +85,6 @@
                     }
                 );
 
-            //function render(response){
-            //    console.log(response);
-            //    $location.url("/dm-student");
-            //    $route.reload();
-            //}
         }
 
         function selectUser(user){

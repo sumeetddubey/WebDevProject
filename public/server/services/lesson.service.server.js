@@ -54,8 +54,6 @@ module.exports  = function(app, lessonModel){
         var tutorialId = req.params.tutorialId;
         var lessonId = req.params.lessonId;
         var lesson = req.body;
-        console.log('lesson is ');
-        console.log(lesson);
         lessonModel.updateLesson(tutorialId, lessonId, lesson)
             .then(
                 function(doc){

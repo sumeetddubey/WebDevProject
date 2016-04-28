@@ -2,16 +2,14 @@
  * Created by sumeetdubey on 3/26/16.
  */
 
+var q = require('q');
+var mongoose = require('mongoose');
+
+//load user schema
+var UserSchema = require("./user.schema.server.js")(mongoose);
+var UserModel = mongoose.model("User", UserSchema);
+
 module.exports = function(app, mongoose, gfs){
-
-    var q = require('q');
-
-    //load user schema
-    var UserSchema = require("./user.schema.server.js")(mongoose);
-    var UserModel = mongoose.model("User", UserSchema);
-    var fs = require('fs');
-
-
     var api = {
         createUser: createUser,
         findAllUsers: findAllUsers,
@@ -21,9 +19,8 @@ module.exports = function(app, mongoose, gfs){
         findUserByRole: findUserByRole,
         deleteUserById: deleteUserById,
         updateUserById: updateUserById,
-        createProfilePic: createProfilePic,
         findUserByGoogleId: findUserByGoogleId,
-        findUserByFacebookId: findUserByFacebookId,
+        findUserByFacebookId: findUserByFacebookId
     };
 
     return api;
@@ -36,7 +33,6 @@ module.exports = function(app, mongoose, gfs){
             "email": ipUser.email,
             "photo": ""
         };
-        console.log(user);
         if(ipUser.firstName){
             user.firstName = ipUser.firstName;
         }
@@ -149,7 +145,6 @@ module.exports = function(app, mongoose, gfs){
 
     function findUserByRole(role){
         var re = new RegExp(role);
-        console.log(re);
         var deferred = q.defer();
         UserModel.find({roles: re}, function(err, doc){
             if(err){
@@ -160,17 +155,6 @@ module.exports = function(app, mongoose, gfs){
             }
         });
         return deferred.promise;
-    }
-
-    function createProfilePic(image){
-        var writeStream = gfs.createWriteStream({
-            filename: 'pic'
-        });
-        fs.createReadStream(image).pipe(writeStream);
-
-        writeStream.on('close', function(file){
-            console.log(file.filename);
-        })
     }
 
     function findUserByFacebookId(facebookId) {

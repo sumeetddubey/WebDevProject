@@ -10,8 +10,6 @@
 
         //instances for methods
         vm.openTutorial = openTutorial;
-        //$scope.openLesson = openLesson;
-
         vm.tutorialLang = displayLangIcon;
 
         var tutorials = {};
@@ -19,7 +17,6 @@
             .then(
                 function(response){
                     if(response){
-                        console.log(response.data);
                         vm.tutorials = response.data;
                     }
                 }
@@ -31,7 +28,6 @@
                 .then(
                     function(response){
                         if(response){
-                            console.log(response.data);
                             $localStorage.currentTutorial = response.data;
                             $localStorage.lessonCount = 0;
 

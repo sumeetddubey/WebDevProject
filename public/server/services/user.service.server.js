@@ -164,7 +164,6 @@ module.exports = function(app, userModel, passport) {
 
     function login(req, res){
         var user = req.user;
-        console.log(req.user);
         res.json(user);
     }
 
@@ -178,14 +177,12 @@ module.exports = function(app, userModel, passport) {
     }
 
     function checkInstructor(req, res){
-        console.log('in check instructor');
         var user = (req.isAuthenticated() ? req.user : '0');
         console.log(user);
         if(user =='0'){
             res.json(null);
         }
         else if(user.roles.indexOf('dm-instructor') != -1){
-            console.log('found admin '+user);
             res.json(user);
         }
         else{
@@ -194,7 +191,6 @@ module.exports = function(app, userModel, passport) {
     }
 
     function register(req, res){
-        console.log('in register');
         var user = req.body;
 
         userModel
@@ -202,7 +198,6 @@ module.exports = function(app, userModel, passport) {
             .then(
                 function(response){
                     if(response){
-                        console.log('username already exists');
                         res.json(null);
                     }
                     else{
@@ -242,7 +237,6 @@ module.exports = function(app, userModel, passport) {
     }
 
     function getUserByCredentials(req, res){
-        console.log("in finduserbycredentials");
         var credentials = {
             "username": req.query.username,
             "password": req.query.password
@@ -251,7 +245,6 @@ module.exports = function(app, userModel, passport) {
         userModel.findUserByCredentials(credentials)
             .then(
                 function(doc){
-                    console.log(doc);
                     user = doc;
                     res.json(user);
                 },
@@ -262,9 +255,6 @@ module.exports = function(app, userModel, passport) {
     }
 
     function findUser(req, res){
-        console.log("in finduser now");
-        console.log(req.query.username);
-        console.log(req.query.password);
         if(req.query.username && req.query.password){
             getUserByCredentials(req, res);
         }
@@ -281,7 +271,6 @@ module.exports = function(app, userModel, passport) {
 
     function findUserByRole(req, res){
         var role = req.query.role;
-        console.log("role is" +role);
         userModel.findUserByRole(role)
             .then(
                 function(doc){
@@ -352,7 +341,6 @@ module.exports = function(app, userModel, passport) {
     }
 
     function updateUser(req, res){
-        console.log("in update");
         var userId = req.params.id;
         var userParams = req.body;
         var user;

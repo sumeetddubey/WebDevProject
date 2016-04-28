@@ -7,12 +7,12 @@ module.exports = function(){
     var LessonSchema = mongoose.Schema({
         title: String,
         tagline: String,
-        description: [String],
+        description: String,
         question: String,
         multimedia: String,
         hints: String,
         keywords: [String],
-        testcases: [String]
+        testcases: String
     },
         {
             collection: 'tutorial.lessons'

@@ -16,10 +16,6 @@
         vm.deleteUser = deleteUser;
 
         function findInstructors(){
-            //function callback(response){
-            //    vm.instructorUsers = response;
-            //}
-
             UserService.findUserByRole("dm-instructor")
                 .then(
                     function(response){
@@ -33,11 +29,6 @@
         findInstructors();
 
         function addUser(newUser){
-            //function render(response){
-            //    console.log(response);
-            //    $location.url("/dm-instructor");
-            //    $route.reload();
-            //}
 
             if(newUser) {
                 UserService.createUser(newUser)
@@ -67,12 +58,6 @@
                             }
                         }
                     )
-
-                //function render(response) {
-                //    console.log(response);
-                //    $location.url("/dm-instructor");
-                //    $route.reload();
-                //}
             }
 
         }
@@ -87,12 +72,6 @@
                         }
                     }
                 );
-
-            //function render(response){
-            //    console.log(response);
-            //    $location.url("/dm-instructor");
-            //    $route.reload();
-            //}
         }
 
         function selectUser(user){

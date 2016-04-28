@@ -41,17 +41,12 @@
         }
 
         function createLesson(lesson){
-            console.log("in client create");
-            console.log(currentUser);
-            console.log(lesson);
             if(currentUser && lesson){
-                console.log('here');
                 LessonService.createLesson(tutorialId, lesson)
                     .then(
                         function(response){
                             if(response){
                                 vm.lesson = response.data;
-                                console.log(response.data);
                             }
                         }
                     )
@@ -60,18 +55,17 @@
 
         function updateLesson(lesson){
             var id = vm.lesson._id;
-            console.log(lesson);
             if(lesson){
                 LessonService.updateLesson(tutorialId, id, lesson)
                     .then(
                         function(response){
                             if(response){
-                                console.log(response.data);
                                 LessonService.findLessonById(tutorialId, id)
                                     .then(
                                         function(response){
                                             if(response){
                                                 vm.lesson = response.data;
+                                                console.log(response.data);
                                             }
                                         }
                                     )

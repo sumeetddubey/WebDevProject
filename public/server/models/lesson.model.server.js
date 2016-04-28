@@ -108,8 +108,15 @@ module.exports = function(){
                             doc.lessons[index].keywords = lesson.keywords;
                         }
                         if(lesson.testcases){
-                            lesson.testcases = lesson.testcases +'\n';
-                            doc.lessons[index].testcases = lesson.testcases;
+                            if(lesson.testcases.slice(-1) === '\n')
+                            {
+                                doc.lessons[index].testcases = lesson.testcases;
+                                console.log("already has a line break");
+                            }
+                            else {
+                                lesson.testcases = lesson.testcases + '\n';
+                                doc.lessons[index].testcases = lesson.testcases;
+                            }
                         }
                     }
                     doc.save(function(err, doc){

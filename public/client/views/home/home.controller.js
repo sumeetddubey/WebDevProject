@@ -14,8 +14,6 @@
         console.log('in home');
 
         function register(user){
-            console.log(user.username);
-
             UserService.register(user)
                 .then(
                     function(response){
@@ -29,7 +27,6 @@
                                     function(response){
                                         if(response.data){
                                             $location.url('/profile');
-                                            console.log(response.data);
                                         }
                                     },
                                     function(err){

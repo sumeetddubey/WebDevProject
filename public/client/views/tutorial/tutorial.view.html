@@ -8,7 +8,7 @@
                 </md-card-title>
 
                 <md-card-content>
-                    <div ng-repeat="description in model.currentLesson.description track by $index">
+                    <div ng-repeat="description in model.lessonDescription track by $index">
                         <div ta-bind="text" ng-model="description"></div>
                     </div>
                     <!--<div ng-repeat="question in model.currentLesson.question track by $index">-->

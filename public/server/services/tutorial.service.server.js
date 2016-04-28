@@ -50,7 +50,6 @@ module.exports = function(app, tutorialModel){
                 )
         }
         else{
-            console.log("finding all tutorials");
             tutorialModel.findAllTutorials()
                 .then(
                     function(doc){
@@ -65,7 +64,6 @@ module.exports = function(app, tutorialModel){
 
     function findTutorialById(req, res){
         var tutorialId = req.params.id;
-        console.log(tutorialId);
         tutorialModel.findTutorialById(tutorialId)
             .then(
                 function(response){
@@ -91,7 +89,6 @@ module.exports = function(app, tutorialModel){
     }
 
     function createTutorial(req, res){
-        console.log("in server service");
         var tutorial = req.body;
         tutorialModel.createTutorial(tutorial)
             .then(
@@ -134,12 +131,10 @@ module.exports = function(app, tutorialModel){
     function sendCode(req, res){
         var language = req.query.language;
         var code = req.body[0];
-        console.log(code);
         tutorialModel.sendCodeToApi(code, language)
             .then(
                 function(doc) {
                     var response = JSON.parse(doc);
-                    console.log(doc);
                     if(response.result.stdout) {
                         var output = response.result.stdout;
                     }
@@ -149,7 +144,6 @@ module.exports = function(app, tutorialModel){
                     if(response.result.compilemessage != ""){
                         output = response.result.compilemessage;
                     }
-                    console.log(output);
                     res.json(output);
 
                     //console.log("the response is "+doc);
