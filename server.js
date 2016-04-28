@@ -10,7 +10,7 @@ var app = express();
 var ipaddress = process.env.OPENSHIFT_NODEJS_IP || '127.0.0.1';
 var port = process.env.OPENSHIFT_NODEJS_PORT || 3000;
 
-mongoose.connect('mongodb://127.0.0.1:27017/webdev');
+mongoose.connect('mongodb://127.0.0.1:27017/codestory');
 
 if(process.env.OPENSHIFT_MONGODB_DB_PASSWORD) {
     connectionString = process.env.OPENSHIFT_MONGODB_DB_USERNAME + ":" +
