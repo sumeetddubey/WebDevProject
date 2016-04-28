@@ -29,7 +29,7 @@
     "angular-material": "^1.0.7",
     "angular-material-data-table": "^0.10.1",
     "angular-messages": "^1.5.5",
-    "bcrypt-node": "^0.1.0",
+    "bcrypt-nodejs": "0.0.3",
     "body-parser": "^1.15.0",
     "cookie-parser": "^1.4.1",
     "express": "^3.21.2",
