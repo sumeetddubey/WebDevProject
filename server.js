@@ -8,12 +8,20 @@ var multer        = require('multer');
 
 var app = express();
 var ipaddress = process.env.OPENSHIFT_NODEJS_IP || '127.0.0.1';
-var port = process.env.OPENSHIFT_NODEJS_PORT || 8000;
+var port = process.env.OPENSHIFT_NODEJS_PORT || 3000;
 
 mongoose.connect('mongodb://127.0.0.1:27017/webdev');
 
+if(process.env.OPENSHIFT_MONGODB_DB_PASSWORD) {
+    connectionString = process.env.OPENSHIFT_MONGODB_DB_USERNAME + ":" +
+        process.env.OPENSHIFT_MONGODB_DB_PASSWORD + "@" +
+        process.env.OPENSHIFT_MONGODB_DB_HOST + ':' +
+        process.env.OPENSHIFT_MONGODB_DB_PORT + '/' +
+        process.env.OPENSHIFT_APP_NAME;
+}
+
 app.use(session({
-    secret: "secret",
+    secret: process.env.SESSION_SECRET,
     resave: true,
     saveUninitialized: true}));
 
