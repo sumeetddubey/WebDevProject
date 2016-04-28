@@ -7,7 +7,7 @@
 
     TutorialMakerController.$inject = ['$rootScope', 'TutorialService', '$location', 'LessonService', '$route', '$localStorage', '$mdToast'];
 
-    function TutorialMakerController($rootScope, TutorialService, $location, LessonService, $route, $localStorage, $mdToast){
+    function TutorialMakerController($rootScope, TutorialService, $location, LessonService, $route, $localStorage, $mdToast, $window){
 
         var vm = this;
         
@@ -31,13 +31,10 @@
         vm.selectedMode = 'md-fling';
         vm.isOpen = 'false';
 
-        console.log($rootScope.currentUser);
-        console.log($rootScope.currentUser._id);
         TutorialService.findTutorialsByUserId($rootScope.currentUser._id)
             .then(
                 function(response){
                     if(response){
-                        console.log(response.data);
                         vm.tutorials = response.data;
                     }
                 }
@@ -64,8 +61,6 @@
             else {
                 var tutorialId = vm.tutorial._id;
                 var lessonId = lesson._id;
-                console.log(tutorialId);
-                console.log(lessonId);
                 LessonService.findLessonById(tutorialId, lessonId)
                     .then(
                         function (response) {
@@ -129,7 +124,6 @@
 
         function createTutorial(tutorial){
             if(currentUser && tutorial){
-                console.log('here');
                 tutorial.uploaderId = $rootScope.currentUser._id;
                 TutorialService.createTutorial(tutorial)
                     .then(
@@ -137,7 +131,6 @@
                             if(response){
                                 $localStorage.tutorial = response.data;
                                 vm.userTutorials = response.data;
-                                console.log(response.data);
                                 $location.url('/lesson-maker');
                             }
                         }
@@ -152,7 +145,6 @@
                     .then(
                         function(response){
                             if(response){
-                                console.log(response.data);
                                 TutorialService.findTutorialById(tutorialId)
                                     .then(
                                         function(response){
@@ -166,7 +158,7 @@
                     )
             }
             else{
-                window.alert('SELECT A TUTORIAL');
+                $window.alert('SELECT A TUTORIAL');
             }
         }
 

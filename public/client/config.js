@@ -105,7 +105,6 @@
             .getCurrentUser()
             .then(function(response){
                 var currentUser = response.data;
-                console.log(response.data);
                 if(response.data != '0'){
                     UserService.setCurrentUser(currentUser);
                     deferred.resolve();
@@ -127,12 +126,9 @@
             .then(function(response) {
                 if(response.data == '0') {
                     deferred.reject();
-                    //$window.alert("Invalid Credentials");
-                    console.log(response.data);
                     $location.url("/login");
                 }
                 else {
-                    console.log(response.data);
                     UserService.setCurrentUser(response.data);
                     deferred.resolve();
                 }
@@ -148,7 +144,6 @@
             .then(
                 function(response){
                     if(response.data){
-                        console.log(response.data);
                         UserService.setCurrentUser(response.data);
                         deferred.resolve();
                     }

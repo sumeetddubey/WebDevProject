@@ -23,12 +23,9 @@
         vm.langMode = langMode;
 
         vm.storage = $localStorage;
-        vm.link = 'https://www.youtube.com/watch?v=UHwVyplU3Pg';
         vm.loadPlayer = false;
-        //vm.link = currentLesson.multimedia;
 
         function initTutorial(){
-            console.log($localStorage.tutorialLang);
             var tutorialId = $localStorage.currentTutorial._id;
             TutorialService.findTutorialById(tutorialId)
                 .then(
@@ -37,10 +34,15 @@
                             vm.tutorial = response.data;
                             $localStorage.currentLesson = response.data.lessons[$localStorage.lessonCount];
                             vm.currentLesson = $localStorage.currentLesson;
+                            prettyDescription(vm.currentLesson.description);
                             vm.loadPlayer = true;
                         }
                     }
                 )
+        }
+
+        function prettyDescription(description){
+            vm.lessonDescription = description.split("\n");
         }
 
         function lessonCounter(tutorial){
@@ -50,6 +52,7 @@
                 $localStorage.lessonCount++;
                 $localStorage.currentLesson = tutorial.lessons[$localStorage.lessonCount];
                 vm.currentLesson = $localStorage.currentLesson;
+                prettyDescription(vm.currentLesson.description);
             }
             if($localStorage.lessonCount == len){
                 tutorialCompletion();
@@ -62,34 +65,41 @@
         }
 
         function nextLesson(userCode){
-            vm.isLoading = true;
-            var code = [userCode.data];
-            var language = vm.tutorial.language;
-            var testcases = ["1\n"];
-            console.log(vm.currentLesson.testcases);
-            console.log(JSON.stringify(vm.currentLesson.testcases));
-            console.log(testcases);
-            HackerRankService.sendCode(code, language, testcases)
-                .then(
-                    function(response){
-                        if(response){
-                            vm.output = response.data;
-                            vm.isLoading = false;
-                            testcases = JSON.stringify(testcases);
-                            var output = JSON.stringify(response.data);
-                            console.log(testcases);
-                            console.log(output);
-                            if(testcases == output){
-                                lessonCounter(vm.tutorial);
-                                $route.reload();
-                                vm.output = '';
-                            }
-                            else{
-                                console.log('wrong output');
+            if(!userCode){
+                if($localStorage.currentLesson.testcases === /\n?/){
+                    console.log("pattern match");
+                    lessonCounter(vm.tutorial);
+                    $route.reload();
+                    vm.output = "";
+                }
+            }
+            else {
+                vm.isLoading = true;
+                var code = [userCode.data];
+                var language = vm.tutorial.language;
+                var testcases = [vm.currentLesson.testcases];
+                HackerRankService.sendCode(code, language, testcases)
+                    .then(
+                        function (response) {
+                            if (response) {
+                                vm.output = response.data;
+                                vm.isLoading = false;
+                                testcases = JSON.stringify(testcases);
+                                var output = JSON.stringify(response.data);
+                                console.log(testcases);
+                                console.log(output);
+                                if (testcases == output) {
+                                    lessonCounter(vm.tutorial);
+                                    $route.reload();
+                                    vm.output = '';
+                                }
+                                else {
+                                    $window.alert('wrong output');
+                                }
                             }
                         }
-                    }
-                )
+                    )
+            }
         }
 
         function openOffscreen() {
@@ -100,7 +110,6 @@
                     .textContent(vm.currentLesson.hints)
                     .ariaLabel('Offscreen Demo')
                     .ok('Close')
-                    // Or you can specify the rect to do the transition from
                     .openFrom({
                         top: -50,
                         width: 30,
@@ -120,7 +129,6 @@
         function run(userCode) {
             vm.isLoading = true;
             var language = vm.tutorial.language;
-            console.log(userCode.data);
             var code = [userCode.data];
             HackerRankService.sendCode(code, language)
                 .then(
@@ -131,7 +139,6 @@
                         }
                         else{
                             vm.isLoading = false;
-                            console.log("no response");
                         }
                     }
 

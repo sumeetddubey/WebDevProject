@@ -16,10 +16,6 @@
         vm.deleteTutorial = deleteTutorial;
 
         function findTutorials(){
-            //function render(response){
-            //    vm.tutorials = response;
-            //}
-
             TutorialService.findAllTutorials()
                 .then(
                     function(response){
@@ -34,12 +30,6 @@
         findTutorials();
 
         function addTutorial(newTutorial){
-            //function render(response){
-            //    console.log(response);
-            //    $location.url("/dm-tutorial");
-            //    $route.reload();
-            //}
-
             if(newTutorial) {
                 TutorialService.createTutorial(newTutorial)
                     .then(
@@ -67,12 +57,6 @@
                             }
                         }
                     );
-
-                //function render(response) {
-                //    console.log(response);
-                //    $location.url("/dm-tutorial");
-                //    $route.reload();
-                //}
             }
 
         }
@@ -87,12 +71,6 @@
                         }
                     }
                 );
-
-            //function render(response){
-            //    console.log(response);
-            //    $location.url("/dm-tutorial");
-            //    $route.reload();
-            //}
         }
 
         function selectTutorial(tutorial){

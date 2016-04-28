@@ -14,6 +14,5 @@
         var vm = this;
 
         vm.results = $rootScope.results;
-        console.log(vm.results);
     }
 })();

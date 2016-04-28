@@ -1,5 +1,5 @@
 <div layout="column" ng-cloak class="md-inline-form">
-    <div layout="row" style="margin-top: 10%; margin-bottom: 10%">
+    <div layout="row" class="top-10-bottom-10">
 
         <div flex="10">
             <!--First-->
@@ -7,11 +7,11 @@
 
         <div flex="80" id="toast-position">
             <md-content layout-gt-sm="row" layout-align="center center" class="better-header wow fadeIn" data-wow-delay="0.5s">
-                <md-card flex style="margin: 0">
+                <md-card flex class="top-0-bottom-0">
                     <md-toolbar class="md-menu-toolbar">
                         <div layout="row">
                             <md-toolbar-filler layout layout-align="center center">
-                                <md-icon class="material-icons" style="color: white;">chrome_reader_mode</md-icon>
+                                <md-icon class="material-icons white-text">chrome_reader_mode</md-icon>
                             </md-toolbar-filler>
                             <div>
                                 <h2 class="md-toolbar-tools">View and Edit your lesssons</h2>
@@ -22,9 +22,7 @@
                                         </button>
                                         <md-menu-content>
                                             <md-menu-item layout="column">
-                                                <!--<md-button ng-click="ctrl.sampleAction('share', $event)">-->
-                                                <!--Share...-->
-                                                <!--</md-button>-->
+
                                                 <md-list-item md-ink-ripple class="md-3-line" ng-repeat="tutorial in tutorials" ng-click="openTutorial(tutorial)">
                                                     <div class="md-list-item-text" >
                                                         <h3 layout="column">{{tutorial.title}}</h3>
@@ -40,7 +38,7 @@
                         </div>
                     </md-toolbar>
                     <div>
-                        <form style="margin-top: 5%">
+                        <form class="top-5">
                             <div layout-gt-xs="column">
                                 <div layout="row">
                                     <div flex="10">
@@ -50,8 +48,7 @@
                                         <label>Title</label>
                                         <input type="text" ng-model="model.lesson.title">
                                     </md-input-container>
-                                    <!--<md-button ng-click="updateTutorial(lesson)" class="md-raised material-icons" flex="10">mode_edit</md-button>-->
-                                    <!--<md-button ng-click="deleteTutorial(lesson)" class="md-raised md-warn material-icons" flex="10">delete</md-button>-->
+
                                 </div>
 
                                 <div layout="row">
@@ -62,8 +59,7 @@
                                         <label>Tagline</label>
                                         <input ng-model="model.lesson.tagline">
                                     </md-input-container>
-                                    <!--<md-button ng-click="updateTutorial(lesson)" class="md-raised material-icons" flex="10">mode_edit</md-button>-->
-                                    <!--<md-button ng-click="deleteTutorial(lesson)" class="md-raised md-warn material-icons" flex="10">delete</md-button>-->
+
                                 </div>
 
                                 <div layout="row">
@@ -74,8 +70,7 @@
                                         <label>YouTube Link</label>
                                         <input ng-model="model.lesson.multimedia">
                                     </md-input-container>
-                                    <!--<md-button ng-click="updateTutorial(lesson)" class="md-raised material-icons" flex="10">mode_edit</md-button>-->
-                                    <!--<md-button ng-click="deleteTutorial(lesson)" class="md-raised md-warn material-icons" flex="10">delete</md-button>-->
+
                                 </div>
 
                                 <div layout="row">
@@ -84,16 +79,10 @@
                                     </div>
                                     <md-input-container class="md-block" flex="70">
                                         <label>Description</label>
-                                        <textarea ng-model="model.lesson.description" md-maxlength="300" rows="5" md-select-on-focus></textarea>
+                                        <textarea ng-model="model.lesson.description" md-maxlength="2000" rows="5" md-select-on-focus></textarea>
                                     </md-input-container>
-                                    <!--<md-button ng-click="updateTutorial(lesson)" class="md-raised material-icons" flex="10">mode_edit</md-button>-->
-                                    <!--<md-button ng-click="deleteTutorial(lesson)" class="md-raised md-warn material-icons" flex="10">delete</md-button>-->
-                                </div>
 
-                                <!--<md-input-container class="md-block" flex-gt-xs>-->
-                                    <!--<label>Keywords</label>-->
-                                    <!--<input ng-model="lesson.keywords">-->
-                                <!--</md-input-container>-->
+                                </div>
 
                                 <div layout="row">
                                     <div flex="10">
@@ -103,8 +92,6 @@
                                         <label>Hints</label>
                                         <input ng-model="model.lesson.hints">
                                     </md-input-container>
-                                    <!--<md-button ng-click="updateTutorial(lesson)" class="md-raised material-icons" flex="10">mode_edit</md-button>-->
-                                    <!--<md-button ng-click="deleteTutorial(lesson)" class="md-raised md-warn material-icons" flex="10">delete</md-button>-->
                                 </div>
 
                                 <div layout="row">
@@ -115,19 +102,15 @@
                                         <label>Keywords</label>
                                         <input ng-model="model.lesson.keywords">
                                     </md-input-container>
-                                    <!--<md-button ng-click="updateTutorial(lesson)" class="md-raised material-icons" flex="10">mode_edit</md-button>-->
-                                    <!--<md-button ng-click="deleteTutorial(lesson)" class="md-raised md-warn material-icons" flex="10">delete</md-button>-->
                                 </div>
                                 <div layout="row">
                                     <div flex="10">
                                         <!--Left Most-->
                                     </div>
                                     <md-input-container class="md-block" flex="70">
-                                        <label>Test Cases</label>
-                                        <textarea ng-model="model.lesson.testcases" md-maxlength="300" rows="5" md-select-on-focus></textarea>
+                                        <label>Test Case</label>
+                                        <textarea type="text" ng-model="model.lesson.testcases" md-select-on-focus></textarea>
                                     </md-input-container>
-                                    <!--<md-button ng-click="updateTutorial(lesson)" class="md-raised material-icons" flex="10">mode_edit</md-button>-->
-                                    <!--<md-button ng-click="deleteTutorial(lesson)" class="md-raised md-warn material-icons" flex="10">delete</md-button>-->
                                 </div>
 
                                 <div layout="row">
@@ -137,16 +120,10 @@
                                     <div flex="70">
                                         <!--<button ng-click="disabled = !disabled" unselectable>Disable text-angular Toggle</button>-->
                                         <md-input-containertext ng-model="model.lesson.question" text-angular="text-angular" name="htmlcontent" ng-model="htmlcontent" ta-disabled='disabled'></md-input-containertext>
-                                        <!--<h1>Raw HTML in a text area</h1>-->
-                                        <!--<textarea ng-model="htmlcontent" style="width: 100%"></textarea>-->
                                     </div>
                                 </div>
-                                <!--<div layout="row" layout-align="end end">-->
-                                    <!--<md-button ng-click="updateTutorial(lesson)" class="md-raised material-icons" flex="10">mode_edit</md-button>-->
-                                    <!--<md-button ng-click="deleteTutorial(lesson)" class="md-raised md-warn material-icons" flex="10">delete</md-button>-->
-                                <!--</div>-->
 
-                                <md-button ng-click="model.createLesson(model.lesson)" class="md-raised md-primary" style="margin-top: 5%; color: white;">Create Lesson</md-button>
+                                <md-button ng-click="model.createLesson(model.lesson)" class="md-raised md-primary" class="lesson-style">Create Lesson</md-button>
                             </div>
                         </form>
                     </div>

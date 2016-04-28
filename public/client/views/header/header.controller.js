@@ -24,12 +24,10 @@
             $mdSidenav('left').toggle();
         };
         vm.close = function () {
-            // Component lookup should always be available since we are not using `ng-if`
             $mdSidenav('left').close()
         };
 
         function search(data){
-            console.log(data);
             SearchService.search(data)
                 .then(
                     function(response){
@@ -37,7 +35,6 @@
                             if(response.data === null){
                                 return null;
                             }
-                            console.log(response.data);
                             $rootScope.results = response.data;
                             $location.url('/search');
                         }
@@ -53,9 +50,7 @@
             UserService.logout()
                 .then(
                     function(response){
-                        console.log(response.data);
                         $rootScope.currentUser = null;
-                        console.log($rootScope.currentUser);
                         $location.url('/home');
                     }
                 )

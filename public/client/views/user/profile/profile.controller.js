@@ -8,7 +8,6 @@
     function ProfileController($rootScope, $location, $mdToast, UserService, TutorialService, $localStorage) {
 
         var vm = this;
-        var tutorials = {};
 
         vm.showSimpleToast = showSimpleToast;
         vm.tutorialLang = displayLangIcon;
@@ -26,11 +25,7 @@
 
         if ($rootScope.currentUser) {
             vm.currentUser = $rootScope.currentUser;
-            //if(vm.currentUser.photo === ""){
-            //    vm.currentUser.photo = "http://placehold.it/200x200";
-            //}
             vm.username = $rootScope.currentUser.username;
-            //console.log(currentUser.photo);
         }
         else {
             $location.url("/home");
@@ -43,7 +38,6 @@
             .then(
                 function(response){
                     if(response){
-                        console.log(response.data);
                         vm.tutorials = response.data;
                     }
                 }
@@ -78,23 +72,18 @@
         function displayLangIcon(tutorial){
             var lang = tutorial.language;
             if(lang === "C++"){
-                console.log("in display lang icon");
                 return "devicon-cplusplus-plain";
             }
             else if(lang === "Java"){
-                console.log("in display lang icon");
                 return "devicon-java-plain";
             }
             else if(lang === "Python"){
-                console.log("in display lang icon");
                 return "devicon-python-plain";
             }
             else if(lang === "JavaScript"){
-                console.log("in display lang icon");
                 return "devicon-javascript-plain";
             }
             else if(lang === "Ruby"){
-                console.log("in display lang icon");
                 return "devicon-ruby-plain";
             }
         }

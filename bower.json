@@ -1,0 +1,24 @@
+{
+  "name": "codestory",
+  "description": "Interactive Coding Tutorial App",
+  "main": "server.js",
+  "authors": [
+    "sumeet-dubey rohit-begani"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "nodejs",
+    "express",
+    "mongodb",
+    "angular"
+  ],
+  "homepage": "https://github.com/rohitbegani/WebDevProject",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
