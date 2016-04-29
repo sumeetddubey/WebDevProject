@@ -1,6 +1,6 @@
-<div flex style="height: 100%">
+<div flex class="full-height">
 <div id="toast-position" layout="column" ng-cloak class="md-form">
-    <div layout="row" style="margin-top: 5%; margin-bottom: 5%">
+    <div layout="row" class="top-5-bottom-5">
 
         <div flex-xl="25" flex-lg="25" flex-md="25" flex-sm="10" flex-xs="10">
             <!--First-->
@@ -8,17 +8,18 @@
 
         <div flex-xl="50" flex-lg="50" flex-md="50" flex-sm="80" flex-xs="80">
             <md-content layout-gt-sm="row" layout-align="center center" class="wow fadeIn" data-wow-delay="0.5s">
-                <md-card flex class="better-header" style="margin: 0">
+                <md-card flex class="better-header top-0-bottom-0">
 
                     <md-toolbar class="md-tall md-toolbar-tools">
+<<<<<<< HEAD
+=======
                         <!--<h2><span>Profile Form</span></h2>-->
+>>>>>>> c3f768155badf90bb8c30e6e9b50727853cfca8b
                         <span layout="row" layout-align="start center" flex>
                             <img ng-src="{{currentUser.photo}}"
                                  class="md-avatar" alt="{{currentUser.firstName}}"
                                  flex="10"
-                                 style="border-radius: 99%;
-                                        border: 1px solid #ddd;
-                                        margin: 2%;">
+                                 class="avatar-photo">
                              <h2>{{currentUser.firstName}} {{currentUser.lastName}}</h2>
                         </span>
                     </md-toolbar>
@@ -29,7 +30,7 @@
                         <md-tab-label>Account Information</md-tab-label>
 
                         <md-tab-body>
-                            <md-card-content layout="column" style="margin-top: 5%">
+                            <md-card-content layout="column" class="top-5">
                                 <md-input-container>
                                     <label>First Name</label>
                                     <input type="text" ng-model="currentUser.firstName" />
@@ -51,8 +52,7 @@
                                     <input type="password" ng-model="currentUser.password" />
                                 </md-input-container>
                                 <md-button ng-click="model.edit(currentUser); model.showSimpleToast('Profile Updated', 'toast-position')"
-                                           class="md-raised md-primary"
-                                           style="margin-top: 5%; color: white;">Submit</md-button>
+                                           class="md-raised md-primary top-5 white-text">Submit</md-button>
 
                             </md-card-content>
                         </md-tab-body>
@@ -64,14 +64,14 @@
                         <md-tab-label>Tutorials</md-tab-label>
 
                         <md-tab-body>
-                            <md-card-content layout="column" style="margin-top: 5%">
+                            <md-card-content layout="column" class="top-5">
                                 <md-list flex>
                                     <md-subheader class="md-no-sticky">List of all the Tutorials & Lessons</md-subheader>
                                     <md-list-item class="md-3-line" ng-repeat="tutorial in model.tutorials" ng-click="model.openTutorial(tutorial)" flex>
-                                        <div class="md-list-item-text" layout-gt-md="row" layout-md="column" style="margin-top: 2%" layout-align="start center" flex>
+                                        <div class="md-list-item-text top-2" layout-gt-md="row" layout-md="column" layout-align="start center" flex>
                                             <div flex-gt-md="40" flex-md="100">
                                                 <div layout="row" layout-align="start center">
-                                                    <md-icon class="langIcon" ng-class="model.tutorialLang(tutorial)" style="margin: 2%;"></md-icon>
+                                                    <md-icon class="langIcon top-2" ng-class="model.tutorialLang(tutorial)"></md-icon>
                                                     <h3>{{tutorial.title}}</h3>
                                                 </div>
                                                 <!--<p>{{tutorial.tags}}</p>-->
@@ -80,7 +80,7 @@
                                                 <md-list-item class="md-3-line" ng-repeat="lesson in tutorial.lessons">
                                                     <div class="md-list-item-text" layout="column">
                                                         <div layout="row" layout-align="start center">
-                                                            <md-icon class="material-icons" style="margin: 5%;">code</md-icon>
+                                                            <md-icon class="material-icons" class="top-5">code</md-icon>
                                                             <p>{{lesson.title}}</p>
                                                         </div>
                                                         <md-divider ng-if="!$last"></md-divider>
@@ -108,145 +108,4 @@
         </div>
     </div>
 </div>
-    </div>
-<!--<div ng-controller="ProfileController">-->
-    <!--<div layout="column">-->
-        <!--<div layout="row">-->
-            <!--<md-card flex="30">-->
-                <!--<img src="{{currentUser.photo}}" class="md-card-image" alt="image caption">-->
-                <!--<md-card-content>-->
-                    <!--<h2>Welcome {{username}}</h2>-->
-                    <!--<p>0 day streak</p>-->
-                    <!--<md-font-icon-->
-                            <!--class="material-icons md-48"-->
-                            <!--aria-label="favorite">-->
-                        <!--favorite_border-->
-                    <!--</md-font-icon>-->
-                    <!--<md-font-icon-->
-                            <!--class="material-icons md-48"-->
-                            <!--aria-label="share">-->
-                        <!--share-->
-                    <!--</md-font-icon>-->
-                <!--</md-card-content>-->
-
-                <!--<md-card-content ng-show="currentUser.tutorials.length == 0">-->
-                    <!--<md-card-actions layout="row" layout-align="end center">-->
-                        <!--<md-button>Take First Lesson</md-button>-->
-                    <!--</md-card-actions>-->
-                <!--</md-card-content>-->
-
-                <!--<md-card-content ng-show="currentUser.lastTutorial">-->
-                    <!--<md-card-actions layout="row" layout-align="end center">-->
-                        <!--<md-button>{{currentUser.lastTutorial}}</md-button>-->
-                    <!--</md-card-actions>-->
-                <!--</md-card-content>-->
-
-            <!--</md-card>-->
-
-            <!--<div layout="column" flex="70">-->
-                <!--<md-card>-->
-                    <!--&lt;!&ndash;<canvas id="line" class="chart chart-line" chart-data="data"&ndash;&gt;-->
-                            <!--&lt;!&ndash;chart-labels="labels" chart-legend="true" chart-series="series"&ndash;&gt;-->
-                            <!--&lt;!&ndash;chart-click="onClick" >&ndash;&gt;-->
-                    <!--&lt;!&ndash;</canvas>&ndash;&gt;-->
-                    <!--<md-card-header>-->
-                        <!--<md-card-header-text>-->
-                            <!--<span class="md-title">Stats:</span>-->
-                            <!--<span class="md-subhead">Skill Level</span>-->
-                        <!--</md-card-header-text>-->
-                    <!--</md-card-header>-->
-
-                    <!--<canvas id="radar" class="chart chart-radar"-->
-                            <!--chart-data="data" chart-labels="labels">-->
-                    <!--</canvas>-->
-
-                <!--</md-card>-->
-
-                <!--<md-card>-->
-
-                    <!--<md-card-header>-->
-                        <!--<md-card-header-text>-->
-                            <!--<span class="md-subhead">Current course position</span>-->
-                        <!--</md-card-header-text>-->
-                    <!--</md-card-header>-->
-
-                    <!--<md-slider-->
-                            <!--ng-model="codeLevel"-->
-                            <!--step="10"-->
-                            <!--md-discrete aria-label="Course Position"-->
-                            <!--ng-readonly="true">-->
-                    <!--</md-slider>-->
-
-                <!--</md-card>-->
-            <!--</div>-->
-
-        <!--</div>-->
-    <!--</div>-->
-
-<!--</div>-->
-<!--<div class="container">-->
-    <!--<div class="row">-->
-        <!--<h1>Profile</h1>-->
-        <!--<div class="col-xs-12">-->
-            <!--<div class="panel panel-primary col-xs-5 box-profile">-->
-                <!--<div>-->
-                    <!--<h2>Welcome {{username}}</h2>-->
-                <!--</div>-->
-                <!--<div class="profile-pic-css">-->
-                    <!--&lt;!&ndash;<img class="wrapImage" src="http://placehold.it/140x140">&ndash;&gt;-->
-                    <!--<img class="img-responsive img-rounded" ng-src="{{currentUser.photo}}">-->
-                <!--</div>-->
-                <!--<div>-->
-                    <!--<div>-->
-                        <!--<h3>Latest Lesson: </h3>-->
-                        <!--<div ng-show="currentUser.tutorials.length == 0">-->
-                            <!--<button class="btn btn-primary">Take first lesson</button>-->
-                        <!--</div>-->
-                        <!--<div ng-show="currentUser.lastTutorial">-->
-                            <!--<button class="btn btn-primary">{{currentUser.lastTutorial}}</button>-->
-                        <!--</div>-->
-                    <!--</div>-->
-                    <!--<h3>Activity: </h3>-->
-                    <!--Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor-->
-                    <!--incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud-->
-                    <!--exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure-->
-                    <!--dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.-->
-                    <!--Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt-->
-                    <!--mollit anim id est laborum.-->
-                <!--</div>-->
-            <!--</div>-->
-            <!--<div class="panel panel-primary col-sm-5 box-profile">-->
-                <!--<div>-->
-                    <!--<h2>Stats:</h2>-->
-                    <!--<div>-->
-                        <!--<p ng-show="currentUser.stats.length() == null"> none</p>-->
-                    <!--</div>-->
-                <!--</div>-->
-            <!--</div>-->
-            <!--<div class="panel panel-primary col-sm-5 box-profile">-->
-                <!--<div>-->
-                    <!--<h2>Achievements:</h2>-->
-                    <!--<div>-->
-                        <!--<p ng-show="currentUser.stats.length() == 0"> none</p>-->
-                    <!--</div>-->
-                <!--</div>-->
-            <!--</div>-->
-        <!--</div>-->
-
-        <!--&lt;!&ndash;<div class="col-sm-12">&ndash;&gt;-->
-            <!--&lt;!&ndash;<div class="panel panel-primary col-sm-5 box-profile">&ndash;&gt;-->
-                <!--&lt;!&ndash;<div>&ndash;&gt;-->
-                    <!--&lt;!&ndash;<h2>Achievements:</h2>&ndash;&gt;-->
-                    <!--&lt;!&ndash;Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor&ndash;&gt;-->
-                    <!--&lt;!&ndash;incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud&ndash;&gt;-->
-                    <!--&lt;!&ndash;exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure&ndash;&gt;-->
-                    <!--&lt;!&ndash;dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.&ndash;&gt;-->
-                    <!--&lt;!&ndash;Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt&ndash;&gt;-->
-                    <!--&lt;!&ndash;mollit anim id est laborum.&ndash;&gt;-->
-                <!--&lt;!&ndash;</div>&ndash;&gt;-->
-            <!--&lt;!&ndash;</div>&ndash;&gt;-->
-        <!--&lt;!&ndash;</div>&ndash;&gt;-->
-
-    <!--</div>-->
-    <!--</div>-->
-<!--</div>-->
+</div>

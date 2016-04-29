@@ -797,3 +797,120 @@ footer {
     display: block;
     text-align: left;
 }
+
+.footer-height{
+    max-height: 10px;
+}
+
+.avatar-style{
+    border-radius: 50%;
+    border: 1px solid #ddd;
+    margin: 2%;
+}
+
+.white-text{
+    color: #FFFFFF;
+}
+
+.laptop-image{
+    max-height: 650px;
+    max-width: 1000px;
+    margin-top: -10%;
+}
+
+.info-background{
+    background-color: #F2F2F2;
+}
+
+.top-20-bottom-5{
+    margin-bottom: 5%;
+    margin-top: 20%;
+}
+
+.top-5{
+    margin-top: 5%;
+}
+
+.main-bg-color{
+    background-color: #F2F2F2;
+}
+
+.lesson-style{
+    margin-top: 5%;
+    color: white;
+}
+
+.top-10-bottom-10{
+    margin-top: 10%;
+    margin-bottom: 10%;
+}
+
+.top-0-bottom-0{
+    margin: 0;
+}
+
+.bottom-10{
+    margin-bottom: 10%;
+}
+
+.tutorial-style{
+    color: #C0C6CC;
+    background-color: #272822;
+}
+
+.full-width{
+    width: 100%;
+}
+
+.full-height{
+    height: 100%;
+}
+
+.top-10{
+    margin-top: 10%;
+}
+
+.height-margin{
+    min-height: 100%;
+    margin-bottom: 10%;
+}
+.top-2{
+    margin-top: 2%;
+}
+
+.all-margin-5{
+    margin: 5%;
+}
+
+.bottom-p-10 {
+    padding-bottom: 10%
+}
+
+.tutorial-button{
+    margin-top: 5%;
+    color: white;
+}
+
+.top-5-bottom-5{
+    margin-top: 5%;
+    color: white;
+}
+
+.avatar-photo{
+    border-radius: 99%;
+    border: 1px solid #ddd;
+    margin: 2%;
+}
+
+.height-margin-30{
+    min-height: 100%;
+    margin-bottom: 30%;
+}
+.height-margin-20{
+    min-height: 100%;
+    margin-bottom: 20%;
+}
+.home-page-gap{
+    position:relative;
+    min-height: 100%
+}

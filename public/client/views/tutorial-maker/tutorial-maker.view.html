@@ -1,6 +1,6 @@
 <div layout="column" ng-cloak class="md-inline-form">
 
-    <div layout="row" style="margin-top: 10%; margin-bottom: 10%">
+    <div layout="row" class="top-10-bottom-10">
 
         <div flex="10">
             <!--First-->
@@ -8,11 +8,11 @@
 
         <div id="toast-position" flex="80">
             <md-content layout-gt-sm="row" layout-align="center center" class="better-headerwow fadeIn" data-wow-delay="0.5s">
-                <md-card flex style="margin: 0">
+                <md-card flex class="top-0-bottom-0">
                     <md-toolbar class="md-menu-toolbar">
                         <div layout="row">
                             <md-toolbar-filler layout layout-align="center center">
-                                <md-icon class="material-icons" style="color: white">chrome_reader_mode</md-icon>
+                                <md-icon class="material-icons" class="white-text">chrome_reader_mode</md-icon>
                             </md-toolbar-filler>
                             <div>
                                 <h2 class="md-toolbar-tools">View and Edit your tutorials</h2>
@@ -21,34 +21,31 @@
                                         <button ng-click="$mdOpenMenu()">
                                             Tutorials
                                         </button>
-                                        <md-menu-content>
-                                            <md-menu-item layout="column">
-                                                <!--<md-button ng-click="ctrl.sampleAction('share', $event)">-->
-                                                <!--Share...-->
-                                                <!--</md-button>-->
-                                                <md-list-item md-ink-ripple class="md-3-line" ng-repeat="tutorial in model.tutorials" ng-click="model.openTutorialEditor(tutorial)">
-                                                    <div class="md-list-item-text" >
-                                                        <h3 layout="column">{{tutorial.title}}</h3>
+                                        <md-menu-content width="4">
+                                            <div layout="column">
+                                                <md-menu-item md-ink-ripple ng-repeat="tutorial in model.tutorials" ng-click="model.openTutorialEditor(tutorial)">
+                                                    <div class="md-list-item-text">
+                                                        <h5 layout="column">{{tutorial.title}}</h5>
                                                         <md-menu-divider ng-if="!$last"></md-menu-divider>
                                                     </div>
-                                                </md-list-item>
+                                                </md-menu-item>
 
-                                            </md-menu-item>
+                                            </div>
                                         </md-menu-content>
                                     </md-menu>
                                     <md-menu ng-show="model.tutorial">
                                         <button ng-click="$mdOpenMenu()">
                                             Lessons
                                         </button>
-                                        <md-menu-content>
-                                            <md-menu-item layout="column">
-                                                <md-list-item mg-ink-ripple class="md-3-line" ng-repeat="lesson in model.tutorial.lessons" ng-click="model.openLessonEditor(lesson)">
+                                        <md-menu-content width="4">
+                                            <div layout="column">
+                                                <md-menu-item md-ink-ripple ng-repeat="lesson in model.tutorial.lessons" ng-click="model.openLessonEditor(lesson)">
                                                     <div class="md-list-item-text" layout="column">
                                                         <p>{{lesson.title}}</p>
                                                         <md-menu-divider ng-if="!$last"></md-menu-divider>
                                                     </div>
-                                                </md-list-item>
-                                            </md-menu-item>
+                                                </md-menu-item>
+                                            </div>
                                         </md-menu-content>
                                     </md-menu>
                                     <md-button ng-show="model.tutorial" ng-click="model.openLessonEditor(null)">Create New Lesson</md-button>
@@ -58,7 +55,7 @@
                     </md-toolbar>
 
                     <div>
-                        <form style="margin-top: 5%;">
+                        <form class="top-5">
                             <div layout-gt-xs="column">
                                 <div layout="row">
                                     <div flex="10">
@@ -89,8 +86,8 @@
                                         <input ng-model="model.tutorial.tags">
                                     </md-input-container>
                                 </div>
-                                    <div style="padding-bottom: 10%"></div>
-                                    <md-button ng-click="model.createTutorial(model.tutorial)" class="md-raised md-primary" style="margin-top: 5%; color: white;" flex>Create Tutorial</md-button>
+                                    <div class="bottom-p-10"></div>
+                                    <md-button ng-click="model.createTutorial(model.tutorial)" class="md-raised md-primary tutorial-button" flex>Create Tutorial</md-button>
                                 </div>
                         </form>
                         <nav mfb-menu position="br"

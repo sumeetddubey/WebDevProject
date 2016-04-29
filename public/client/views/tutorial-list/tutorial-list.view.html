@@ -1,12 +1,12 @@
-<div flex style="height: 100%;" id="be-the-second">
-<div ng-cloak layout="column" style="min-height: 100%; margin-bottom: 10%;">
-    <div layout="row" style="margin-top: 10%" flex>
+<div flex id="be-the-second" class="full-height">
+<div ng-cloak layout="column" class="height-margin">
+    <div layout="row" class="top-10" flex>
         <div flex-xl="20" flex-lg="20" flex-md="20" flex-sm="10" flex-xs="10">
             <!--left-->
         </div>
         <div flex-xl="60" flex-lg="60" flex-md="60" flex-sm="80" flex-xs="80">
             <md-content class="wow fadeIn" data-wow-delay="0.5s">
-                <md-card flex style="margin: 0">
+                <md-card flex class="top-0-bottom-0">
                 <md-toolbar layout="row">
                     <div class="md-toolbar-tools">
                         <span class="white">Tutorial List</span>
@@ -16,23 +16,25 @@
                     <md-list flex>
                         <md-subheader class="md-no-sticky">List of all the Tutorials & Lessons</md-subheader>
                         <md-list-item class="md-3-line" ng-repeat="tutorial in model.tutorials" ng-click="model.openTutorial(tutorial)" flex>
-                            <div class="md-list-item-text" layout-gt-md="row" layout-md="column" style="margin-top: 2%" layout-align="start center" flex>
+                            <div class="md-list-item-text top-2" layout-gt-md="row" layout-md="column" layout-align="start center" flex>
                                 <div flex-gt-md="40" flex-md="100">
+<<<<<<< HEAD
+=======
                                     <!--<div ng-repeat="description in model.currentLesson. track by $index">-->
                                         <!--&lt;!&ndash;<div ta-bind="text" ng-model="description"></div>&ndash;&gt;-->
 
                                     <!--</div>-->
+>>>>>>> c3f768155badf90bb8c30e6e9b50727853cfca8b
                                     <div layout="row" layout-align="start center">
-                                        <md-icon class="langIcon" ng-class="model.tutorialLang(tutorial)" style="margin: 2%;"></md-icon>
+                                        <md-icon class="langIcon" ng-class="model.tutorialLang(tutorial)" class="top-2"></md-icon>
                                         <h3>{{tutorial.title}}</h3>
                                     </div>
-                                    <!--<p>{{tutorial.tags}}</p>-->
                                 </div>
                                 <div layout="column" flex-gt-md="60" flex-md="100">
                                     <md-list-item class="md-3-line" ng-repeat="lesson in tutorial.lessons">
                                         <div class="md-list-item-text" layout="column">
                                             <div layout="row" layout-align="start center">
-                                                <md-icon class="material-icons" style="margin: 5%;">code</md-icon>
+                                                <md-icon class="material-icons all-margin-5">code</md-icon>
                                                 <p>{{lesson.title}}</p>
                                             </div>
                                             <md-divider ng-if="!$last"></md-divider>
